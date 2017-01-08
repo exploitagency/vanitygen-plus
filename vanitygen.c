@@ -249,6 +249,9 @@ out:
 int
 count_processors(void)
 {
+#if defined(__APPLE__)
+    int count = sysconf(_SC_NPROCESSORS_ONLN);
+#else
 	FILE *fp;
 	char buf[512];
 	int count = 0;
@@ -262,7 +265,8 @@ count_processors(void)
 			count += 1;
 	}
 	fclose(fp);
-	return count;
+#endif
+    return count;
 }
 #endif
 
