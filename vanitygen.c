@@ -1179,6 +1179,13 @@ main(int argc, char **argv)
 					privtype = 166;
 					break;
 			}			
+			if (strcmp(optarg, "CRW")== 0) {
+				fprintf(stderr,
+					"Generating CRW Address\n");
+					addrtype = 0;
+					privtype = 128;
+					break;
+			}
 			break;
 
 /*END ALTCOIN GENERATOR*/

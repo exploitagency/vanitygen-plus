@@ -184,6 +184,7 @@ main(int argc, char **argv)
 					"CLAM : Clamcoin : x\n"
 					"CNC : Chinacoin : C\n"
 					"CON : PayCon : P\n"
+					"CRW : Crown : 1\n"
 					"DASH : Dash : X\n"
 					"DGB : Digibyte : D\n"
 					"DGC : Digitalcoin : D\n"
@@ -927,6 +928,13 @@ main(int argc, char **argv)
 					privtype = 166;
 					break;
 			}			
+			if (strcmp(optarg, "CRW")== 0) {
+				fprintf(stderr,
+					"Generating CRW Address\n");
+					addrtype = 0;
+					privtype = 128;
+					break;
+			}
 			break;
 
 /*END ALTCOIN GENERATOR*/

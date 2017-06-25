@@ -151,6 +151,7 @@ Current List of Available Coins for Address Generation
 |CLAM | Clamcoin | x  |
 |CNC | Chinacoin | C  |
 |CON | PayCon | P  |
+|CRW | Crown | 1  |
 |DASH | Dash | X  |
 |DGB | Digibyte | D  |
 |DGC | Digitalcoin | D  |
