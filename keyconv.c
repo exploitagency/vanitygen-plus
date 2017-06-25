@@ -102,6 +102,7 @@ main(int argc, char **argv)
 					"CLAM : Clamcoin : x\n"
 					"CNC : Chinacoin : C\n"
 					"CON : PayCon : P\n"
+					"CRW : Crown : 1\n"
 					"DASH : Dash : X\n"
 					"DGB : Digibyte : D\n"
 					"DGC : Digitalcoin : D\n"
@@ -843,6 +844,14 @@ main(int argc, char **argv)
 					"Decrypting NMC Address\n");
 					addrtype_opt = 52;
 					privtype_opt = 180;
+					break;
+			}
+			else
+			if (strcmp(optarg, "CRW")== 0) {
+				fprintf(stderr,
+					"Decrypting CRW Address\n");
+					addrtype_opt = 0;
+					privtype_opt = 128;
 					break;
 			}
 			break;
