@@ -221,6 +221,7 @@ main(int argc, char **argv)
 					"OK : OK Cash : P\n"
 					"OMC : Omnicoin : o\n"
 					"PIGGY : Piggycoin : p\n"
+					"PINK : Pinkcoin : 2\n"
 					"PKB : Parkbyte : P\n"
 					"PND : Pandacoin : P\n"
 					"POT : Potcoin : P\n"
@@ -252,6 +253,14 @@ main(int argc, char **argv)
 					"ZRC : Ziftrcoin : Z\n"
 					);
 					return 1;
+			}
+			else
+			if (strcmp(optarg, "PINK")== 0) {
+				fprintf(stderr,
+					"Generating PINK Address\n");
+					addrtype = 3;
+					privtype = 132;
+					break;
 			}
 			else
 			if (strcmp(optarg, "DMD")== 0) {
