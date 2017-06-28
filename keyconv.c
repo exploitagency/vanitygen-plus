@@ -178,7 +178,7 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Decrypting PINK Address\n");
 					addrtype_opt = 3;
-					privtype_opt = 132;
+					privtype_opt = 131;
 					break;
 			}
 			else
