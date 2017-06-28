@@ -501,7 +501,7 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Generating PINK Address\n");
 					addrtype = 3;
-					privtype = 132;
+					privtype = 131;
 					break;
 			}	
 			else
