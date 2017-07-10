@@ -32,15 +32,16 @@ If you have an altcoin you would like to add please let me know.
 Getting Started  
 -----  
 
-Ubuntu v14 build
-sudo apt-get update
-sudo apt-get install git libcurl4-openssl-dev libpcre3-dev ocl-icd-opencl-dev
-sudo git clone https://github.com/cnote2017/vanitygen-plus.git
-cd vanitygen-plus
-make all
+Ubuntu v14 build  
+sudo apt-get update  
+sudo apt-get install git libcurl4-openssl-dev libpcre3-dev ocl-icd-opencl-dev  
+sudo git clone https://github.com/cnote2017/vanitygen-plus.git  
+cd vanitygen-plus  
+make all  
 
 Windows Binary (Compiled on Win7 64bit)  
-  
+https://github.com/cnote2017/vanitygen-plus/VanityGen%20Plus%20CNote%20Windows.7z
+
 Extract the files,  
 open a terminal/command prompt,  
 change to directory containing vanitygen-plus binaries.  
