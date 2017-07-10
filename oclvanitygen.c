@@ -183,6 +183,7 @@ main(int argc, char **argv)
 					"CDN : Canadaecoin : C\n"
 					"CLAM : Clamcoin : x\n"
 					"CNC : Chinacoin : C\n"
+					"CNOTE : C-Note : C\n"
 					"CON : PayCon : P\n"
 					"CRW : Crown : 1\n"
 					"DASH : Dash : X\n"
@@ -567,6 +568,14 @@ main(int argc, char **argv)
 					"Generating CNC Address\n");
 					addrtype = 28;
 					privtype = 156;
+					break;
+			}
+			else
+			if (strcmp(optarg, "CNOTE")== 0) {
+				fprintf(stderr,
+					"Generating C-Note Address\n");
+					addrtype = 28;
+					privtype = 186;
 					break;
 			}
 			else

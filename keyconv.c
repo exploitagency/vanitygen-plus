@@ -101,6 +101,7 @@ main(int argc, char **argv)
 					"CDN : Canadaecoin : C\n"
 					"CLAM : Clamcoin : x\n"
 					"CNC : Chinacoin : C\n"
+					"CNOTE : C-Note : C\n"
 					"CON : PayCon : P\n"
 					"CRW : Crown : 1\n"
 					"DASH : Dash : X\n"
@@ -485,6 +486,14 @@ main(int argc, char **argv)
 					"Decrypting CNC Address\n");
 					addrtype_opt = 28;
 					privtype_opt = 156;
+					break;
+			}
+			else
+			if (strcmp(optarg, "CNOTE")== 0) {
+				fprintf(stderr,
+					"Decrypting C-Note Address\n");
+					addrtype_opt = 28;
+					privtype_opt = 186;
 					break;
 			}
 			else

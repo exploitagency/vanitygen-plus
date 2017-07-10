@@ -2,8 +2,7 @@
 Vanitygen PLUS!  
 -----
   
-**Download the latest binary from: https://github.com/exploitagency/vanitygen-plus/releases !**  
-  
+Forked from exploitagency/vanitygen-plus  
 Forked from samr7/vanitygen ,  
 then modified by Corey Harding  
 to support various Alt-Coins,  
@@ -32,10 +31,17 @@ If you have an altcoin you would like to add please let me know.
 -----
 Getting Started  
 -----  
-**Download the latest binary from: https://github.com/exploitagency/vanitygen-plus/releases !**  
-Linux Binary (Compiled on 64bit Debian Testing)  
-Windows Binary (Compiled on Win10 64bit)  
-  
+
+Ubuntu v14 build  
+sudo apt-get update  
+sudo apt-get install git libcurl4-openssl-dev libpcre3-dev ocl-icd-opencl-dev  
+sudo git clone https://github.com/cnote2017/vanitygen-plus.git  
+cd vanitygen-plus  
+make all  
+
+Windows Binary (Compiled on Win7 64bit)  
+https://github.com/cnote2017/vanitygen-plus/VanityGen%20Plus%20CNote%20Windows.7z
+
 Extract the files,  
 open a terminal/command prompt,  
 change to directory containing vanitygen-plus binaries.  
@@ -150,6 +156,7 @@ Current List of Available Coins for Address Generation
 |CDN | Canadaecoin | C  |
 |CLAM | Clamcoin | x  |
 |CNC | Chinacoin | C  |
+|CNOTE | C-Note | C  |
 |CON | PayCon | P  |
 |CRW | Crown | 1  |
 |DASH | Dash | X  |
