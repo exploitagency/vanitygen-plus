@@ -436,6 +436,7 @@ main(int argc, char **argv)
 					"DOPE : Dopecoin : 4\n"
 					"DVC : Devcoin : 1\n"
 					"EFL : Electronic-Gulden-Foundation : L\n"
+					"EMC : Emercoin : E\n"
 					"EXCL : Exclusivecoin : E\n"
 					"FAIR : Faircoin2 : f\n"
 					"FLOZ : FLOZ : F\n"
@@ -602,6 +603,14 @@ main(int argc, char **argv)
 					addrtype = 73;
 					privtype = 201;
 					break;
+			}
+			else
+			if (strcmp(optarg, "EMC")== 0) {
+				fprintf(stderr,
+						"Generating Emercoin Address\n");
+				addrtype = 33;
+				privtype = 128;
+				break;
 			}
 			else
 			if (strcmp(optarg, "EXCL")== 0) {

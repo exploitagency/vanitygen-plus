@@ -159,6 +159,7 @@ Current List of Available Coins for Address Generation
 |DOGE | Dogecoin | D  |
 |DOPE | Dopecoin | 4  |
 |DVC | Devcoin | 1  |
+|EMC | Emercoin | E  |
 |EFL | Electronic-Gulden-Foundation | L  |
 |EXCL | Exclusivecoin | E  |
 |FAIR | Faircoin2 | f  |
