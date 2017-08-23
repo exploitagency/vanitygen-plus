@@ -272,7 +272,7 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Generating DEEPONION Address\n");
 					addrtype = 31;
-					privtype = 134;
+					privtype = 159;
 					break;
 			}
 			else

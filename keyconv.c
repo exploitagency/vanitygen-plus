@@ -191,7 +191,7 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Decrypting DEEPONION Address\n");
 					addrtype_opt = 31;
-					privtype_opt = 134;
+					privtype_opt = 159;
 					break;
 			}
 			else
