@@ -153,6 +153,7 @@ Current List of Available Coins for Address Generation
 |CON | PayCon | P  |
 |CRW | Crown | 1  |
 |DASH | Dash | X  |
+|DEEPONION | DeepOnion | D  |
 |DGB | Digibyte | D  |
 |DGC | Digitalcoin | D  |
 |DMD | Diamond | d  |

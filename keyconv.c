@@ -105,6 +105,7 @@ main(int argc, char **argv)
 					"CON : PayCon : P\n"
 					"CRW : Crown : 1\n"
 					"DASH : Dash : X\n"
+					"DEEPONION : DeepOnion : X\n"
 					"DGB : Digibyte : D\n"
 					"DGC : Digitalcoin : D\n"
 					"DMD : Diamond : d\n"
@@ -183,6 +184,14 @@ main(int argc, char **argv)
 					"Decrypting PINK Address\n");
 					addrtype_opt = 3;
 					privtype_opt = 131;
+					break;
+			}
+			else
+			if (strcmp(optarg, "DEEPONION")== 0) {
+				fprintf(stderr,
+					"Decrypting DEEPONION Address\n");
+					addrtype_opt = 31;
+					privtype_opt = 134;
 					break;
 			}
 			else
