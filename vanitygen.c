@@ -428,7 +428,7 @@ main(int argc, char **argv)
 					"CON : PayCon : P\n"
 					"CRW : Crown : 1\n"
 					"DASH : Dash : X\n"
-					"DEEPONION : DeepOnion : \n"
+					"DEEPONION : DeepOnion : D\n"
 					"DGB : Digibyte : D\n"
 					"DGC : Digitalcoin : D\n"
 					"DMD : Diamond : d\n"
@@ -500,13 +500,13 @@ main(int argc, char **argv)
 					"ZRC : Ziftrcoin : Z\n"
 					);
 					return 1;
-			}	
+			}
 			else
-			if (strcmp(optarg, "DMD")== 0) {
+			if (strcmp(optarg, "PINK")== 0) {
 				fprintf(stderr,
-					"Generating DMD Address\n");
-					addrtype = 90;
-					privtype = 218;
+					"Generating PINK Address\n");
+					addrtype = 3;
+					privtype = 131;
 					break;
 			}
 			else
@@ -515,6 +515,14 @@ main(int argc, char **argv)
 					"Generating DEEPONION Address\n");
 					addrtype = 31;
 					privtype = 134;
+					break;
+			}	
+			else
+			if (strcmp(optarg, "DMD")== 0) {
+				fprintf(stderr,
+					"Generating DMD Address\n");
+					addrtype = 90;
+					privtype = 218;
 					break;
 			}
 			else
