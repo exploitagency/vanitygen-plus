@@ -227,6 +227,7 @@ main(int argc, char **argv)
 					"OMC : Omnicoin : o\n"
 					"PIGGY : Piggycoin : p\n"
 					"PINK : Pinkcoin : 2\n"
+					"PIVX : PIVX : D\n"
 					"PKB : Parkbyte : P\n"
 					"PND : Pandacoin : P\n"
 					"POT : Potcoin : P\n"
@@ -258,6 +259,14 @@ main(int argc, char **argv)
 					"ZRC : Ziftrcoin : Z\n"
 					);
 					return 1;
+			}
+			else
+			if (strcmp(optarg, "PIVX")== 0) {
+                fprintf(stderr,
+                    "Generating PIVX Address\n");
+                    addrtype = 0x1E;
+                    privtype = 0xd4;
+                    break;
 			}
 			else
 			if (strcmp(optarg, "PINK")== 0) {
