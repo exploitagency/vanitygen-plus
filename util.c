@@ -1154,6 +1154,7 @@ vg_read_file(FILE *fp, char ***result, int *rescount)
 								nalloc);
 					}
 					patterns[npatterns] = pat;
+					fprintf(stdout,	"\rPatterns: %d", npatterns);
 					npatterns++;
 					fprintf(stderr,	"\rLoading Pattern #%d: %s", npatterns, pat);
 					pat = NULL;
