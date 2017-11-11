@@ -262,11 +262,11 @@ main(int argc, char **argv)
 			}
 			else
 			if (strcmp(optarg, "PIVX")== 0) {
-                fprintf(stderr,
-                    "Generating PIVX Address\n");
-                    addrtype = 0x1E;
-                    privtype = 0xd4;
-                    break;
+				fprintf(stderr,
+					"Generating PIVX Address\n");
+					addrtype = 0x1E;
+					privtype = 0xd4;
+					break;
 			}
 			else
 			if (strcmp(optarg, "PINK")== 0) {

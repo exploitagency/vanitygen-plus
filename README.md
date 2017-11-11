@@ -194,6 +194,7 @@ Current List of Available Coins for Address Generation
 |OMC | Omnicoin | o  |
 |PIGGY | Piggycoin | p  |
 |PINK | Pinkcoin | 2  |
+|PIVX | PIVX | D  |
 |PKB | Parkbyte | P  |
 |PND | Pandacoin | P  |
 |POT | Potcoin | P  |
