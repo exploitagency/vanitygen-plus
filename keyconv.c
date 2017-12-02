@@ -153,6 +153,7 @@ main(int argc, char **argv)
 					"PPC : Peercoin : P\n"
 					"PTC : Pesetacoin : K\n"
 					"PTS : Protoshares : P\n"
+					"QTUM : Qtum : Q\n"
 					"RBY : Rubycoin : R\n"
 					"RDD : Reddcoin : R\n"
 					"RIC : Riecoin : R\n"
@@ -905,6 +906,14 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Decrypting CRW Address\n");
 					addrtype_opt = 0;
+					privtype_opt = 128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "QTUM")== 0) {
+				fprintf(stderr,
+					"Decrypting QTUM Address\n");
+					addrtype_opt = 58;
 					privtype_opt = 128;
 					break;
 			}
