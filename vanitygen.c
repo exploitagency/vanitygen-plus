@@ -413,6 +413,7 @@ main(int argc, char **argv)
 					"AIB : Advanced Internet Block by IOBOND : A\n"
 					"ANC : Anoncoin : A\n"
 					"ARS : Arkstone : A\n"
+					"ATMOS : Atmos : N\n"
 					"AUR : Auroracoin : A\n"
 					"BLK : Blackcoin : B\n"
 					"BQC : BBQcoin : b\n"
@@ -1240,6 +1241,14 @@ main(int argc, char **argv)
 					"Generating QTUM Address\n");
 					addrtype = 58;
 					privtype = 128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "ATMOS")== 0) {
+				fprintf(stderr,
+					"Generating ATMOS Address\n");
+					addrtype = 53;
+					privtype = 153;
 					break;
 			}
 			break;
