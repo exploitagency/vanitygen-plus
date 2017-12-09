@@ -91,6 +91,7 @@ main(int argc, char **argv)
 					"ANC : Anoncoin : A\n"
 					"ARS : Arkstone : A\n"
 					"AUR : Auroracoin : A\n"
+					"ATMOS : Atmos : A\n"
 					"BLK : Blackcoin : B\n"
 					"BQC : BBQcoin : b\n"
 					"BTC : Bitcoin : 1\n"
@@ -917,6 +918,14 @@ main(int argc, char **argv)
 					privtype_opt = 128;
 					break;
 			}
+			else
+			if (strcmp(optarg, "ATMOS")== 0) {
+				fprintf(stderr,
+					"Decrypting ATMOS Address\n");
+					addrtype_opt = 53;
+					privtype_opt = 153;
+					break;
+			}	
 			break;
 
 /*END ALTCOIN GENERATOR*/
