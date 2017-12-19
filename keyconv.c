@@ -63,6 +63,7 @@ main(int argc, char **argv)
 	int addrtype_override = 0;
 	int pkcs8 = 0;
 	int pass_prompt = 0;
+	int compress = 0;
 	int verbose = 0;
 	int generate = 0;
 	int decrypt = 0;
@@ -1025,6 +1026,10 @@ main(int argc, char **argv)
 		return 1;
 	}
 
+	if (res == 2) {
+		compress = 1;
+	}
+
 	if (key2_in) {
 		BN_CTX *bnctx;
 		BIGNUM bntmp, bntmp2;
@@ -1044,6 +1049,11 @@ main(int argc, char **argv)
 			fprintf(stderr, "ERROR: Unrecognized key format\n");
 			return 1;
 		}
+
+		if (res == 2) {
+			compress = 1;
+		}
+
 		BN_init(&bntmp);
 		BN_init(&bntmp2);
 		bnctx = BN_CTX_new();
@@ -1114,12 +1124,21 @@ main(int argc, char **argv)
 	}
 
 	else {
-		vg_encode_address(EC_KEY_get0_public_key(pkey),
-				  EC_KEY_get0_group(pkey),
-				  addrtype, ecprot);
-		printf("Address: %s\n", ecprot);
-		vg_encode_privkey(pkey, privtype, ecprot);
-		printf("Privkey: %s\n", ecprot);
+		if (compress) {
+			vg_encode_address_compressed(EC_KEY_get0_public_key(pkey),
+						     EC_KEY_get0_group(pkey),
+						     addrtype, ecprot);
+			printf("Address: %s\n", ecprot);
+			vg_encode_privkey_compressed(pkey, privtype, ecprot);
+			printf("Privkey: %s\n", ecprot);
+		} else {
+			vg_encode_address(EC_KEY_get0_public_key(pkey),
+					  EC_KEY_get0_group(pkey),
+					  addrtype, ecprot);
+			printf("Address: %s\n", ecprot);
+			vg_encode_privkey(pkey, privtype, ecprot);
+			printf("Privkey: %s\n", ecprot);
+		}
 	}
 
 	OPENSSL_cleanse(pwbuf, sizeof(pwbuf));
