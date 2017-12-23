@@ -450,7 +450,7 @@ main(int argc, char **argv)
 					"GRS : Groestlcoin : F\n"
 					"GUN : Guncoin : G or H\n"
 					"HAM : HamRadiocoin : 1\n"
-					"HBN : HoboNickels(BottleCaps) : E and F\n"
+					"HBN : HoboNickels(BottleCaps) : E or F\n"
 					"HODL : HOdlcoin : H\n"
 					"IXC : Ixcoin : x\n"
 					"JBS : Jumbucks : J\n"
