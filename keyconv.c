@@ -127,6 +127,7 @@ main(int argc, char **argv)
 					"GRS : Groestlcoin : F\n"
 					"GUN : Guncoin : G or H\n"
 					"HAM : HamRadiocoin : 1\n"
+					"HBN : HoboNickels(BottleCaps) : E or F\n"
 					"HODL : HOdlcoin : H\n"
 					"IXC : Ixcoin : x\n"
 					"JBS : Jumbucks : J\n"
@@ -627,6 +628,14 @@ main(int argc, char **argv)
 					"Decrypting NVC Address\n");
 					addrtype_opt = 8;
 					privtype_opt = 136;
+					break;
+			}
+			else
+			if (strcmp(optarg, "HBN")== 0) {
+				fprintf(stderr,
+					"Decrypting HBN Address\n");
+					addrtype_opt = 34;
+					privtype_opt = 162;
 					break;
 			}
 			else
