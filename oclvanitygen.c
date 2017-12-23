@@ -208,6 +208,7 @@ main(int argc, char **argv)
 					"GRS : Groestlcoin : F\n"
 					"GUN : Guncoin : G or H\n"
 					"HAM : HamRadiocoin : 1\n"
+					"HBN : HoboNickels(BottleCaps) : E or F\n"
 					"HODL : HOdlcoin : H\n"
 					"IXC : Ixcoin : x\n"
 					"JBS : Jumbucks : J\n"
@@ -709,6 +710,14 @@ main(int argc, char **argv)
 					"Generating NVC Address\n");
 					addrtype = 8;
 					privtype = 136;
+					break;
+			}
+			else
+			if (strcmp(optarg, "HBN")== 0) {
+				fprintf(stderr,
+					"Generating HBN Address\n");
+					addrtype = 34;
+					privtype = 162;
 					break;
 			}
 			else
