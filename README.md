@@ -175,6 +175,7 @@ Current List of Available Coins for Address Generation
 |GRS | Groestlcoin | F  |
 |GUN | Guncoin | G or H  |
 |HAM | HamRadiocoin | 1  |
+|HBN | HoboNickels(and BottleCaps) | E or F  |
 |HODL | HOdlcoin | H  |
 |IXC | Ixcoin | x  |
 |JBS | Jumbucks | J  |
