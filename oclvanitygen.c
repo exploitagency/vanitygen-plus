@@ -258,6 +258,7 @@ main(int argc, char **argv)
 					"XC : XCurrency : X\n"
 					"XPM : Primecoin : A\n"
 					"YAC : Yacoin : Y\n"
+					"ZNY : BitZeny : Z\n"
 					"ZOOM : Zoom coin : i\n"
 					"ZRC : Ziftrcoin : Z\n"
 					);
@@ -1006,6 +1007,14 @@ main(int argc, char **argv)
 					"Generating ATMOS Address\n");
 					addrtype = 53;
 					privtype = 153;
+					break;
+			}
+			else
+			if (strcmp(optarg, "ZNY")== 0) {
+				fprintf(stderr,
+					"Generating BitZeny Address\n");
+					addrtype = 81;
+					privtype = 128;
 					break;
 			}
 			break;

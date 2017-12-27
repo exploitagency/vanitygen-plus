@@ -225,6 +225,7 @@ Current List of Available Coins for Address Generation
 |XC | XCurrency | X  |
 |XPM | Primecoin | A  |
 |YAC | Yacoin | Y  |
+|ZNY | BitZeny | Z  |
 |ZOOM | Zoom coin | i  |
 |ZRC | Ziftrcoin | Z  |
   

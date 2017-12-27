@@ -179,6 +179,7 @@ main(int argc, char **argv)
 					"XC : XCurrency : X\n"
 					"XPM : Primecoin : A\n"
 					"YAC : Yacoin : Y\n"
+					"ZNY : BitZeny : Z\n"
 					"ZOOM : Zoom coin : i\n"
 					"ZRC : Ziftrcoin : Z\n"
 					);
@@ -937,6 +938,14 @@ main(int argc, char **argv)
 					privtype_opt = 153;
 					break;
 			}	
+			else
+			if (strcmp(optarg, "ZNY")== 0) {
+				fprintf(stderr,
+					"Decrypting BitZeny Address\n");
+					addrtype_opt = 81;
+					privtype_opt = 128;
+					break;
+			}
 			break;
 
 /*END ALTCOIN GENERATOR*/
