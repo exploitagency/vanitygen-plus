@@ -152,12 +152,12 @@ vg_exec_context_init(vg_context_t *vcp, vg_exec_context_t *vxcp)
 
 	vxcp->vxc_vc = vcp;
 
-	BN_init(&vxcp->vxc_bntarg);
-	BN_init(&vxcp->vxc_bnbase);
-	BN_init(&vxcp->vxc_bntmp);
-	BN_init(&vxcp->vxc_bntmp2);
+	vxcp->vxc_bntarg = BN_new();
+	vxcp->vxc_bnbase = BN_new();
+	vxcp->vxc_bntmp = BN_new();
+	vxcp->vxc_bntmp2 = BN_new();
 
-	BN_set_word(&vxcp->vxc_bnbase, 58);
+	BN_set_word(vxcp->vxc_bnbase, 58);
 
 	vxcp->vxc_bnctx = BN_CTX_new();
 	assert(vxcp->vxc_bnctx);
@@ -197,10 +197,10 @@ vg_exec_context_del(vg_exec_context_t *vxcp)
 	if (tp->vxc_stop)
 		pthread_cond_signal(&vg_thread_upcond);
 
-	BN_clear_free(&vxcp->vxc_bntarg);
-	BN_clear_free(&vxcp->vxc_bnbase);
-	BN_clear_free(&vxcp->vxc_bntmp);
-	BN_clear_free(&vxcp->vxc_bntmp2);
+	BN_clear_free(vxcp->vxc_bntarg);
+	BN_clear_free(vxcp->vxc_bnbase);
+	BN_clear_free(vxcp->vxc_bntmp);
+	BN_clear_free(vxcp->vxc_bntmp2);
 	BN_CTX_free(vxcp->vxc_bnctx);
 	vxcp->vxc_bnctx = NULL;
 	pthread_mutex_unlock(&vg_thread_lock);
@@ -226,12 +226,12 @@ void
 vg_exec_context_consolidate_key(vg_exec_context_t *vxcp)
 {
 	if (vxcp->vxc_delta) {
-		BN_clear(&vxcp->vxc_bntmp);
-		BN_set_word(&vxcp->vxc_bntmp, vxcp->vxc_delta);
-		BN_add(&vxcp->vxc_bntmp2,
+		BN_clear(vxcp->vxc_bntmp);
+		BN_set_word(vxcp->vxc_bntmp, vxcp->vxc_delta);
+		BN_add(vxcp->vxc_bntmp2,
 		       EC_KEY_get0_private_key(vxcp->vxc_key),
-		       &vxcp->vxc_bntmp);
-		vg_set_privkey(&vxcp->vxc_bntmp2, vxcp->vxc_key);
+		       vxcp->vxc_bntmp);
+		vg_set_privkey(vxcp->vxc_bntmp2, vxcp->vxc_key);
 		vxcp->vxc_delta = 0;
 	}
 }
@@ -701,20 +701,20 @@ get_prefix_ranges(int addrtype, const char *pfx, BIGNUM **result,
 	int b58pow, b58ceil, b58top = 0;
 	int ret = -1;
 
-	BIGNUM bntarg, bnceil, bnfloor;
-	BIGNUM bnbase;
+	BIGNUM *bntarg, *bnceil, *bnfloor;
+	BIGNUM *bnbase;
 	BIGNUM *bnap, *bnbp, *bntp;
 	BIGNUM *bnhigh = NULL, *bnlow = NULL, *bnhigh2 = NULL, *bnlow2 = NULL;
-	BIGNUM bntmp, bntmp2;
+	BIGNUM *bntmp, *bntmp2;
 
-	BN_init(&bntarg);
-	BN_init(&bnceil);
-	BN_init(&bnfloor);
-	BN_init(&bnbase);
-	BN_init(&bntmp);
-	BN_init(&bntmp2);
+	bntarg = BN_new();
+	bnceil = BN_new();
+	bnfloor = BN_new();
+	bnbase = BN_new();
+	bntmp = BN_new();
+	bntmp2 = BN_new();
 
-	BN_set_word(&bnbase, 58);
+	BN_set_word(bnbase, 58);
 
 	p = strlen(pfx);
 
@@ -741,20 +741,20 @@ get_prefix_ranges(int addrtype, const char *pfx, BIGNUM **result,
 
 			/* First non-zero character */
 			b58top = c;
-			BN_set_word(&bntarg, c);
+			BN_set_word(bntarg, c);
 
 		} else {
-			BN_set_word(&bntmp2, c);
-			BN_mul(&bntmp, &bntarg, &bnbase, bnctx);
-			BN_add(&bntarg, &bntmp, &bntmp2);
+			BN_set_word(bntmp2, c);
+			BN_mul(bntmp, bntarg, bnbase, bnctx);
+			BN_add(bntarg, bntmp, bntmp2);
 		}
 	}
 
 	/* Power-of-two ceiling and floor values based on leading 1s */
-	BN_clear(&bntmp);
-	BN_set_bit(&bntmp, 200 - (zero_prefix * 8));
-	BN_sub(&bnceil, &bntmp, BN_value_one());
-	BN_set_bit(&bnfloor, 192 - (zero_prefix * 8));
+	BN_clear(bntmp);
+	BN_set_bit(bntmp, 200 - (zero_prefix * 8));
+	BN_sub(bnceil, bntmp, BN_value_one());
+	BN_set_bit(bnfloor, 192 - (zero_prefix * 8));
 
 	bnlow = BN_new();
 	bnhigh = BN_new();
@@ -765,13 +765,13 @@ get_prefix_ranges(int addrtype, const char *pfx, BIGNUM **result,
 		 * numeric boundaries of the prefix.
 		 */
 
-		BN_copy(&bntmp, &bnceil);
-		bnap = &bntmp;
-		bnbp = &bntmp2;
+		BN_copy(bntmp, bnceil);
+		bnap = bntmp;
+		bnbp = bntmp2;
 		b58pow = 0;
-		while (BN_cmp(bnap, &bnbase) > 0) {
+		while (BN_cmp(bnap, bnbase) > 0) {
 			b58pow++;
-			BN_div(bnbp, NULL, bnap, &bnbase, bnctx);
+			BN_div(bnbp, NULL, bnap, bnbase, bnctx);
 			bntp = bnap;
 			bnap = bnbp;
 			bnbp = bntp;
@@ -787,11 +787,11 @@ get_prefix_ranges(int addrtype, const char *pfx, BIGNUM **result,
 			/* goto out; */
 		}
 
-		BN_set_word(&bntmp2, b58pow - (p - zero_prefix));
-		BN_exp(&bntmp, &bnbase, &bntmp2, bnctx);
-		BN_mul(bnlow, &bntmp, &bntarg, bnctx);
-		BN_sub(&bntmp2, &bntmp, BN_value_one());
-		BN_add(bnhigh, bnlow, &bntmp2);
+		BN_set_word(bntmp2, b58pow - (p - zero_prefix));
+		BN_exp(bntmp, bnbase, bntmp2, bnctx);
+		BN_mul(bnlow, bntmp, bntarg, bnctx);
+		BN_sub(bntmp2, bntmp, BN_value_one());
+		BN_add(bnhigh, bnlow, bntmp2);
 
 		if (b58top <= b58ceil) {
 			/* Fill out the upper range too */
@@ -799,16 +799,16 @@ get_prefix_ranges(int addrtype, const char *pfx, BIGNUM **result,
 			bnlow2 = BN_new();
 			bnhigh2 = BN_new();
 
-			BN_mul(bnlow2, bnlow, &bnbase, bnctx);
-			BN_mul(&bntmp2, bnhigh, &bnbase, bnctx);
-			BN_set_word(&bntmp, 57);
-			BN_add(bnhigh2, &bntmp2, &bntmp);
+			BN_mul(bnlow2, bnlow, bnbase, bnctx);
+			BN_mul(bntmp2, bnhigh, bnbase, bnctx);
+			BN_set_word(bntmp, 57);
+			BN_add(bnhigh2, bntmp2, bntmp);
 
 			/*
 			 * Addresses above the ceiling will have one
 			 * fewer "1" prefix in front than we require.
 			 */
-			if (BN_cmp(&bnceil, bnlow2) < 0) {
+			if (BN_cmp(bnceil, bnlow2) < 0) {
 				/* High prefix is above the ceiling */
 				check_upper = 0;
 				BN_free(bnhigh2);
@@ -816,15 +816,15 @@ get_prefix_ranges(int addrtype, const char *pfx, BIGNUM **result,
 				BN_free(bnlow2);
 				bnlow2 = NULL;
 			}
-			else if (BN_cmp(&bnceil, bnhigh2) < 0)
+			else if (BN_cmp(bnceil, bnhigh2) < 0)
 				/* High prefix is partly above the ceiling */
-				BN_copy(bnhigh2, &bnceil);
+				BN_copy(bnhigh2, bnceil);
 
 			/*
 			 * Addresses below the floor will have another
 			 * "1" prefix in front instead of our target.
 			 */
-			if (BN_cmp(&bnfloor, bnhigh) >= 0) {
+			if (BN_cmp(bnfloor, bnhigh) >= 0) {
 				/* Low prefix is completely below the floor */
 				assert(check_upper);
 				check_upper = 0;
@@ -835,35 +835,35 @@ get_prefix_ranges(int addrtype, const char *pfx, BIGNUM **result,
 				bnlow = bnlow2;
 				bnlow2 = NULL;
 			}			
-			else if (BN_cmp(&bnfloor, bnlow) > 0) {
+			else if (BN_cmp(bnfloor, bnlow) > 0) {
 				/* Low prefix is partly below the floor */
-				BN_copy(bnlow, &bnfloor);
+				BN_copy(bnlow, bnfloor);
 			}
 		}
 
 	} else {
-		BN_copy(bnhigh, &bnceil);
+		BN_copy(bnhigh, bnceil);
 		BN_clear(bnlow);
 	}
 
 	/* Limit the prefix to the address type */
-	BN_clear(&bntmp);
-	BN_set_word(&bntmp, addrtype);
-	BN_lshift(&bntmp2, &bntmp, 192);
+	BN_clear(bntmp);
+	BN_set_word(bntmp, addrtype);
+	BN_lshift(bntmp2, bntmp, 192);
 
 	if (check_upper) {
-		if (BN_cmp(&bntmp2, bnhigh2) > 0) {
+		if (BN_cmp(bntmp2, bnhigh2) > 0) {
 			check_upper = 0;
 			BN_free(bnhigh2);
 			bnhigh2 = NULL;
 			BN_free(bnlow2);
 			bnlow2 = NULL;
 		}
-		else if (BN_cmp(&bntmp2, bnlow2) > 0)
-			BN_copy(bnlow2, &bntmp2);
+		else if (BN_cmp(bntmp2, bnlow2) > 0)
+			BN_copy(bnlow2, bntmp2);
 	}
 
-	if (BN_cmp(&bntmp2, bnhigh) > 0) {
+	if (BN_cmp(bntmp2, bnhigh) > 0) {
 		if (!check_upper)
 			goto not_possible;
 		check_upper = 0;
@@ -874,26 +874,26 @@ get_prefix_ranges(int addrtype, const char *pfx, BIGNUM **result,
 		bnlow = bnlow2;
 		bnlow2 = NULL;
 	}
-	else if (BN_cmp(&bntmp2, bnlow) > 0) {
-		BN_copy(bnlow, &bntmp2);
+	else if (BN_cmp(bntmp2, bnlow) > 0) {
+		BN_copy(bnlow, bntmp2);
 	}
 
-	BN_set_word(&bntmp, addrtype + 1);
-	BN_lshift(&bntmp2, &bntmp, 192);
+	BN_set_word(bntmp, addrtype + 1);
+	BN_lshift(bntmp2, bntmp, 192);
 
 	if (check_upper) {
-		if (BN_cmp(&bntmp2, bnlow2) < 0) {
+		if (BN_cmp(bntmp2, bnlow2) < 0) {
 			check_upper = 0;
 			BN_free(bnhigh2);
 			bnhigh2 = NULL;
 			BN_free(bnlow2);
 			bnlow2 = NULL;
 		}
-		else if (BN_cmp(&bntmp2, bnhigh2) < 0)
-			BN_copy(bnlow2, &bntmp2);
+		else if (BN_cmp(bntmp2, bnhigh2) < 0)
+			BN_copy(bnlow2, bntmp2);
 	}
 
-	if (BN_cmp(&bntmp2, bnlow) < 0) {
+	if (BN_cmp(bntmp2, bnlow) < 0) {
 		if (!check_upper)
 			goto not_possible;
 		check_upper = 0;
@@ -904,8 +904,8 @@ get_prefix_ranges(int addrtype, const char *pfx, BIGNUM **result,
 		bnlow = bnlow2;
 		bnlow2 = NULL;
 	}
-	else if (BN_cmp(&bntmp2, bnhigh) < 0) {
-		BN_copy(bnhigh, &bntmp2);
+	else if (BN_cmp(bntmp2, bnhigh) < 0) {
+		BN_copy(bnhigh, bntmp2);
 	}
 
 	/* Address ranges are complete */
@@ -926,12 +926,12 @@ get_prefix_ranges(int addrtype, const char *pfx, BIGNUM **result,
 	}
 
 out:
-	BN_clear_free(&bntarg);
-	BN_clear_free(&bnceil);
-	BN_clear_free(&bnfloor);
-	BN_clear_free(&bnbase);
-	BN_clear_free(&bntmp);
-	BN_clear_free(&bntmp2);
+	BN_clear_free(bntarg);
+	BN_clear_free(bnceil);
+	BN_clear_free(bnfloor);
+	BN_clear_free(bnbase);
+	BN_clear_free(bntmp);
+	BN_clear_free(bntmp2);
 	if (bnhigh)
 		BN_free(bnhigh);
 	if (bnlow)
@@ -1216,7 +1216,7 @@ prefix_case_iter_next(prefix_case_iter_t *cip)
 typedef struct _vg_prefix_context_s {
 	vg_context_t		base;
 	avl_root_t		vcp_avlroot;
-	BIGNUM			vcp_difficulty;
+	BIGNUM			*vcp_difficulty;
 	int			vcp_caseinsensitive;
 } vg_prefix_context_t;
 
@@ -1244,7 +1244,7 @@ vg_prefix_context_clear_all_patterns(vg_context_t *vcp)
 	vcpp->base.vc_npatterns = 0;
 	vcpp->base.vc_npatterns_start = 0;
 	vcpp->base.vc_found = 0;
-	BN_clear(&vcpp->vcp_difficulty);
+	BN_clear(vcpp->vcp_difficulty);
 }
 
 static void
@@ -1252,7 +1252,7 @@ vg_prefix_context_free(vg_context_t *vcp)
 {
 	vg_prefix_context_t *vcpp = (vg_prefix_context_t *) vcp;
 	vg_prefix_context_clear_all_patterns(vcp);
-	BN_clear_free(&vcpp->vcp_difficulty);
+	BN_clear_free(vcpp->vcp_difficulty);
 	free(vcpp);
 }
 
@@ -1264,7 +1264,7 @@ vg_prefix_context_next_difficulty(vg_prefix_context_t *vcpp,
 
 	BN_clear(bntmp);
 	BN_set_bit(bntmp, 192);
-	BN_div(bntmp2, NULL, bntmp, &vcpp->vcp_difficulty, bnctx);
+	BN_div(bntmp2, NULL, bntmp, vcpp->vcp_difficulty, bnctx);
 
 	dbuf = BN_bn2dec(bntmp2);
 	if (vcpp->base.vc_verbose > 0) {
@@ -1287,7 +1287,7 @@ vg_prefix_context_add_patterns(vg_context_t *vcp,
 	prefix_case_iter_t caseiter;
 	vg_prefix_t *vp, *vp2;
 	BN_CTX *bnctx;
-	BIGNUM bntmp, bntmp2, bntmp3;
+	BIGNUM *bntmp, *bntmp2, *bntmp3;
 	BIGNUM *ranges[4];
 	int ret = 0;
 	int i, impossible = 0;
@@ -1296,9 +1296,9 @@ vg_prefix_context_add_patterns(vg_context_t *vcp,
 	char *dbuf;
 
 	bnctx = BN_CTX_new();
-	BN_init(&bntmp);
-	BN_init(&bntmp2);
-	BN_init(&bntmp3);
+	bntmp = BN_new();
+	bntmp2 = BN_new();
+	bntmp3 = BN_new();
 
 	npfx = 0;
 	for (i = 0; i < npatterns; i++) {
@@ -1376,16 +1376,16 @@ vg_prefix_context_add_patterns(vg_context_t *vcp,
 		npfx++;
 
 		/* Determine the probability of finding a match */
-		vg_prefix_range_sum(vp, &bntmp, &bntmp2);
-		BN_add(&bntmp2, &vcpp->vcp_difficulty, &bntmp);
-		BN_copy(&vcpp->vcp_difficulty, &bntmp2);
+		vg_prefix_range_sum(vp, bntmp, bntmp2);
+		BN_add(bntmp2, vcpp->vcp_difficulty, bntmp);
+		BN_copy(vcpp->vcp_difficulty, bntmp2);
 
 		if (vcp->vc_verbose > 1) {
-			BN_clear(&bntmp2);
-			BN_set_bit(&bntmp2, 192);
-			BN_div(&bntmp3, NULL, &bntmp2, &bntmp, bnctx);
+			BN_clear(bntmp2);
+			BN_set_bit(bntmp2, 192);
+			BN_div(bntmp3, NULL, bntmp2, bntmp, bnctx);
 
-			dbuf = BN_bn2dec(&bntmp3);
+			dbuf = BN_bn2dec(bntmp3);
 			fprintf(stderr,
 				"Prefix difficulty: %20s %s\n",
 				dbuf, patterns[i]);
@@ -1419,13 +1419,13 @@ vg_prefix_context_add_patterns(vg_context_t *vcp,
 	}
 
 	if (npfx)
-		vg_prefix_context_next_difficulty(vcpp, &bntmp, &bntmp2, bnctx);
+		vg_prefix_context_next_difficulty(vcpp, bntmp, bntmp2, bnctx);
 
 	ret = (npfx != 0);
 
-	BN_clear_free(&bntmp);
-	BN_clear_free(&bntmp2);
-	BN_clear_free(&bntmp3);
+	BN_clear_free(bntmp);
+	BN_clear_free(bntmp2);
+	BN_clear_free(bntmp3);
 	BN_CTX_free(bnctx);
 	return ret;
 }
@@ -1434,39 +1434,39 @@ double
 vg_prefix_get_difficulty(int addrtype, const char *pattern)
 {
 	BN_CTX *bnctx;
-	BIGNUM result, bntmp;
+	BIGNUM *result, *bntmp;
 	BIGNUM *ranges[4];
 	char *dbuf;
 	int ret;
 	double diffret = 0.0;
 
 	bnctx = BN_CTX_new();
-	BN_init(&result);
-	BN_init(&bntmp);
+	result = BN_new();
+	bntmp = BN_new();
 
 	ret = get_prefix_ranges(addrtype,
 				pattern, ranges, bnctx);
 
 	if (ret == 0) {
-		BN_sub(&bntmp, ranges[1], ranges[0]);
-		BN_add(&result, &result, &bntmp);
+		BN_sub(bntmp, ranges[1], ranges[0]);
+		BN_add(result, result, bntmp);
 		if (ranges[2]) {
-			BN_sub(&bntmp, ranges[3], ranges[2]);
-			BN_add(&result, &result, &bntmp);
+			BN_sub(bntmp, ranges[3], ranges[2]);
+			BN_add(result, result, bntmp);
 		}
 		free_ranges(ranges);
 
-		BN_clear(&bntmp);
-		BN_set_bit(&bntmp, 192);
-		BN_div(&result, NULL, &bntmp, &result, bnctx);
+		BN_clear(bntmp);
+		BN_set_bit(bntmp, 192);
+		BN_div(result, NULL, bntmp, result, bnctx);
 
-		dbuf = BN_bn2dec(&result);
+		dbuf = BN_bn2dec(result);
 		diffret = strtod(dbuf, NULL);
 		OPENSSL_free(dbuf);
 	}
 
-	BN_clear_free(&result);
-	BN_clear_free(&bntmp);
+	BN_clear_free(result);
+	BN_clear_free(bntmp);
 	BN_CTX_free(bnctx);
 	return diffret;
 }
@@ -1485,10 +1485,10 @@ vg_prefix_test(vg_exec_context_t *vxcp)
 	 * check code.
 	 */
 
-	BN_bin2bn(vxcp->vxc_binres, 25, &vxcp->vxc_bntarg);
+	BN_bin2bn(vxcp->vxc_binres, 25, vxcp->vxc_bntarg);
 
 research:
-	vp = vg_prefix_avl_search(&vcpp->vcp_avlroot, &vxcp->vxc_bntarg);
+	vp = vg_prefix_avl_search(&vcpp->vcp_avlroot, vxcp->vxc_bntarg);
 	if (vp) {
 		if (vg_exec_context_upgrade_lock(vxcp))
 			goto research;
@@ -1506,20 +1506,20 @@ research:
 		if (vcpp->base.vc_remove_on_match) {
 			/* Subtract the range from the difficulty */
 			vg_prefix_range_sum(vp,
-					    &vxcp->vxc_bntarg,
-					    &vxcp->vxc_bntmp);
-			BN_sub(&vxcp->vxc_bntmp,
-			       &vcpp->vcp_difficulty,
-			       &vxcp->vxc_bntarg);
-			BN_copy(&vcpp->vcp_difficulty, &vxcp->vxc_bntmp);
+					    vxcp->vxc_bntarg,
+					    vxcp->vxc_bntmp);
+			BN_sub(vxcp->vxc_bntmp,
+			       vcpp->vcp_difficulty,
+			       vxcp->vxc_bntarg);
+			BN_copy(vcpp->vcp_difficulty, vxcp->vxc_bntmp);
 
 			vg_prefix_delete(&vcpp->vcp_avlroot,vp);
 			vcpp->base.vc_npatterns--;
 
 			if (!avl_root_empty(&vcpp->vcp_avlroot))
 				vg_prefix_context_next_difficulty(
-					vcpp, &vxcp->vxc_bntmp,
-					&vxcp->vxc_bntmp2,
+					vcpp, vxcp->vxc_bntmp,
+					vxcp->vxc_bntmp2,
 					vxcp->vxc_bnctx);
 			vcpp->base.vc_pattern_generation++;
 		}
@@ -1600,7 +1600,7 @@ vg_prefix_context_new(int addrtype, int privtype, int caseinsensitive)
 		vcpp->base.vc_test = vg_prefix_test;
 		vcpp->base.vc_hash160_sort = vg_prefix_hash160_sort;
 		avl_root_init(&vcpp->vcp_avlroot);
-		BN_init(&vcpp->vcp_difficulty);
+		vcpp->vcp_difficulty = BN_new();
 		vcpp->vcp_caseinsensitive = caseinsensitive;
 	}
 	return &vcpp->base;
@@ -1726,21 +1726,21 @@ vg_regex_test(vg_exec_context_t *vxcp)
 	unsigned char hash1[32], hash2[32];
 	int i, zpfx, p, d, nres, re_vec[9];
 	char b58[40];
-	BIGNUM bnrem;
+	BIGNUM *bnrem;
 	BIGNUM *bn, *bndiv, *bnptmp;
 	int res = 0;
 
 	pcre *re;
 
-	BN_init(&bnrem);
+	bnrem = BN_new();
 
 	/* Hash the hash and write the four byte check code */
 	SHA256(vxcp->vxc_binres, 21, hash1);
 	SHA256(hash1, sizeof(hash1), hash2);
 	memcpy(&vxcp->vxc_binres[21], hash2, 4);
 
-	bn = &vxcp->vxc_bntmp;
-	bndiv = &vxcp->vxc_bntmp2;
+	bn = vxcp->vxc_bntmp;
+	bndiv = vxcp->vxc_bntmp2;
 
 	BN_bin2bn(vxcp->vxc_binres, 25, bn);
 
@@ -1749,11 +1749,11 @@ vg_regex_test(vg_exec_context_t *vxcp)
 	p = sizeof(b58) - 1;
 	b58[p] = '\0';
 	while (!BN_is_zero(bn)) {
-		BN_div(bndiv, &bnrem, bn, &vxcp->vxc_bnbase, vxcp->vxc_bnctx);
+		BN_div(bndiv, bnrem, bn, vxcp->vxc_bnbase, vxcp->vxc_bnctx);
 		bnptmp = bn;
 		bn = bndiv;
 		bndiv = bnptmp;
-		d = BN_get_word(&bnrem);
+		d = BN_get_word(bnrem);
 		b58[--p] = vg_b58_alphabet[d];
 	}
 	while (zpfx--) {
@@ -1823,7 +1823,7 @@ restart_loop:
 		res = 1;
 	}
 out:
-	BN_clear_free(&bnrem);
+	BN_clear_free(bnrem);
 	return res;
 }
 
