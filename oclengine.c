@@ -1313,7 +1313,18 @@ vg_ocl_get_bignum_raw(BIGNUM *bn, const unsigned char *buf)
 static INLINE void
 vg_ocl_put_bignum_raw(unsigned char *buf, const BIGNUM *bn)
 {
+#if OPENSSL_VERSION_NUMBER >= 0x0010100000
 	BN_bn2lebinpad(bn, buf, 32);
+#else
+	int bnlen = (bn->top * sizeof(BN_ULONG));
+	BN_bn2lebinpad(bn, buf, 32);
+	if (bnlen >= 32) {
+		memcpy(buf, bn->d, 32);
+	} else {
+		memcpy(buf, bn->d, bnlen);
+		memset(buf + bnlen, 0, 32 - bnlen);
+	}
+#endif
 }
 
 #define ACCESS_BUNDLE 1024
