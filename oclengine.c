@@ -1317,7 +1317,6 @@ vg_ocl_put_bignum_raw(unsigned char *buf, const BIGNUM *bn)
 	BN_bn2lebinpad(bn, buf, 32);
 #else
 	int bnlen = (bn->top * sizeof(BN_ULONG));
-	BN_bn2lebinpad(bn, buf, 32);
 	if (bnlen >= 32) {
 		memcpy(buf, bn->d, 32);
 	} else {
