@@ -1307,7 +1307,13 @@ vg_ocl_kernel_wait(vg_ocl_context_t *vocp, int slot)
 static INLINE void
 vg_ocl_get_bignum_raw(BIGNUM *bn, const unsigned char *buf)
 {
-	BN_bin2bn(buf, 32, bn);
+#if OPENSSL_VERSION_NUMBER >= 0x0010100000
+	BN_lebin2bn(buf, 32, bn);
+#else
+	bn_expand(bn, 256);
+	memcpy(bn->d, buf, 32);
+	bn->top = (32 / sizeof(BN_ULONG));
+#endif
 }
 
 static INLINE void
