@@ -110,6 +110,7 @@ main(int argc, char **argv)
 					"CRW : Crown : 1\n"
 					"DASH : Dash : X\n"
 					"DEEPONION : DeepOnion : D\n"
+					"DNR: Denarius: D or s\n"
 					"DGB : Digibyte : D\n"
 					"DGC : Digitalcoin : D\n"
 					"DMD : Diamond : d\n"
@@ -208,6 +209,14 @@ main(int argc, char **argv)
 					"Decrypting DEEPONION Address\n");
 					addrtype_opt = 31;
 					privtype_opt = 159;
+					break;
+			}
+			else
+			if (strcmp(optarg, "DNR")== 0) {
+				fprintf(stderr,
+					"Decrypting DNR Address\n");
+					addrtype_opt = 30;
+					privtype_opt = 158;
 					break;
 			}
 			else
