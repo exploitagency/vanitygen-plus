@@ -188,6 +188,7 @@ Current List of Available Coins for Address Generation
 |MUE | Monetary Unit | 7  |
 |MYRIAD | Myriadcoin | M  |
 |MZC | Mazacoin | M  |
+|NEET | NEETCOIN | N  |
 |NEOS | Neoscoin | S  |
 |NLG | Gulden | G  |
 |NMC | Namecoin | M or N  |

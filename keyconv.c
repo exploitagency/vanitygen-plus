@@ -144,6 +144,7 @@ main(int argc, char **argv)
 					"MZC : Mazacoin : M\n"
 					"NEOS : Neoscoin : S\n"
 					"NLG : Gulden : G\n"
+					"NEET : NEETCOIN : N\n"
 					"NMC : Namecoin : M or N\n"
 					"NVC : Novacoin : 4\n"
 					"NYAN : Nyancoin : K\n"
@@ -953,6 +954,14 @@ main(int argc, char **argv)
 					"Decrypting BitZeny Address\n");
 					addrtype_opt = 81;
 					privtype_opt = 128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "NEET")== 0) {
+				fprintf(stderr,
+					"Decrypting NEETCOIN Address\n");
+					addrtype_opt = 53;
+					privtype_opt = 181;
 					break;
 			}
 			break;

@@ -221,6 +221,7 @@ main(int argc, char **argv)
 					"MUE : Monetary Unit : 7\n"
 					"MYRIAD : Myriadcoin : M\n"
 					"MZC : Mazacoin : M\n"
+					"NEET : NEETCOIN : N\n"
 					"NEOS : Neoscoin : S\n"
 					"NLG : Gulden : G\n"
 					"NMC : Namecoin : M or N\n"
@@ -1024,6 +1025,14 @@ main(int argc, char **argv)
 					"Generating BitZeny Address\n");
 					addrtype = 81;
 					privtype = 128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "NEET")== 0) {
+				fprintf(stderr,
+					"Generating NEETCOIN Address\n");
+					addrtype = 53;
+					privtype = 181;
 					break;
 			}
 			break;
