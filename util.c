@@ -387,7 +387,7 @@ vg_encode_privkey_compressed(const EC_KEY *pkey, int addrtype, char *result)
 	if (nbytes < 32)
 		memset(eckey_buf + 1, 0, 32 - nbytes);
 	BN_bn2bin(bn, &eckey_buf[33 - nbytes]);
-	eckey_buf[nbytes+1] = 1;
+	eckey_buf[33] = 1;
 
 	vg_b58_encode_check(eckey_buf, 34, result);
 }
