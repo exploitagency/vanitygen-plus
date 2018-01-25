@@ -5,7 +5,7 @@
  * Vanitygen is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
- * any later version. 
+ * any later version.
  *
  * Vanitygen is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -137,16 +137,77 @@ vg_b58_encode_check(void *buf, size_t len, char *result)
 	else
 	{
 		sph_groestl512_context ctx;
-		
+
 		sph_groestl512_init(&ctx);
 		sph_groestl512(&ctx, binres, len);
 		sph_groestl512_close(&ctx, groestlhash1);
-		
+
 		sph_groestl512_init(&ctx);
 		sph_groestl512(&ctx, groestlhash1, sizeof(groestlhash1));
 		sph_groestl512_close(&ctx, groestlhash2);
 		memcpy(&binres[len], groestlhash2, 4);
 	}
+
+	BN_bin2bn(binres, len + 4, bn);
+
+	for (zpfx = 0; zpfx < (len + 4) && binres[zpfx] == 0; zpfx++);
+
+	p = brlen;
+	while (!BN_is_zero(bn)) {
+		BN_div(bndiv, &bnrem, bn, &bnbase, bnctx);
+		bntmp = bn;
+		bn = bndiv;
+		bndiv = bntmp;
+		d = BN_get_word(&bnrem);
+		binres[--p] = vg_b58_alphabet[d];
+	}
+
+	while (zpfx--) {
+		binres[--p] = vg_b58_alphabet[0];
+	}
+
+	memcpy(result, &binres[p], brlen - p);
+	result[brlen - p] = '\0';
+
+	free(binres);
+	BN_clear_free(&bna);
+	BN_clear_free(&bnb);
+	BN_clear_free(&bnbase);
+	BN_clear_free(&bnrem);
+	BN_CTX_free(bnctx);
+}
+
+void
+vg_cashaddr_encode_check(void *buf, size_t len, char *result)
+{
+	unsigned char hash1[32];
+	unsigned char hash2[32];
+
+	int d, p;
+
+	BN_CTX *bnctx;
+	BIGNUM *bn, *bndiv, *bntmp;
+	BIGNUM bna, bnb, bnbase, bnrem;
+	unsigned char *binres;
+	int brlen, zpfx;
+
+	bnctx = BN_CTX_new();
+	BN_init(&bna);
+	BN_init(&bnb);
+	BN_init(&bnbase);
+	BN_init(&bnrem);
+	BN_set_word(&bnbase, 58);
+
+	bn = &bna;
+	bndiv = &bnb;
+
+	brlen = (2 * len) + 4;
+	binres = (unsigned char*) malloc(brlen);
+	memcpy(binres, buf, len);
+
+	SHA256(binres, len, hash1);
+	SHA256(hash1, sizeof(hash1), hash2);
+	memcpy(&binres[len], hash2, 4);
 
 	BN_bin2bn(binres, len + 4, bn);
 
@@ -246,11 +307,11 @@ vg_b58_decode_check(const char *input, void *buf, size_t len)
 	else
 	{
 		sph_groestl512_context ctx;
-		
+
 		sph_groestl512_init(&ctx);
 		sph_groestl512(&ctx, xbuf, l);
 		sph_groestl512_close(&ctx, groestlhash1);
-		
+
 		sph_groestl512_init(&ctx);
 		sph_groestl512(&ctx, groestlhash1, sizeof(groestlhash1));
 		sph_groestl512_close(&ctx, groestlhash2);
@@ -448,7 +509,7 @@ vg_decode_privkey(const char *b58encoded, EC_KEY *pkey, int *addrtype)
  * are met:
  *
  * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer. 
+ *    notice, this list of conditions and the following disclaimer.
  *
  * 2. Redistributions in binary form must reproduce the above copyright
  *    notice, this list of conditions and the following disclaimer in
@@ -585,7 +646,7 @@ vg_protect_crypt(int parameter_group,
 {
 	EVP_CIPHER_CTX *ctx = NULL;
 	unsigned char *salt;
-	unsigned char keymaterial[EVP_MAX_KEY_LENGTH + EVP_MAX_IV_LENGTH + 
+	unsigned char keymaterial[EVP_MAX_KEY_LENGTH + EVP_MAX_IV_LENGTH +
 				  EVP_MAX_MD_SIZE];
 	unsigned char hmac[EVP_MAX_MD_SIZE];
 	int hmac_len = 0, hmac_keylen = 0;
@@ -616,7 +677,7 @@ vg_protect_crypt(int parameter_group,
 			goto out;
 	}
 
-	if (parameter_group > (sizeof(protkey_parameters) / 
+	if (parameter_group > (sizeof(protkey_parameters) /
 			       sizeof(protkey_parameters[0])))
 		goto out;
 	params = &protkey_parameters[parameter_group];
@@ -1168,7 +1229,7 @@ vg_read_file(FILE *fp, char ***result, int *rescount)
 		}
 
 		pos = pat ? (pat - buf) : count;
-	}			
+	}
 
 	*result = patterns;
 	*rescount = npatterns;
