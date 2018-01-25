@@ -5,7 +5,7 @@
  * Vanitygen is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
- * any later version. 
+ * any later version.
  *
  * Vanitygen is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -36,6 +36,7 @@ extern void dumphex(const unsigned char *src, size_t len);
 extern void dumpbn(const BIGNUM *bn);
 
 extern void vg_b58_encode_check(void *buf, size_t len, char *result);
+extern void vg_cashaddr_encode_check(void *buf, size_t len, char *result);
 extern int vg_b58_decode_check(const char *input, void *buf, size_t len);
 
 extern void vg_encode_address(const EC_POINT *ppoint, const EC_GROUP *pgroup,
