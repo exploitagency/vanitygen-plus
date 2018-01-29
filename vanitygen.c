@@ -452,6 +452,7 @@ main(int argc, char **argv)
 					"GAP : Gapcoin : G\n"
 					"GCR : Global Currency Reserve : G\n"
 					"GRC : GridcoinResearch : R or S\n"
+					"GRLC : Garlicoin : G\n"
 					"GRS : Groestlcoin : F\n"
 					"GUN : Guncoin : G or H\n"
 					"HAM : HamRadiocoin : 1\n"
@@ -1224,6 +1225,14 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Generating LTC Address\n");
 					addrtype = 48;
+					privtype = 176;
+					break;
+			}
+			else
+			if (strcmp(optarg, "GRLC")== 0) {
+				fprintf(stderr,
+					"Generating GRLC Address\n");
+					addrtype = 38;
 					privtype = 176;
 					break;
 			}
