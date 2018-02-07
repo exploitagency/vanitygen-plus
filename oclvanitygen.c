@@ -214,6 +214,7 @@ main(int argc, char **argv)
 					"HODL : HOdlcoin : H\n"
 					"IXC : Ixcoin : x\n"
 					"JBS : Jumbucks : J\n"
+					"JIN : Jincoin : J\n"
 					"LBRY : LBRY : b\n"
 					"LEAF : Leafcoin : f\n"
 					"LTC : Litecoin : L\n"
@@ -816,6 +817,14 @@ main(int argc, char **argv)
 			if (strcmp(optarg, "JBS")== 0) {
 				fprintf(stderr,
 					"Generating JBS Address\n");
+					addrtype = 43;
+					privtype = 171;
+					break;
+			}
+			else
+			if (strcmp(optarg, "JIN")== 0) {
+				fprintf(stderr,
+					"Generating JIN Address\n");
 					addrtype = 43;
 					privtype = 171;
 					break;

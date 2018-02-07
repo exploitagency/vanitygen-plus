@@ -181,6 +181,7 @@ Current List of Available Coins for Address Generation
 |HODL | HOdlcoin | H  |
 |IXC | Ixcoin | x  |
 |JBS | Jumbucks | J  |
+|JIN | Jincoin | J  |
 |LBRY | LBRY | b  |
 |LEAF | Leafcoin | f  |
 |LTC | Litecoin | L  |
