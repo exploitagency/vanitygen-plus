@@ -243,6 +243,7 @@ main(int argc, char **argv)
 					"RBY : Rubycoin : R\n"
 					"RDD : Reddcoin : R\n"
 					"RIC : Riecoin : R\n"
+					"ROI : ROIcoin : R\n"
 					"SCA : Scamcoin : S\n"
 					"SDC : Shadowcoin : S\n"
 					"SKC : Skeincoin : S\n"
@@ -461,14 +462,21 @@ main(int argc, char **argv)
 					break;
 			}
 			else
+			if (strcmp(optarg, "ROI")== 0) {
+				fprintf(stderr,
+					"Generating ROIcoin Address\n");
+					addrtype = 60;
+					privtype = 128;
+					break;
+			}
+			else
 			if (strcmp(optarg, "HODL")== 0) {
 				fprintf(stderr,
 					"Generating HODL Address\n");
 					addrtype = 40;
 					privtype = 168;
 					break;
-			}
-			else
+			} else
 			if (strcmp(optarg, "FLOZ")== 0) {
 				fprintf(stderr,
 					"Generating FLOZ Address\n");
