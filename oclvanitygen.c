@@ -464,7 +464,7 @@ main(int argc, char **argv)
 			else
 			if (strcmp(optarg, "ROI")== 0) {
 				fprintf(stderr,
-					"Generating ROIcoin Address\n");
+					"Generating ROI Address\n");
 					addrtype = 60;
 					privtype = 128;
 					break;

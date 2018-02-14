@@ -164,6 +164,7 @@ main(int argc, char **argv)
 					"RBY : Rubycoin : R\n"
 					"RDD : Reddcoin : R\n"
 					"RIC : Riecoin : R\n"
+					"ROI : ROIcoin : R\n"
 					"SCA : Scamcoin : S\n"
 					"SDC : Shadowcoin : S\n"
 					"SKC : Skeincoin : S\n"
@@ -394,6 +395,14 @@ main(int argc, char **argv)
 					"Decrypting HODL Address\n");
 					addrtype_opt = 40;
 					privtype_opt = 168;
+					break;
+			}
+			else
+			if (strcmp(optarg, "ROI")== 0) {
+				fprintf(stderr,
+					"Decrypting ROI Address\n");
+					addrtype_opt = 60;
+					privtype_opt = 128;
 					break;
 			}
 			else
