@@ -476,7 +476,8 @@ main(int argc, char **argv)
 					addrtype = 40;
 					privtype = 168;
 					break;
-			} else
+			}
+			else
 			if (strcmp(optarg, "FLOZ")== 0) {
 				fprintf(stderr,
 					"Generating FLOZ Address\n");
