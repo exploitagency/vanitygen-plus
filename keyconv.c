@@ -165,6 +165,7 @@ main(int argc, char **argv)
 					"RBY : Rubycoin : R\n"
 					"RDD : Reddcoin : R\n"
 					"RIC : Riecoin : R\n"
+					"ROI : ROIcoin : R\n"
 					"SCA : Scamcoin : S\n"
 					"SDC : Shadowcoin : S\n"
 					"SKC : Skeincoin : S\n"
@@ -354,7 +355,7 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Decrypting SKC Address\n");
 					addrtype_opt = 63;
-					privtype_opt = 191;
+					privtype_opt = 226;
 					break;
 			}
 			else
@@ -395,6 +396,14 @@ main(int argc, char **argv)
 					"Decrypting HODL Address\n");
 					addrtype_opt = 40;
 					privtype_opt = 168;
+					break;
+			}
+			else
+			if (strcmp(optarg, "ROI")== 0) {
+				fprintf(stderr,
+					"Decrypting ROI Address\n");
+					addrtype_opt = 60;
+					privtype_opt = 128;
 					break;
 			}
 			else
@@ -957,15 +966,15 @@ main(int argc, char **argv)
 					addrtype_opt = 53;
 					privtype_opt = 153;
 					break;
-			}	
+			}
 			else
 			if (strcmp(optarg, "AXE")== 0) {
 				fprintf(stderr,
 					"Decrypting Axe Address\n");
-					addrtype_opt = 75;
-					privtype_opt = 203;
+					addrtype_opt = 55;
+					privtype_opt = 204;
 					break;
-			}	
+			}
 			else
 			if (strcmp(optarg, "ZNY")== 0) {
 				fprintf(stderr,

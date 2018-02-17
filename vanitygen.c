@@ -490,6 +490,7 @@ main(int argc, char **argv)
 					"RBY : Rubycoin : R\n"
 					"RDD : Reddcoin : R\n"
 					"RIC : Riecoin : R\n"
+					"ROI : ROIcoin: R\n"
 					"SCA : Scamcoin : S\n"
 					"SDC : Shadowcoin : S\n"
 					"SKC : Skeincoin : S\n"
@@ -680,7 +681,7 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Generating SKC Address\n");
 					addrtype = 63;
-					privtype = 191;
+					privtype = 226;
 					break;
 			}
 			else
@@ -713,6 +714,14 @@ main(int argc, char **argv)
 					"Generating LEAF Address\n");
 					addrtype = 95;
 					privtype = 223;
+					break;
+			}
+			else
+			if (strcmp(optarg, "ROI")== 0) {
+			    fprintf(stderr,
+					"Generating ROI Address\n");
+					addrtype = 60;
+					privtype = 128;
 					break;
 			}
 			else
@@ -1289,10 +1298,10 @@ main(int argc, char **argv)
 			if (strcmp(optarg, "AXE")== 0) {
 				fprintf(stderr,
 					"Decrypting AXE Address\n");
-					addrtype = 75;
-					privtype = 203;
+					addrtype = 55;
+					privtype = 204;
 					break;
-			}	
+			}
 			else
 			if (strcmp(optarg, "ZNY")== 0) {
 				fprintf(stderr,
