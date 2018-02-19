@@ -8,6 +8,9 @@ ifeq ($(PLATFORM),Darwin)
 	OPENCL_LIBS=-framework OpenCL
 	LIBS+=-L/usr/local/opt/openssl/lib
 	CFLAGS+=-I/usr/local/opt/openssl/include
+else ifeq ($(PLATFORM),NetBSD)
+	LIBS+=`pcre-config --libs`
+	CFLAGS+=`pcre-config --cflags`
 else
 	OPENCL_LIBS=-lOpenCL
 endif
