@@ -190,7 +190,7 @@ main(int argc, char **argv)
 					"CRW : Crown : 1\n"
 					"DASH : Dash : X\n"
 					"DEEPONION : DeepOnion : D\n"
-					"DNR: Denarius: D or s\n"
+					"DNR: Denarius: D\n"
 					"DGB : Digibyte : D\n"
 					"DGC : Digitalcoin : D\n"
 					"DMD : Diamond : d\n"
