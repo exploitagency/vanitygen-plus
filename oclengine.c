@@ -2035,6 +2035,15 @@ l_rekey:
 	/* Generate a new random private key */
 	EC_KEY_generate_key(pkey);
 	npoints = 0;
+	if (vcp->vc_privkey_prefix_length > 0) {
+		BIGNUM *pkbn = BN_dup(EC_KEY_get0_private_key(pkey));
+		memcpy((char *)pkbn->d + 32 - vcp->vc_privkey_prefix_length, vcp->vc_privkey_prefix, vcp->vc_privkey_prefix_length);
+		EC_KEY_set_private_key(pkey, pkbn);
+
+		EC_POINT *origin = EC_POINT_new(pgroup);
+		EC_POINT_mul(pgroup, origin, pkbn, NULL, NULL, vxcp->vxc_bnctx);
+		EC_KEY_set_public_key(pkey, origin);
+	}
 
 	/* Determine rekey interval */
 	EC_GROUP_get_order(pgroup, &vxcp->vxc_bntmp, vxcp->vxc_bnctx);

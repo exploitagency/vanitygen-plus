@@ -85,7 +85,8 @@ usage(const char *name)
 "-f <file>     File containing list of patterns, one per line\n"
 "              (Use \"-\" as the file name for stdin)\n"
 "-o <file>     Write pattern matches to <file>\n"
-"-s <file>     Seed random number generator from <file>\n",
+"-s <file>     Seed random number generator from <file>\n"
+"-Z <prefix>   Private key prefix in hex (vipco.in)\n",
 version, name);
 }
 
@@ -123,6 +124,8 @@ main(int argc, char **argv)
 	char *devstrs[MAX_DEVS];
 	int ndevstrs = 0;
 	int opened = 0;
+	char privkey_prefix[32];
+	int privkey_prefix_length = 0;
 
 	FILE *pattfp[MAX_FILE], *fp;
 	int pattfpi[MAX_FILE];
@@ -133,7 +136,7 @@ main(int argc, char **argv)
 	int i;
 
 	while ((opt = getopt(argc, argv,
-			     "vqrik1C:X:Y:F:eE:p:P:d:w:t:g:b:VSh?f:o:s:D:")) != -1) {
+			     "vqrik1C:X:Y:F:eE:p:P:d:w:t:g:b:VSh?f:o:s:D:Z:")) != -1) {
 		switch (opt) {
 		case 'r':
 			regex = 1;
@@ -1223,6 +1226,13 @@ main(int argc, char **argv)
 			}
 			seedfile = optarg;
 			break;
+		case 'Z':
+			assert(strlen(optarg) % 2 == 0);
+			privkey_prefix_length = strlen(optarg)/2;
+			for (size_t i = 0; i < privkey_prefix_length; i++) {
+				sscanf(&optarg[i*2], "%2hhx", &privkey_prefix[privkey_prefix_length - 1 - i]);
+			}
+			break;
 		default:
 			usage(argv[0]);
 			return 1;
@@ -1278,6 +1288,8 @@ main(int argc, char **argv)
 	vcp->vc_only_one = only_one;
 	vcp->vc_pubkeytype = addrtype;
 	vcp->vc_pubkey_base = pubkey_base;
+	memcpy(vcp->vc_privkey_prefix, privkey_prefix, privkey_prefix_length);
+	vcp->vc_privkey_prefix_length = privkey_prefix_length;
 
 	vcp->vc_output_match = vg_output_match_console;
 	vcp->vc_output_timing = vg_output_timing_console;

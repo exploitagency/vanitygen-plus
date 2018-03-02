@@ -127,6 +127,15 @@ vg_thread_loop(void *arg)
 			vg_exec_context_upgrade_lock(vxcp);
 			/* Generate a new random private key */
 			EC_KEY_generate_key(pkey);
+			if (vcp->vc_privkey_prefix_length > 0) {
+				BIGNUM *pkbn = BN_dup(EC_KEY_get0_private_key(pkey));
+				memcpy((char *)pkbn->d + 32 - vcp->vc_privkey_prefix_length, vcp->vc_privkey_prefix, vcp->vc_privkey_prefix_length);
+				EC_KEY_set_private_key(pkey, pkbn);
+
+				EC_POINT *origin = EC_POINT_new(pgroup);
+				EC_POINT_mul(pgroup, origin, pkbn, NULL, NULL, vxcp->vxc_bnctx);
+				EC_KEY_set_public_key(pkey, origin);
+			}
 			npoints = 0;
 
 			/* Determine rekey interval */
@@ -332,7 +341,8 @@ usage(const char *name)
 "-f <file>     File containing list of patterns, one per line\n"
 "              (Use \"-\" as the file name for stdin)\n"
 "-o <file>     Write pattern matches to <file>\n"
-"-s <file>     Seed random number generator from <file>\n",
+"-s <file>     Seed random number generator from <file>\n"
+"-Z <prefix>   Private key prefix in hex (vipco.in)\n",
 version, name);
 }
 
@@ -363,6 +373,8 @@ main(int argc, char **argv)
 	int nthreads = 0;
 	vg_context_t *vcp = NULL;
 	EC_POINT *pubkey_base = NULL;
+	char privkey_prefix[32];
+	int privkey_prefix_length = 0;
 
 	FILE *pattfp[MAX_FILE], *fp;
 	int pattfpi[MAX_FILE];
@@ -372,7 +384,7 @@ main(int argc, char **argv)
 
 	int i;
 
-	while ((opt = getopt(argc, argv, "vqnrik1eE:P:C:X:Y:F:t:h?f:o:s:")) != -1) {
+	while ((opt = getopt(argc, argv, "vqnrik1eE:P:C:X:Y:F:t:h?f:o:s:Z:")) != -1) {
 		switch (opt) {
 		case 'c':
 		        compressed = 1;
@@ -1428,6 +1440,13 @@ main(int argc, char **argv)
 			}
 			seedfile = optarg;
 			break;
+		case 'Z':
+			assert(strlen(optarg) % 2 == 0);
+			privkey_prefix_length = strlen(optarg)/2;
+			for (size_t i = 0; i < privkey_prefix_length; i++) {
+				sscanf(&optarg[i*2], "%2hhx", &privkey_prefix[privkey_prefix_length - 1 - i]);
+			}
+			break;
 		default:
 			usage(argv[0]);
 			return 1;
@@ -1496,6 +1515,8 @@ main(int argc, char **argv)
 	vcp->vc_format = format;
 	vcp->vc_pubkeytype = pubkeytype;
 	vcp->vc_pubkey_base = pubkey_base;
+	memcpy(vcp->vc_privkey_prefix, privkey_prefix, privkey_prefix_length);
+	vcp->vc_privkey_prefix_length = privkey_prefix_length;
 
 	vcp->vc_output_match = vg_output_match_console;
 	vcp->vc_output_timing = vg_output_timing_console;

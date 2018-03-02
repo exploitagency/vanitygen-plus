@@ -104,6 +104,8 @@ struct _vg_context_s {
 	enum vg_format		vc_format;
 	int			vc_pubkeytype;
 	EC_POINT		*vc_pubkey_base;
+	char			vc_privkey_prefix[32];
+	int			vc_privkey_prefix_length;
 	int			vc_halt;
 
 	vg_exec_context_t	*vc_threads;
