@@ -142,6 +142,7 @@ Current List of Available Coins for Address Generation
 |AUR | Auroracoin | A  |
 |AXE | Axe | X |
 |BLK | Blackcoin | B  |
+|BWK | Bulwark | b  |
 |BQC | BBQcoin | b  |
 |BTC | Bitcoin | 1  |
 |TEST | Bitcoin Testnet | m or n  |

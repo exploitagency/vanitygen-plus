@@ -96,6 +96,7 @@ main(int argc, char **argv)
 					"AUR : Auroracoin : A\n"
 					"AXE : Axe : X\n"
 					"BLK : Blackcoin : B\n"
+					"BWK : Bulwark : b\n"
 					"BQC : BBQcoin : b\n"
 					"BTC : Bitcoin : 1\n"
 					"TEST : Bitcoin Testnet : m or n\n"
@@ -934,6 +935,14 @@ main(int argc, char **argv)
 					"Decrypting GRLC Address\n");
 					addrtype_opt = 38;
 					privtype_opt = 176;
+					break;
+			}
+			else
+			if (strcmp(optarg, "BWK")== 0) {
+				fprintf(stderr,
+					"Decrypting BWK Address\n");
+					addrtype_opt = 85;
+					privtype_opt = 212;
 					break;
 			}
 			else
