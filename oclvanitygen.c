@@ -268,6 +268,7 @@ main(int argc, char **argv)
 					"XC : XCurrency : X\n"
 					"XPM : Primecoin : A\n"
 					"YAC : Yacoin : Y\n"
+					"YTN : Yenten : Y\n"
 					"ZNY : BitZeny : Z\n"
 					"ZOOM : Zoom coin : i\n"
 					"ZRC : Ziftrcoin : Z\n"
@@ -1081,6 +1082,14 @@ main(int argc, char **argv)
 					"Generating NEETCOIN Address\n");
 					addrtype = 53;
 					privtype = 181;
+					break;
+			}
+			else
+			if (strcmp(optarg, "YTN")== 0) {
+				fprintf(stderr,
+					"Generating Yenten Address\n");
+					addrtype = 78;
+					privtype = 123;
 					break;
 			}
 			break;

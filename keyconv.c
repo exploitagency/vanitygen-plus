@@ -186,6 +186,7 @@ main(int argc, char **argv)
 					"XC : XCurrency : X\n"
 					"XPM : Primecoin : A\n"
 					"YAC : Yacoin : Y\n"
+					"YTN : Yenten : Y\n"
 					"ZNY : BitZeny : Z\n"
 					"ZOOM : Zoom coin : i\n"
 					"ZRC : Ziftrcoin : Z\n"
@@ -1007,6 +1008,14 @@ main(int argc, char **argv)
 					"Decrypting NEETCOIN Address\n");
 					addrtype_opt = 53;
 					privtype_opt = 181;
+					break;
+			}
+			else
+			if (strcmp(optarg, "YTN")== 0) {
+				fprintf(stderr,
+					"Decrypting Yenten Address\n");
+					addrtype_opt = 78;
+					privtype_opt = 123;
 					break;
 			}
 			break;
