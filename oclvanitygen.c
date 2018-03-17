@@ -178,6 +178,7 @@ main(int argc, char **argv)
 					"ATMOS : Atmos : N\n"
 					"AUR : Auroracoin : A\n"
 					"AXE : Axe : X\n"
+					"BLAST : BLAST : B\n"
 					"BLK : Blackcoin : B\n"
 					"BWK : Bulwark : b\n"
 					"BQC : BBQcoin : b\n"
@@ -930,6 +931,14 @@ main(int argc, char **argv)
 					"Generating MZC Address\n");
 					addrtype = 50;
 					privtype = 224;
+					break;
+			}
+			else
+			if (strcmp(optarg, "BLAST")== 0) {
+				fprintf(stderr,
+					"Generating BLAST Address\n");
+					addrtype = 25;
+					privtype = 239;
 					break;
 			}
 			else

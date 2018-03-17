@@ -95,6 +95,7 @@ main(int argc, char **argv)
 					"ATMOS : Atmos : N\n"
 					"AUR : Auroracoin : A\n"
 					"AXE : Axe : X\n"
+					"BLAST : BLAST : B\n"
 					"BLK : Blackcoin : B\n"
 					"BWK : Bulwark : b\n"
 					"BQC : BBQcoin : b\n"
@@ -856,6 +857,14 @@ main(int argc, char **argv)
 					"Decrypting MZC Address\n");
 					addrtype_opt = 50;
 					privtype_opt = 224;
+					break;
+			}
+			else
+			if (strcmp(optarg, "BLAST")== 0) {
+				fprintf(stderr,
+					"Decrypting BLAST Address\n");
+					addrtype_opt = 25;
+					privtype_opt = 239;
 					break;
 			}
 			else
