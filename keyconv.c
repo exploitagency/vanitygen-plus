@@ -88,6 +88,8 @@ main(int argc, char **argv)
 					"Argument(UPPERCASE) : Coin : Address Prefix\n"
 					"---------------\n"
 					"42 : 42coin : 4\n"
+					"ALC : Angelcoin : A\n"
+					"ALCtest : Angelcoin Testnet: a\n"
 					"AC : Asiacoin : A\n"
 					"AIB : Advanced Internet Block by IOBOND : A\n"
 					"ANC : Anoncoin : A\n"
@@ -193,6 +195,22 @@ main(int argc, char **argv)
 					"ZRC : Ziftrcoin : Z\n"
 					);
 					return 1;
+			}
+			else
+			if (strcmp(optarg, "ALC")== 0) {
+				fprintf(stderr,
+					"Generating ALC [Angelcoin] Address\n");
+					addrtype_opt = 23;
+					privtype_opt = 23+128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "ALCtest")== 0) {
+				fprintf(stderr,
+					"Generating ALC [Angelcoin] Testnet Address\n");
+					addrtype_opt = 83;
+					privtype_opt = 83+128;
+					break;
 			}
 			else
 			if (strcmp(optarg, "PIVX")== 0) {
@@ -1064,7 +1082,7 @@ main(int argc, char **argv)
 			break;
 		case 'X':
 			addrtype_opt = atoi(optarg);
-			privtype_opt = addrtype + 128;
+			privtype_opt = addrtype_opt + 128;
 			addrtype_override = 1;
 			break;
 		case 'Y':

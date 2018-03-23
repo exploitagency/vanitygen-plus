@@ -134,6 +134,8 @@ Current List of Available Coins for Address Generation
 |**Argument(UPPERCASE)** | **Coin** | **Address Prefix**  |
 | --------------------------------------- | -------------------------------------------- | ------------ |
 |42 | 42coin | 4  |
+|ALC | Angelcoin | A  |
+|ALCtest | Angelcoin TestNet | a  |
 |AC | Asiacoin | A  |
 |AIB | Advanced Internet Block by IOBOND | A  |
 |ANC | Anoncoin | A  |
