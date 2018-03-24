@@ -437,10 +437,10 @@ main(int argc, char **argv)
 					"Argument(UPPERCASE) : Coin : Address Prefix\n"
 					"---------------\n"
 					"42 : 42coin : 4\n"
-					"ALC : Angelcoin : A\n"
-					"ALCtest : Angelcoin Testnet: a\n"
 					"AC : Asiacoin : A\n"
 					"AIB : Advanced Internet Block by IOBOND : A\n"
+					"ALC : Angelcoin : A\n"
+					"ALCtest : Angelcoin Testnet: a\n"
 					"ANC : Anoncoin : A\n"
 					"ARS : Arkstone : A\n"
 					"ATMOS : Atmos : N\n"
@@ -550,7 +550,7 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Generating ALC [Angelcoin] Address\n");
 					addrtype = 23;
-					privtype = 23+128;
+					privtype = 151;
 					scriptaddrtype = 0;
 					break;
 			}
@@ -559,7 +559,7 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Generating ALC [Angelcoin] Testnet Address\n");
 					addrtype = 83;
-					privtype = 83+128;
+					privtype = 211;
 					scriptaddrtype = 3;
 					break;
 			}
@@ -1406,14 +1406,6 @@ main(int argc, char **argv)
 			addrtype = atoi(optarg);
 			privtype = 128 + addrtype;
 			scriptaddrtype = addrtype;
-			//Angelcoin Modification
-			if ( addrtype == 23 )
-			//ALC [Angelcoin] Address
-				scriptaddrtype = 0;
-			else
-			if ( addrtype == 83 )
-			//ALC [Angelcoin] Testnet Address
-				scriptaddrtype = 3;
 			break;
 		case 'Y':
 			/* Overrides privtype of 'X' but leaves all else intact */

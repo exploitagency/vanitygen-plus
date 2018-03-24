@@ -183,10 +183,10 @@ main(int argc, char **argv)
 					"Argument(UPPERCASE) : Coin : Address Prefix\n"
 					"---------------\n"
 					"42 : 42coin : 4\n"
-					"ALC : Angelcoin : A\n"
-					"ALCtest : Angelcoin Testnet: a\n"
 					"AC : Asiacoin : A\n"
 					"AIB : Advanced Internet Block by IOBOND : A\n"
+					"ALC : Angelcoin : A\n"
+					"ALCtest : Angelcoin Testnet: a\n"
 					"ANC : Anoncoin : A\n"
 					"ARS : Arkstone : A\n"
 					"ATMOS : Atmos : N\n"
@@ -295,7 +295,7 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Generating ALC [Angelcoin] Address\n");
 					addrtype = 23;
-					privtype = 23+128;
+					privtype = 151;
 					break;
 			}
 			else
@@ -303,7 +303,7 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Generating ALC [Angelcoin] Testnet Address\n");
 					addrtype = 83;
-					privtype = 83+128;
+					privtype = 211;
 					break;
 			}
 			else
