@@ -1082,7 +1082,7 @@ main(int argc, char **argv)
 			break;
 		case 'X':
 			addrtype_opt = atoi(optarg);
-			privtype_opt = addrtype_opt + 128;
+			privtype_opt = addrtype + 128;
 			addrtype_override = 1;
 			break;
 		case 'Y':
