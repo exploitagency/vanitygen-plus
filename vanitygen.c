@@ -1483,7 +1483,9 @@ main(int argc, char **argv)
 			assert(strlen(optarg) % 2 == 0);
 			privkey_prefix_length = strlen(optarg)/2;
 			for (size_t i = 0; i < privkey_prefix_length; i++) {
-				sscanf(&optarg[i*2], "%2hhx", &privkey_prefix[privkey_prefix_length - 1 - i]);
+				int value; // Can't sscanf directly to char array because of overlapping on Win32
+				sscanf(&optarg[i*2], "%2x", &value);
+				privkey_prefix[privkey_prefix_length - 1 - i] = value;
 			}
 			break;
 		default:
