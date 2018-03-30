@@ -161,9 +161,9 @@ main(int argc, char **argv)
 		case '1':
 			only_one = 1;
 			break;
-		case 'a': 
-			remove_on_match = 0; 
-			numpairs = atoi(optarg); 
+		case 'a':
+			remove_on_match = 0;
+			numpairs = atoi(optarg);
 			break;
 		case 'z':
 		      csv = 1;
@@ -189,7 +189,7 @@ main(int argc, char **argv)
 					"ARS : Arkstone : A\n"
 					"ATMOS : Atmos : N\n"
 					"AUR : Auroracoin : A\n"
-					"AXE : Axe : X\n"
+					"AXE : Axe : P\n"
 					"BLAST : BLAST : B\n"
 					"BLK : Blackcoin : B\n"
 					"BWK : Bulwark : b\n"
