@@ -90,6 +90,8 @@ main(int argc, char **argv)
 					"42 : 42coin : 4\n"
 					"AC : Asiacoin : A\n"
 					"AIB : Advanced Internet Block by IOBOND : A\n"
+					"ALC : Angelcoin : A\n"
+					"ALCtest : Angelcoin Testnet: a\n"
 					"ANC : Anoncoin : A\n"
 					"ARS : Arkstone : A\n"
 					"ATMOS : Atmos : N\n"
@@ -193,6 +195,22 @@ main(int argc, char **argv)
 					"ZRC : Ziftrcoin : Z\n"
 					);
 					return 1;
+			}
+			else
+			if (strcmp(optarg, "ALC")== 0) {
+				fprintf(stderr,
+					"Generating ALC [Angelcoin] Address\n");
+					addrtype_opt = 23;
+					privtype_opt = 151;
+					break;
+			}
+			else
+			if (strcmp(optarg, "ALCtest")== 0) {
+				fprintf(stderr,
+					"Generating ALC [Angelcoin] Testnet Address\n");
+					addrtype_opt = 83;
+					privtype_opt = 211;
+					break;
 			}
 			else
 			if (strcmp(optarg, "PIVX")== 0) {
