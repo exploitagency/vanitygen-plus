@@ -44,7 +44,20 @@
 #include "util.h"
 
 // Unfortunately we need this!
-#if OPENSSL_VERSION_NUMBER < 0x0010100000
+#if OPENSSL_VERSION_NUMBER >= 0x0010100000
+#define PPNT_ARROW_X ppnt->X
+#define PPNT_ARROW_Y ppnt->Y
+#define PPNT_ARROW_Z ppnt->Z
+#define PPS_ARROW_X pps->X
+#define PPS_ARROW_Y pps->Y
+#define PPS_ARROW_Z pps->Z
+#define PPT_ARROW_X ppt->X
+#define PPT_ARROW_Y ppt->Y
+#define PPR_ARROW_X ppr->X
+#define PPR_ARROW_Y ppr->Y
+#define PPC_ARROW_X ppc->X
+#define PPC_ARROW_Y ppc->Y
+#else
 #define PPNT_ARROW_X &ppnt->X
 #define PPNT_ARROW_Y &ppnt->Y
 #define PPNT_ARROW_Z &ppnt->Z
@@ -1374,9 +1387,15 @@ vg_ocl_get_bignum_tpa(BIGNUM *bn, const unsigned char *buf, int cell)
 
 struct ec_point_st {
 	const EC_METHOD *meth;
+#if OPENSSL_VERSION_NUMBER >= 0x0010100000
 	BIGNUM *X;
 	BIGNUM *Y;
 	BIGNUM *Z;
+#else
+	BIGNUM X;
+	BIGNUM Y;
+	BIGNUM Z;
+#endif
 	int Z_is_one;
 };
 
@@ -1384,11 +1403,11 @@ static INLINE void
 vg_ocl_get_point(EC_POINT *ppnt, const unsigned char *buf)
 {
 	static const unsigned char mont_one[] = { 0x01,0x00,0x00,0x03,0xd1 };
-	vg_ocl_get_bignum_raw(ppnt->X, buf);
-	vg_ocl_get_bignum_raw(ppnt->Y, buf + 32);
+	vg_ocl_get_bignum_raw(PPNT_ARROW_X, buf);
+	vg_ocl_get_bignum_raw(PPNT_ARROW_Y, buf + 32);
 	if (!ppnt->Z_is_one) {
 		ppnt->Z_is_one = 1;
-		BN_bin2bn(mont_one, sizeof(mont_one), ppnt->Z);
+		BN_bin2bn(mont_one, sizeof(mont_one), PPNT_ARROW_Z);
 	}
 }
 
@@ -1396,8 +1415,8 @@ static INLINE void
 vg_ocl_put_point(unsigned char *buf, const EC_POINT *ppnt)
 {
 	assert(ppnt->Z_is_one);
-	vg_ocl_put_bignum_raw(buf, ppnt->X);
-	vg_ocl_put_bignum_raw(buf + 32, ppnt->Y);
+	vg_ocl_put_bignum_raw(buf, PPNT_ARROW_X);
+	vg_ocl_put_bignum_raw(buf + 32, PPNT_ARROW_Y);
 }
 
 static void
@@ -1721,7 +1740,7 @@ vg_ocl_verify_temporary(vg_ocl_context_t *vocp, int slot, int z_inverted)
 	if (z_inverted) {
 		bnzc = bnez;
 	} else {
-		bnzc = pps->Z;
+		bnzc = PPS_ARROW_Z;
 	}
 
 	z_heap = (unsigned char *)
@@ -1751,12 +1770,12 @@ vg_ocl_verify_temporary(vg_ocl_context_t *vocp, int slot, int z_inverted)
 			vg_ocl_get_point_tpa(ppt, point_tmp, bx + x);
 			vg_ocl_get_bignum_tpa(bnz, z_heap, bx + x);
 			if (z_inverted) {
-				BN_mod_inverse(bnez, pps->Z, bnm, bnctx);
+				BN_mod_inverse(bnez, PPS_ARROW_Z, bnm, bnctx);
 				BN_to_montgomery(bnez, bnez, bnmont, bnctx);
 				BN_to_montgomery(bnez, bnez, bnmont, bnctx);
 			}
-			if (BN_cmp(ppt->X, pps->X) ||
-			    BN_cmp(ppt->Y, pps->Y) ||
+			if (BN_cmp(PPT_ARROW_X, PPS_ARROW_X) ||
+			    BN_cmp(PPT_ARROW_Y, PPS_ARROW_Y) ||
 			    BN_cmp(bnz, bnzc)) {
 				if (!mismatches) {
 					fprintf(stderr, "Base privkey: ");
@@ -1770,27 +1789,27 @@ vg_ocl_verify_temporary(vg_ocl_context_t *vocp, int slot, int z_inverted)
 				if (!mm_r) {
 					mm_r = 1;
 					fprintf(stderr, "Row X   : ");
-					fdumpbn(stderr, ppr->X);
+					fdumpbn(stderr, PPR_ARROW_X);
 					fprintf(stderr, "Row Y   : ");
-					fdumpbn(stderr, ppr->Y);
+					fdumpbn(stderr, PPS_ARROW_Y);
 				}
 
 				fprintf(stderr, "Column X: ");
-				fdumpbn(stderr, ppc->X);
+				fdumpbn(stderr, PPC_ARROW_X);
 				fprintf(stderr, "Column Y: ");
-				fdumpbn(stderr, ppc->Y);
+				fdumpbn(stderr, PPC_ARROW_Y);
 
-				if (BN_cmp(ppt->X, pps->X)) {
+				if (BN_cmp(PPT_ARROW_X, PPS_ARROW_X)) {
 					fprintf(stderr, "Expect X: ");
-					fdumpbn(stderr, pps->X);
+					fdumpbn(stderr, PPS_ARROW_X);
 					fprintf(stderr, "Device X: ");
-					fdumpbn(stderr, ppt->X);
+					fdumpbn(stderr, PPT_ARROW_X);
 				}
-				if (BN_cmp(ppt->Y, pps->Y)) {
+				if (BN_cmp(PPT_ARROW_Y, PPS_ARROW_Y)) {
 					fprintf(stderr, "Expect Y: ");
-					fdumpbn(stderr, pps->Y);
+					fdumpbn(stderr, PPS_ARROW_Y);
 					fprintf(stderr, "Device Y: ");
-					fdumpbn(stderr, ppt->Y);
+					fdumpbn(stderr, PPT_ARROW_Y);
 				}
 				if (BN_cmp(bnz, bnzc)) {
 					fprintf(stderr, "Expect Z: ");
