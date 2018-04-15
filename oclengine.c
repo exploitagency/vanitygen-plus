@@ -43,6 +43,21 @@
 #include "pattern.h"
 #include "util.h"
 
+// Unfortunately we need this!
+#if OPENSSL_VERSION_NUMBER < 0x0010100000
+#define PPNT_ARROW_X &ppnt->X
+#define PPNT_ARROW_Y &ppnt->Y
+#define PPNT_ARROW_Z &ppnt->Z
+#define PPS_ARROW_X &pps->X
+#define PPS_ARROW_Y &pps->Y
+#define PPS_ARROW_Z &pps->Z
+#define PPT_ARROW_X &ppt->X
+#define PPT_ARROW_Y &ppt->Y
+#define PPR_ARROW_X &ppr->X
+#define PPR_ARROW_Y &ppr->Y
+#define PPC_ARROW_X &ppc->X
+#define PPC_ARROW_Y &ppc->Y
+#endif
 
 #define MAX_SLOT 2
 #define MAX_ARG 6
