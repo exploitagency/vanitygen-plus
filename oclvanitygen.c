@@ -1117,7 +1117,7 @@ main(int argc, char **argv)
 			else
 			if (strcmp(optarg, "RVN")== 0) {
 				fprintf(stderr,
-					"Decrypting Ravencoin Address\n");
+					"Generating Ravencoin Address\n");
 					addrtype_opt = 60;
 					privtype_opt = 128;
 					break;
