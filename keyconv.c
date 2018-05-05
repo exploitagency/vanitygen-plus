@@ -169,6 +169,7 @@ main(int argc, char **argv)
 					"RDD : Reddcoin : R\n"
 					"RIC : Riecoin : R\n"
 					"ROI : ROIcoin : R\n"
+					"RVN : Ravencoin : R\n"
 					"SCA : Scamcoin : S\n"
 					"SDC : Shadowcoin : S\n"
 					"SKC : Skeincoin : S\n"
@@ -1025,6 +1026,14 @@ main(int argc, char **argv)
 					"Decrypting Yenten Address\n");
 					addrtype_opt = 78;
 					privtype_opt = 123;
+					break;
+			}
+			else
+			if (strcmp(optarg, "RVN")== 0) {
+				fprintf(stderr,
+					"Decrypting Ravencoin Address\n");
+					addrtype_opt = 60;
+					privtype_opt = 128;
 					break;
 			}
 			break;
