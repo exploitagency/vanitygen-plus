@@ -1118,8 +1118,8 @@ main(int argc, char **argv)
 			if (strcmp(optarg, "RVN")== 0) {
 				fprintf(stderr,
 					"Generating Ravencoin Address\n");
-					addrtype_opt = 60;
-					privtype_opt = 128;
+					addrtype = 60;
+					privtype = 128;
 					break;
 			}				
 			break;
