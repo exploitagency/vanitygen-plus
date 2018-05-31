@@ -89,6 +89,7 @@ main(int argc, char **argv)
 					"---------------\n"
 					"42 : 42coin : 4\n"
 					"AC : Asiacoin : A\n"
+					"ACM : Actinium : N\n"
 					"AIB : Advanced Internet Block by IOBOND : A\n"
 					"ANC : Anoncoin : A\n"
 					"ARS : Arkstone : A\n"
@@ -193,6 +194,14 @@ main(int argc, char **argv)
 					"ZRC : Ziftrcoin : Z\n"
 					);
 					return 1;
+			}
+			else
+			if (strcmp(optarg, "ACM")== 0) {
+				fprintf(stderr,
+					"Generating Actinium Address\n");
+					addrtype_opt = 53;
+					privtype_opt = 181;
+					break;
 			}
 			else
 			if (strcmp(optarg, "PIVX")== 0) {
