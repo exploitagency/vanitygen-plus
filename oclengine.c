@@ -5,7 +5,7 @@
  * Vanitygen is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
- * any later version. 
+ * any later version.
  *
  * Vanitygen is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -1058,7 +1058,7 @@ vg_ocl_kernel_arg_alloc(vg_ocl_context_t *vocp, int slot,
 					     karg,
 					     sizeof(clbuf),
 					     &clbuf);
-			
+
 			if (ret) {
 				fprintf(stderr,
 					"clSetKernelArg(%d,%d): ", knum, karg);
@@ -1090,7 +1090,7 @@ vg_ocl_copyout_arg(vg_ocl_context_t *vocp, int wslot, int arg,
 				   buffer,
 				   0, NULL,
 				   NULL);
-			
+
 	if (ret) {
 		fprintf(stderr, "clEnqueueWriteBuffer(%d): ", arg);
 		vg_ocl_error(vocp, ret, NULL);
@@ -2079,7 +2079,15 @@ l_rekey:
 	npoints = 0;
 	if (vcp->vc_privkey_prefix_length > 0) {
 		BIGNUM *pkbn = BN_dup(EC_KEY_get0_private_key(pkey));
-		memcpy((char *)pkbn->d + 32 - vcp->vc_privkey_prefix_length, vcp->vc_privkey_prefix, vcp->vc_privkey_prefix_length);
+		unsigned char pkey_arr[32];
+		assert(BN_bn2bin(pkbn, pkey_arr) < 33);
+		memcpy((char *) pkey_arr, vcp->vc_privkey_prefix, vcp->vc_privkey_prefix_length);
+		for (int i = 0; i < vcp->vc_privkey_prefix_length / 2; i++) {
+			int k = pkey_arr[i];
+			pkey_arr[i] = pkey_arr[vcp->vc_privkey_prefix_length - 1 - i];
+			pkey_arr[vcp->vc_privkey_prefix_length - 1 - i] = k;
+		}
+		BN_bin2bn(pkey_arr, 32, pkbn);
 		EC_KEY_set_private_key(pkey, pkbn);
 
 		EC_POINT *origin = EC_POINT_new(pgroup);
@@ -2240,7 +2248,7 @@ l_rekey:
 			slot_busy = 1;
 			slot = (slot + 1) % nslots;
 
-		} else { 
+		} else {
 			if (slot_busy) {
 				pthread_mutex_lock(&vocp->voc_lock);
 				while (vocp->voc_ocl_slot != -1) {

@@ -129,7 +129,15 @@ vg_thread_loop(void *arg)
 			EC_KEY_generate_key(pkey);
 			if (vcp->vc_privkey_prefix_length > 0) {
 				BIGNUM *pkbn = BN_dup(EC_KEY_get0_private_key(pkey));
-				memcpy((char *)pkbn->d + 32 - vcp->vc_privkey_prefix_length, vcp->vc_privkey_prefix, vcp->vc_privkey_prefix_length);
+        unsigned char pkey_arr[32];
+        assert(BN_bn2bin(pkbn, pkey_arr) < 33);
+        memcpy((char *) pkey_arr, vcp->vc_privkey_prefix, vcp->vc_privkey_prefix_length);
+				for (int i = 0; i < vcp->vc_privkey_prefix_length / 2; i++) {
+					int k = pkey_arr[i];
+					pkey_arr[i] = pkey_arr[vcp->vc_privkey_prefix_length - 1 - i];
+					pkey_arr[vcp->vc_privkey_prefix_length - 1 - i] = k;
+				}
+        BN_bin2bn(pkey_arr, 32, pkbn);
 				EC_KEY_set_private_key(pkey, pkbn);
 
 				EC_POINT *origin = EC_POINT_new(pgroup);
@@ -1395,7 +1403,7 @@ main(int argc, char **argv)
 					addrtype = 60;
 					privtype = 128;
 					break;
-			}			
+			}
 			break;
 
 /*END ALTCOIN GENERATOR*/
