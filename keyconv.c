@@ -181,6 +181,7 @@ main(int argc, char **argv)
 					"UIS : Unitus : U\n"
 					"UNO : Unobtanium : u\n"
 					"VIA : Viacoin : V\n"
+					"VIPS : VIPSTARCOIN : V\n"
 					"VPN : Vpncoin : V\n"
 					"VTC : Vertcoin : V\n"
 					"WDC : Worldcoin Global : W\n"
@@ -1042,6 +1043,14 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Decrypting Ravencoin Address\n");
 					addrtype_opt = 60;
+					privtype_opt = 128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "VIPS")== 0) {
+				fprintf(stderr,
+					"Decrypting VIPSTARCOIN Address\n");
+					addrtype_opt = 70;
 					privtype_opt = 128;
 					break;
 			}
