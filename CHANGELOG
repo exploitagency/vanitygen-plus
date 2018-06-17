@@ -1,0 +1,192 @@
+Version 0.1, released July 4 2011:
+	- Exact prefix searching
+	- Regular expression searching
+
+Version 0.2, released July 5 2011:
+	- Fix the regular expression problem reported by pyna and 
+	  molecular.
+	- Add support for multi-pattern searching.
+
+Version 0.3, released July 5 2011:
+	- Resolve the pcre_study() bug reported by an0therlr3
+	- Add probability so far and time estimates suggested by davux
+	- Clean up the display, make it look more like phoenix miner
+
+Version 0.4, released July 6 2011:
+	- Fix assertion failure when using exact prefixes starting with 
+ 	  more than one 1, reported by SgtSpike
+	- Port to Windows, start distributing Win32 binaries
+
+Version 0.5, released July 7 2011:
+	- Now with worker threads and CPU count detection, suggested by 
+	  davux and others
+	- Exact prefixes can now be matched case-insensitively with 
+	  "-i", for SgtSpike
+	- Fixed an integer overflow problem with the status display
+
+Version 0.6, released July 8 2011:
+	- Fix calculation of difficulty for multiple prefixes
+	- When prefixes overlap, output the discarded prefix as 
+	  well as the existing prefix with which it overlaps
+
+Version 0.7, released July 8 2011:
+	- Use GetLogicalProcessorInformation() to count CPUs on Windows,
+	  because GetActiveProcessorCount() is Windows 7 and newer.
+
+Version 0.8, released July 8 2011:
+	- Fix recalculation of difficulty after a match when searching 
+	  for multiple prefixes.
+
+Version 0.9, released July 10 2011:
+	- Add flag to retain patterns after being matched
+	- Add output/result file option
+	- Add quiet option and clean up status bar display
+
+Version 0.10, released July 12 2011:
+	- Improve performance using modular inverse optimization
+
+Version 0.11, released July 12 2011:
+	- Add new thread synchronization lock
+	- Add seed file option for RNG
+
+Version 0.12, released July 13 2011:
+	- Fix the seed file option (thanks Shevek)
+	- Tweak EC_POINT batch to add affine points (+~10% key rate)
+	- Improve display status line
+
+Version 0.13, released July 17 2011:
+	- Display hints when handling impossible prefixes
+	- Reorganize source tree
+
+Version 0.14, released July 31 2011:
+	- Fix namecoin private address type (patch from jackjack-jj)
+
+Version 0.15, released August 1 2011:
+	- Tweaks/improvements to oclvanitygen
+	- Add oclvanitygen warning for NVIDIA Windows drivers not known to work
+
+Version 0.16, released August 2 2011:
+	- Performance tweaks to oclvanitygen kernel
+	- Add safe mode flag (-S) to oclvanitygen to disable optimizations
+	- Add -X flag to set numerical key type (patch from jackjack-jj)
+
+Version 0.17, released August 8, 2011:
+	- Bugfix for private key encoder, could create encodings not
+	  accepted by showwallet branch bitcoin
+	- Remove oclvanitygen #pragma unroll by default, enable for NVIDIA
+	  (General performance improvement, hopeful resolution for crashing)
+	- Oclvanitygen work size configuration tweak for smaller GPUs
+	- New oclvanitygen add/subtract/compare functions for AMD Radeon
+	- Add support for AMD BFI_INT instruction in oclvanitygen hash functions
+	- Minor source code reorganization
+
+Version 0.18, released July 4, 2012:
+	- Support additive base public keys for outsourced address generation.
+	- New oclvanityminer program, organized address miner for use with
+	  bounty pools, like ThePiachu's Vanity Pool.
+	- New keyconv program for converting bitcoin private keys between
+	  wallet import format, password-protected format, and PKCS#8.
+	- Support generation of simple P2SH (type-3) addresses.
+	- Mac OS X makefile merged with Linux Makefile.
+
+Version 0.19, released July 4, 2012:
+	- Fix a potentially serious crash.
+	- Remove oclvanitygen "-r" option.
+
+Version 0.20, released August 18, 2012:
+	- Support binding to multiple OpenCL devices in oclvanitygen/miner
+	- Concurrent search for bounties with the same public key in
+	  oclvanityminer
+	- Support multiple pattern input files with different case-sensitivity
+	- Fix crash with -X option in vanitygen
+	- Fix case-insensitive search for prefixes that contain invalid
+	  characters in their given case, but are valid if case-swapped
+	- Follow HTTP redirections in oclvanityminer
+
+Version 0.21, released August 21, 2012:
+	- Fix assertion failure in oclvanityminer work submission handler
+	- Fix bug in case-insensitive prefix enumerator that would skip the
+	  last possible combination.
+	- More useful error messages for OpenCL failures in oclvanitygen/miner
+
+Version 0.22, released October 11, 2012:
+	- Fix bugs in oclvanityminer bounty list parser
+	- Use GET instead of POST for work submission in oclvanityminer
+
+Version Plus, released Feb 01, 2017
+	- Add Massive Altcoin support for 50+ Coins by Corey Harding
+	- Remove prefix length limit(Search for whole address) by Corey Harding
+	- Add -Y Custom Privkey types from cryptapus
+	- Add Keyconv Decrypt Tool from elichai
+	- Update oclvanityminer from WyseNynja
+	- Compressed address support from salfter
+
+Version Plus, released Feb 04, 2017
+	- Over 70+ coins supported now by Corey Harding
+	- Initialize bn_zero to allow Intel CPU OpenCL compilation from Rytiss 
+	- Document -P option from fizzisist
+	- fix hd 68/69xx, 7xxx  from bitkevin 
+
+Version Plus, released Feb 06, 2017
+	- Groestlcoin address generation from wolf9466
+
+Version Plus, released Feb 07-08, 2017
+	- Windows compile fix from wolf9466
+	- More Windows compile fixes by Corey Harding
+
+Version 1.1 Plus, released Feb 10, 2017
+	- Fix oclvanitygen bug on Windows from Rytiss
+	- Release Linux and Windows binaries of v1.1 by Corey Harding
+
+Version 1.2 Plus, released Feb 11, 2017
+	- Append ticker symbol to output file
+	- Minor improvements
+
+Version 1.3 Plus, released Feb 12, 2017
+	- Groestlcoin fixes
+	- Minor improvements
+
+Version 1.41 Plus, released Feb 18, 2017
+	- Add -C COIN support to Keyconv for easy decryption of privkeys
+	- Fix Groestlcoin encryption/decryption of privkeys
+	- Add DMD
+	- Fix Keyconv -C COIN(bug in V1.4)
+	
+Version 1.42 Plus, released Feb 18, 2017
+	-Add Pinkcoin, GameCredits, Crown
+
+Version 1.50 Plus, released Dec 18, 2017
+	-Add C-Note by jcaferjr
+	-Add Emercoin by easmith
+	-Add DeepOnion by chillerfx
+	-Add PIVX by guggero
+	-Add QTUM by xuanyan0x7c7
+	-Add ATMOS by Dabs64
+	-Fix typo caught by ofek
+	-Show loading status from pattern file(evolution of example by mike-stuffel)
+
+Version 1.52 Plus, released Feb 19, 2018
+	-Added HBN (#52) by Tranz5
+	-Add support for combining compressed private keys (#50) by ryancdotorg
+	-Add compressed flag to keyconv #53 by exploitagency
+	-Add BitZeny (#54) by shirako-jp
+	-Add AXE (#57) update AXE (#76) by charlesrocket
+	-Fixing the FTP links. (#61) by flewkey
+	-Add NEETCOIN (#63) shirako-jp
+	-Bug Fix + Mac Fix (#68) by DesWurstes
+	- Add Garlicoin (GRLC) (#69) by sampi
+	-Fix SKC by exploitagency
+	-Support for ROIcoin (#72) by TheTDD
+	-Add Jincoin (JIN) (#77) by JinCoin
+	-Add Denarius (DNR) Support (#59)  by jwrb
+
+Version 1.53 Plus, released March 21, 2018
+	-Add support for NetBSD (#78) by randolf
+	-Add PrivKey prefix optional arg (#81) by k06a
+	-Add support for Bulwark (#83) by Penple03
+	-Add support for Yenten (#85) by yoshikiri6
+	-Add support for BLAST (#91) by blastdev
+	-Stop after X matches by exploitagency*
+		*Based on examples by westbaer
+	-Output in csv format by exploitagency*
+		*Based on examples by westbaer
