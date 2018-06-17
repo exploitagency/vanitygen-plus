@@ -201,6 +201,8 @@ main(int argc, char **argv)
 					"CCC : Chococoin : 7\n"
 					"CCN : Cannacoin : C\n"
 					"CDN : Canadaecoin : C\n"
+					"CIV : Civitas : C\n"
+					"tCIV : Civitas Testnet : y\n"
 					"CLAM : Clamcoin : x\n"
 					"CNC : Chinacoin : C\n"
 					"CNOTE : C-Note : C\n"
@@ -1138,6 +1140,22 @@ main(int argc, char **argv)
 					"Generating VIPSTARCOIN Address\n");
 					addrtype = 70;
 					privtype = 128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "CIV")== 0) {
+				fprintf(stderr,
+					"Generating Civitas Address\n");
+					addrtype = 28;
+					privtype = 212;
+					break;
+			}
+			else
+			if (strcmp(optarg, "tCIV")== 0) {
+				fprintf(stderr,
+					"Generating Civitas Testnet Address\n");
+					addrtype = 139;
+					privtype = 239;
 					break;
 			}
 			break;
