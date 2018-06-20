@@ -161,9 +161,9 @@ main(int argc, char **argv)
 		case '1':
 			only_one = 1;
 			break;
-		case 'a':
-			remove_on_match = 0;
-			numpairs = atoi(optarg);
+		case 'a': 
+			remove_on_match = 0; 
+			numpairs = atoi(optarg); 
 			break;
 		case 'z':
 		      csv = 1;
@@ -184,13 +184,12 @@ main(int argc, char **argv)
 					"---------------\n"
 					"42 : 42coin : 4\n"
 					"AC : Asiacoin : A\n"
-					"ACM : Actinium : N\n"
 					"AIB : Advanced Internet Block by IOBOND : A\n"
 					"ANC : Anoncoin : A\n"
 					"ARS : Arkstone : A\n"
 					"ATMOS : Atmos : N\n"
 					"AUR : Auroracoin : A\n"
-					"AXE : Axe : P\n"
+					"AXE : Axe : X\n"
 					"BLAST : BLAST : B\n"
 					"BLK : Blackcoin : B\n"
 					"BWK : Bulwark : b\n"
@@ -201,8 +200,6 @@ main(int argc, char **argv)
 					"CCC : Chococoin : 7\n"
 					"CCN : Cannacoin : C\n"
 					"CDN : Canadaecoin : C\n"
-					"CIV : Civitas : C\n"
-					"tCIV : Civitas Testnet : y\n"
 					"CLAM : Clamcoin : x\n"
 					"CNC : Chinacoin : C\n"
 					"CNOTE : C-Note : C\n"
@@ -236,6 +233,7 @@ main(int argc, char **argv)
 					"IXC : Ixcoin : x\n"
 					"JBS : Jumbucks : J\n"
 					"JIN : Jincoin : J\n"
+					"KORE : Kore : K\n"
 					"LBRY : LBRY : b\n"
 					"LEAF : Leafcoin : f\n"
 					"LTC : Litecoin : L\n"
@@ -266,7 +264,6 @@ main(int argc, char **argv)
 					"RDD : Reddcoin : R\n"
 					"RIC : Riecoin : R\n"
 					"ROI : ROIcoin : R\n"
-					"RVN : Ravencoin : R\n"
 					"SCA : Scamcoin : S\n"
 					"SDC : Shadowcoin : S\n"
 					"SKC : Skeincoin : S\n"
@@ -277,7 +274,6 @@ main(int argc, char **argv)
 					"UIS : Unitus : U\n"
 					"UNO : Unobtanium : u\n"
 					"VIA : Viacoin : V\n"
-					"VIPS : VIPSTARCOIN : V\n"
 					"VPN : Vpncoin : V\n"
 					"VTC : Vertcoin : V\n"
 					"WDC : Worldcoin Global : W\n"
@@ -292,14 +288,6 @@ main(int argc, char **argv)
 					"ZRC : Ziftrcoin : Z\n"
 					);
 					return 1;
-			}
-			else
-			if (strcmp(optarg, "ACM")== 0) {
-				fprintf(stderr,
-					"Generating Actinium Address\n");
-					addrtype = 53;
-					privtype = 181;
-					break;
 			}
 			else
 			if (strcmp(optarg, "PIVX")== 0) {
@@ -1127,35 +1115,11 @@ main(int argc, char **argv)
 					break;
 			}
 			else
-			if (strcmp(optarg, "RVN")== 0) {
+			if (strcmp(optarg, "KORE")== 0) {
 				fprintf(stderr,
-					"Generating Ravencoin Address\n");
-					addrtype = 60;
+					"Generating Kore Address\n");
+					addrtype = 45;
 					privtype = 128;
-					break;
-			}
-			else
-			if (strcmp(optarg, "VIPS")== 0) {
-				fprintf(stderr,
-					"Generating VIPSTARCOIN Address\n");
-					addrtype = 70;
-					privtype = 128;
-					break;
-			}
-			else
-			if (strcmp(optarg, "CIV")== 0) {
-				fprintf(stderr,
-					"Generating Civitas Address\n");
-					addrtype = 28;
-					privtype = 212;
-					break;
-			}
-			else
-			if (strcmp(optarg, "tCIV")== 0) {
-				fprintf(stderr,
-					"Generating Civitas Testnet Address\n");
-					addrtype = 139;
-					privtype = 239;
 					break;
 			}
 			break;
@@ -1314,9 +1278,7 @@ main(int argc, char **argv)
 			assert(strlen(optarg) % 2 == 0);
 			privkey_prefix_length = strlen(optarg)/2;
 			for (size_t i = 0; i < privkey_prefix_length; i++) {
-				int value; // Can't sscanf directly to char array because of overlapping on Win32
-				sscanf(&optarg[i*2], "%2x", &value);
-				privkey_prefix[privkey_prefix_length - 1 - i] = value;
+				sscanf(&optarg[i*2], "%2hhx", &privkey_prefix[privkey_prefix_length - 1 - i]);
 			}
 			break;
 		default:
