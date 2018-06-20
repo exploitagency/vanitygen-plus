@@ -135,13 +135,12 @@ Current List of Available Coins for Address Generation
 | --------------------------------------- | -------------------------------------------- | ------------ |
 |42 | 42coin | 4  |
 |AC | Asiacoin | A  |
-|ACM | Actinium | N |
 |AIB | Advanced Internet Block by IOBOND | A  |
 |ANC | Anoncoin | A  |
 |ARS | Arkstone | A  |
 |ATMOS | Atmos | N  |
 |AUR | Auroracoin | A  |
-|AXE | Axe | P |
+|AXE | Axe | X |
 |BLAST | BLAST | B  |
 |BLK | Blackcoin | B  |
 |BWK | Bulwark | b  |
@@ -186,6 +185,7 @@ Current List of Available Coins for Address Generation
 |IXC | Ixcoin | x  |
 |JBS | Jumbucks | J  |
 |JIN | Jincoin | J  |
+|KORE | Kore | K |
 |LBRY | LBRY | b  |
 |LEAF | Leafcoin | f  |
 |LTC | Litecoin | L  |
@@ -216,7 +216,6 @@ Current List of Available Coins for Address Generation
 |RDD | Reddcoin | R  |
 |RIC | Riecoin | R  |
 |ROI | ROIcoin | R  |
-|RVN | Ravencoin | R |
 |SCA | Scamcoin | S  |
 |SDC | Shadowcoin | S  |
 |SKC | Skeincoin | S  |
@@ -227,7 +226,6 @@ Current List of Available Coins for Address Generation
 |UIS | Unitus | U  |
 |UNO | Unobtanium | u  |
 |VIA | Viacoin | V  |
-|VIPS | VIPSTARCOIN | V  |
 |VPN | Vpncoin | V  |
 |VTC | Vertcoin | V  |
 |WDC | Worldcoin Global | W  |
