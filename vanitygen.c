@@ -499,6 +499,7 @@ main(int argc, char **argv)
 					"IXC : Ixcoin : x\n"
 					"JBS : Jumbucks : J\n"
 					"JIN : Jincoin : J\n"
+					"KORE : Kore : K\n"
 					"LBRY : LBRY : b\n"
 					"LEAF : Leafcoin : f\n"
 					"LTC : Litecoin : L\n"
@@ -1430,6 +1431,14 @@ main(int argc, char **argv)
 					addrtype = 139;
 					privtype = 239;
 					break;
+			}
+			else
+			if (strcmp(optarg, "KORE")== 0) {
+				fprintf(stderr,
+					"Generating Kore Address\n");
+					addrtype = 45;
+					privtype = 128;
+					break;		
 			}
 			break;
 
