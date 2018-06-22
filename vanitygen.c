@@ -553,6 +553,7 @@ main(int argc, char **argv)
 					"ZNY : BitZeny : Z\n"
 					"ZOOM : Zoom coin : i\n"
 					"ZRC : Ziftrcoin : Z\n"
+                    "TUX : Tuxcoin : T\n"
 					);
 					return 1;
 			}
@@ -1431,6 +1432,14 @@ main(int argc, char **argv)
 					privtype = 239;
 					break;
 			}
+			else
+			if (strcmp(optarg, "TUX")== 0) {
+				fprintf(stderr,
+					"Generating TUX Address\n");
+					addrtype = 65;
+					privtype = 193;
+					break;
+            }
 			break;
 
 /*END ALTCOIN GENERATOR*/
