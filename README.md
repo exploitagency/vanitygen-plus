@@ -240,6 +240,7 @@ Current List of Available Coins for Address Generation
 |ZNY | BitZeny | Z  |
 |ZOOM | Zoom coin | i  |
 |ZRC | Ziftrcoin | Z  |
+|TUX | Tuxcoin | T  |
   
 **If you found this repo useful, please consider a donation.  Thank You!**  
   
