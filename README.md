@@ -187,6 +187,7 @@ Current List of Available Coins for Address Generation
 |JBS | Jumbucks | J  |
 |JIN | Jincoin | J  |
 |KMD | Komodo (and assetchains) | R  |
+|KORE | Kore | K  |
 |LBRY | LBRY | b  |
 |LEAF | Leafcoin | f  |
 |LTC | Litecoin | L  |
@@ -225,6 +226,7 @@ Current List of Available Coins for Address Generation
 |START | Startcoin | s  |
 |SXC | Sexcoin | R or S  |
 |TPC | Templecoin | T  |
+|TUX | Tuxcoin | T  |
 |UIS | Unitus | U  |
 |UNO | Unobtanium | u  |
 |VIA | Viacoin | V  |

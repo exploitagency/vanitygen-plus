@@ -106,6 +106,8 @@ main(int argc, char **argv)
 					"CCC : Chococoin : 7\n"
 					"CCN : Cannacoin : C\n"
 					"CDN : Canadaecoin : C\n"
+					"CIV : Civitas : C\n"
+					"tCIV : Civitas Testnet : y\n"
 					"CLAM : Clamcoin : x\n"
 					"CNC : Chinacoin : C\n"
 					"CNOTE : C-Note : C\n"
@@ -141,6 +143,7 @@ main(int argc, char **argv)
 					"JBS : Jumbucks : J\n"
 					"JIN : Jincoin : J\n"
 					"KMD : Komodo (and assetchains) : R\n"
+					"KORE : Kore : K\n"
 					"LBRY : LBRY : b\n"
 					"LEAF : Leafcoin : f\n"
 					"LTC : Litecoin : L\n"
@@ -179,6 +182,7 @@ main(int argc, char **argv)
 					"START : Startcoin : s\n"
 					"SXC : Sexcoin : R or S\n"
 					"TPC : Templecoin : T\n"
+					"TUX : Tuxcoin : T\n"
 					"UIS : Unitus : U\n"
 					"UNO : Unobtanium : u\n"
 					"VIA : Viacoin : V\n"
@@ -1062,6 +1066,38 @@ main(int argc, char **argv)
 					addrtype_opt = 70;
 					privtype_opt = 128;
 					break;
+			}
+			else
+			if (strcmp(optarg, "CIV")== 0) {
+				fprintf(stderr,
+					"Decrypting Civitas Address\n");
+					addrtype_opt = 28;
+					privtype_opt = 212;
+					break;
+			}
+			else
+			if (strcmp(optarg, "tCIV")== 0) {
+				fprintf(stderr,
+					"Decrypting Civitas Testnet Address\n");
+					addrtype_opt = 139;
+					privtype_opt = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "TUX")== 0) {
+				fprintf(stderr,
+					"Decrypting TUX Address\n");
+					addrtype_opt = 65;
+					privtype_opt = 193;
+					break;
+                        }
+                        else
+			if (strcmp(optarg, "KORE")== 0) {
+				fprintf(stderr,
+					"Decrypting Kore Address\n");
+					addrtype_opt = 45;
+					privtype_opt = 128;
+					break;		
 			}
 			break;
 

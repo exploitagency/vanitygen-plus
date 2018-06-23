@@ -463,6 +463,8 @@ main(int argc, char **argv)
 					"CCC : Chococoin : 7\n"
 					"CCN : Cannacoin : C\n"
 					"CDN : Canadaecoin : C\n"
+					"CIV : Civitas : C\n"
+					"tCIV : Civitas Testnet : y\n"
 					"CLAM : Clamcoin : x\n"
 					"CNC : Chinacoin : C\n"
 					"CNOTE : C-Note : C\n"
@@ -498,6 +500,7 @@ main(int argc, char **argv)
 					"JBS : Jumbucks : J\n"
 					"JIN : Jincoin : J\n"
 					"KMD : Komodo (and assetchains) : R\n"
+					"KORE : Kore : K\n"
 					"LBRY : LBRY : b\n"
 					"LEAF : Leafcoin : f\n"
 					"LTC : Litecoin : L\n"
@@ -528,7 +531,7 @@ main(int argc, char **argv)
 					"RDD : Reddcoin : R\n"
 					"RIC : Riecoin : R\n"
 					"ROI : ROIcoin: R\n"
-					"RVN :Rvaencoin : R\n"
+					"RVN : Ravencoin : R\n"
 					"SCA : Scamcoin : S\n"
 					"SDC : Shadowcoin : S\n"
 					"SKC : Skeincoin : S\n"
@@ -536,6 +539,7 @@ main(int argc, char **argv)
 					"START : Startcoin : s\n"
 					"SXC : Sexcoin : R or S\n"
 					"TPC : Templecoin : T\n"
+					"TUX : Tuxcoin : T\n"
 					"UIS : Unitus : U\n"
 					"UNO : Unobtanium : u\n"
 					"VIA : Viacoin : V\n"
@@ -1421,6 +1425,38 @@ main(int argc, char **argv)
 					addrtype = 70;
 					privtype = 128;
 					break;
+			}
+			else
+			if (strcmp(optarg, "CIV")== 0) {
+				fprintf(stderr,
+					"Generating Civitas Address\n");
+					addrtype = 28;
+					privtype = 212;
+					break;
+			}
+			else
+			if (strcmp(optarg, "tCIV")== 0) {
+				fprintf(stderr,
+					"Generating Civitas Testnet Address\n");
+					addrtype = 139;
+					privtype = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "TUX")== 0) {
+				fprintf(stderr,
+					"Generating TUX Address\n");
+					addrtype = 65;
+					privtype = 193;
+					break;
+                        }
+                        else
+			if (strcmp(optarg, "KORE")== 0) {
+				fprintf(stderr,
+					"Generating Kore Address\n");
+					addrtype = 45;
+					privtype = 128;
+					break;		
 			}
 			break;
 
