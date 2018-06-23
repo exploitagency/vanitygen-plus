@@ -224,6 +224,7 @@ Current List of Available Coins for Address Generation
 |START | Startcoin | s  |
 |SXC | Sexcoin | R or S  |
 |TPC | Templecoin | T  |
+|TUX | Tuxcoin | T  |
 |UIS | Unitus | U  |
 |UNO | Unobtanium | u  |
 |VIA | Viacoin | V  |
@@ -240,7 +241,6 @@ Current List of Available Coins for Address Generation
 |ZNY | BitZeny | Z  |
 |ZOOM | Zoom coin | i  |
 |ZRC | Ziftrcoin | Z  |
-|TUX | Tuxcoin | T  |
   
 **If you found this repo useful, please consider a donation.  Thank You!**  
   
