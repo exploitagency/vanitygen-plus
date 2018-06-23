@@ -1076,7 +1076,7 @@ main(int argc, char **argv)
 			else
 			if (strcmp(optarg, "TUX")== 0) {
 				fprintf(stderr,
-					"Decrypting LTC Address\n");
+					"Decrypting TUX Address\n");
 					addrtype_opt = 65;
 					privtype_opt = 193;
 					break;
