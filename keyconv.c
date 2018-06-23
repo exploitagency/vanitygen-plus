@@ -140,7 +140,7 @@ main(int argc, char **argv)
 					"IXC : Ixcoin : x\n"
 					"JBS : Jumbucks : J\n"
 					"JIN : Jincoin : J\n"
-					"KMD : Komodo (And assetchains) : R\n"
+					"KMD : Komodo (and assetchains) : R\n"
 					"LBRY : LBRY : b\n"
 					"LEAF : Leafcoin : f\n"
 					"LTC : Litecoin : L\n"
