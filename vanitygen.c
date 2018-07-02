@@ -505,6 +505,7 @@ main(int argc, char **argv)
 					"LEAF : Leafcoin : f\n"
 					"LTC : Litecoin : L\n"
 					"MMC : Memorycoin : M\n"
+					"MOG : Mogwai : M\n"
 					"MONA : Monacoin : M\n"
 					"MUE : Monetary Unit : 7\n"
 					"MYRIAD : Myriadcoin : M\n"
@@ -1279,6 +1280,14 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Generating DASH Address\n");
 					addrtype = 76;
+					privtype = 204;
+					break;
+			}
+			else
+			if (strcmp(optarg, "MOG")== 0) {
+				fprintf(stderr,
+					"Generating Mogwai Address\n");
+					addrtype = 50;
 					privtype = 204;
 					break;
 			}
