@@ -192,6 +192,7 @@ Current List of Available Coins for Address Generation
 |LEAF | Leafcoin | f  |
 |LTC | Litecoin | L  |
 |MMC | Memorycoin | M  |
+|MOG | Mogwai | M  |
 |MONA | Monacoin | M  |
 |MUE | Monetary Unit | 7  |
 |MYRIAD | Myriadcoin | M  |
