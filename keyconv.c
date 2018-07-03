@@ -927,7 +927,7 @@ main(int argc, char **argv)
 			else
 			if (strcmp(optarg, "MOG")== 0) {
 				fprintf(stderr,
-					"Generating Mogwai Address\n");
+					"Decrypting Mogwai Address\n");
 					addrtype = 50;
 					privtype = 204;
 					break;
