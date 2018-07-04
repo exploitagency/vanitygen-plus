@@ -928,8 +928,8 @@ main(int argc, char **argv)
 			if (strcmp(optarg, "MOG")== 0) {
 				fprintf(stderr,
 					"Decrypting Mogwai Address\n");
-					addrtype = 50;
-					privtype = 204;
+					addrtype_opt = 50;
+					privtype_opt = 204;
 					break;
 			}
 			else
