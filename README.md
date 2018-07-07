@@ -179,6 +179,7 @@ Current List of Available Coins for Address Generation
 |GRC | GridcoinResearch | R or S  |
 |GRLC | Garlicoin | G  |
 |GRS | Groestlcoin | F  |
+|GRV | Gravium | G  |
 |GUN | Guncoin | G or H  |
 |HAM | HamRadiocoin | 1  |
 |HBN | HoboNickels(and BottleCaps) | E or F  |

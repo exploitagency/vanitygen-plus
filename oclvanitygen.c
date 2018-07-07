@@ -229,6 +229,7 @@ main(int argc, char **argv)
 					"GRC : GridcoinResearch : R or S\n"
 					"GRLC : Garlicoin : G\n"
 					"GRS : Groestlcoin : F\n"
+					"GRV : Gravium : G\n"
 					"GUN : Guncoin : G or H\n"
 					"HAM : HamRadiocoin : 1\n"
 					"HBN : HoboNickels(BottleCaps) : E or F\n"
@@ -1176,6 +1177,14 @@ main(int argc, char **argv)
 					"Generating Civitas Testnet Address\n");
 					addrtype = 139;
 					privtype = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "GRV")== 0) {
+				fprintf(stderr,
+					"Generating Gravium Address\n");
+					addrtype = 38;
+					privtype = 166;
 					break;
 			}
 			else

@@ -135,6 +135,7 @@ main(int argc, char **argv)
 					"GRC : GridcoinResearch : R or S\n"
 					"GRLC : Garlicoin : G\n"
 					"GRS : Groestlcoin : F\n"
+					"GRV : Gravium : G\n"
 					"GUN : Guncoin : G or H\n"
 					"HAM : HamRadiocoin : 1\n"
 					"HBN : HoboNickels(BottleCaps) : E or F\n"
@@ -1090,6 +1091,14 @@ main(int argc, char **argv)
 					"Decrypting Civitas Testnet Address\n");
 					addrtype_opt = 139;
 					privtype_opt = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "GRV")== 0) {
+				fprintf(stderr,
+					"Decrypting Gravium Address\n");
+					addrtype_opt = 38;
+					privtype_opt = 166;
 					break;
 			}
 			else
