@@ -1481,8 +1481,8 @@ main(int argc, char **argv)
 			if (strcmp(optarg, "GIN")== 0) {
 				fprintf(stderr,
 					"Decrypting Gincoin Address\n");
-					addrtype_opt = 38;
-					privtype_opt = 70;
+					addrtype = 38;
+					privtype = 70;
 			}
 			break;
 
