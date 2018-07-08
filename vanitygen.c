@@ -492,6 +492,7 @@ main(int argc, char **argv)
 					"GRC : GridcoinResearch : R or S\n"
 					"GRLC : Garlicoin : G\n"
 					"GRS : Groestlcoin : F\n"
+					"GIN : GINcoin : G\n"
 					"GRV : Gravium : G\n"
 					"GUN : Guncoin : G or H\n"
 					"HAM : HamRadiocoin : 1\n"
@@ -1475,6 +1476,13 @@ main(int argc, char **argv)
 					addrtype = 45;
 					privtype = 128;
 					break;		
+			}
+			else
+			if (strcmp(optarg, "GIN")== 0) {
+				fprintf(stderr,
+					"Decrypting Gincoin Address\n");
+					addrtype_opt = 38;
+					privtype_opt = 70;
 			}
 			break;
 
