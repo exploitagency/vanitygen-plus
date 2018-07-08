@@ -1482,7 +1482,8 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Decrypting Gincoin Address\n");
 					addrtype = 38;
-					privtype = 70;
+					privtype = 198; //128 + 70 (0x46 byte prefix)
+					compressed = 1; //to import easily into GINcoin Core wallet
 			}
 			break;
 
