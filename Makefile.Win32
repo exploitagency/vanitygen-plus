@@ -1,19 +1,19 @@
 CC = cl
 OPENSSL_DIR = C:\OpenSSL-Win32
 PTHREADS_DIR = C:\pthreads-w32-2-8-0-release
-PCRE_DIR = C:\pcre-7.9-src
+PCRE_DIR = C:\pcre-7.9-static
 CURL_DIR = C:\curl-7.26.0-x86\builds\libcurl-release-static-ssl-static-ipv6-sspi
-OPENCL_DIR = "C:\Program Files (x86)\AMD APP"
+OPENCL_DIR = "C:\Program Files (x86)\AMD APP SDK\3.0"
 OPENCL_INCLUDE = /I$(OPENCL_DIR)\include
 OPENCL_LIBS = $(OPENCL_DIR)\lib\x86\OpenCL.lib
 CURL_INCLUDE = /I$(CURL_DIR)\include /DCURL_STATICLIB
 CURL_LIBS = $(CURL_DIR)\lib\libcurl_a.lib
-CFLAGS_BASE = /D_WIN32 /DPTW32_STATIC_LIB /DPCRE_STATIC /I$(OPENSSL_DIR)\inc32 /I$(PTHREADS_DIR) /I$(PCRE_DIR) /Ox /Zi
+CFLAGS_BASE = /D_WIN32 /DPTW32_STATIC_LIB /DPCRE_STATIC /I$(OPENSSL_DIR)\include /I$(PTHREADS_DIR) /I$(PCRE_DIR) /Ox /Zi /DHAVE_STRUCT_TIMESPEC
 CFLAGS = $(CFLAGS_BASE) /GL
-LIBS = $(OPENSSL_DIR)\out32\libeay32.lib $(PTHREADS_DIR)\pthreadVC2.lib $(PCRE_DIR)\pcre.lib ws2_32.lib user32.lib advapi32.lib gdi32.lib /LTCG /DEBUG
+LIBS = $(OPENSSL_DIR)\lib\libeay32.lib $(PTHREADS_DIR)\Pre-built.2\lib\pthreadVC2.lib $(PCRE_DIR)\pcre.lib ws2_32.lib user32.lib advapi32.lib gdi32.lib /LTCG /DEBUG
 OBJS = vanitygen.obj oclvanitygen.obj oclengine.obj oclvanityminer.obj keyconv.obj pattern.obj util.obj winglue.obj groestl.obj
 
-all: vanitygen.exe keyconv.exe
+all: vanitygen.exe oclvanitygen.exe oclvanityminer.exe keyconv.exe
 
 vanitygen.exe: vanitygen.obj pattern.obj util.obj winglue.obj groestl.obj
 	link /nologo /out:$@ $** $(LIBS)
