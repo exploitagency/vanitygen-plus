@@ -31,3 +31,20 @@ After dependencies have been prepared, open a Visual Studio command
 prompt window, and run:
 
 nmake /fMakefile.Win32 vanitygen.exe oclvanitygen.exe
+
+MacOS
+Install Homebrew
+`ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"`
+
+Install pcre, pcre++, and openSSL using Homebrew
+brew install pcre pcre++ openssl
+
+In Makefile replace LIBS, and CFLAGS lines with the lines below:
+LIBS= -lpcre -lcrypto -lm -lpthread
+INCPATHS=-I$(shell brew --prefix)/include -I$(shell brew --prefix openssl)/include
+LIBPATHS=-L$(shell brew --prefix)/lib -L$(shell brew --prefix openssl)/lib
+CFLAGS=-ggdb -O3 -Wall -Qunused-arguments $(INCPATHS) $(LIBPATHS)
+
+Compile binaries executing the following:
+`make all`
+
