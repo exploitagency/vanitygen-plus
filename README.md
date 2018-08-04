@@ -186,6 +186,7 @@ Current List of Available Coins for Address Generation
 |HAM | HamRadiocoin | 1  |
 |HBN | HoboNickels(and BottleCaps) | E or F  |
 |HODL | HOdlcoin | H  |
+|IC | Ignition Coin | i  |
 |IXC | Ixcoin | x  |
 |JBS | Jumbucks | J  |
 |JIN | Jincoin | J  |

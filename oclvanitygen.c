@@ -234,6 +234,7 @@ main(int argc, char **argv)
 					"HAM : HamRadiocoin : 1\n"
 					"HBN : HoboNickels(BottleCaps) : E or F\n"
 					"HODL : HOdlcoin : H\n"
+					"IC : Ignition Coin : i\n"
 					"IXC : Ixcoin : x\n"
 					"JBS : Jumbucks : J\n"
 					"JIN : Jincoin : J\n"
@@ -761,6 +762,14 @@ main(int argc, char **argv)
 					"Generating BTCD Address\n");
 					addrtype = 60;
 					privtype = 188;
+					break;
+			}
+			else
+			if (strcmp(optarg, "IC")== 0) {
+				fprintf(stderr,
+					"Generating IC Address\n");
+					addrtype = 103;
+					privtype = 138;
 					break;
 			}
 			else

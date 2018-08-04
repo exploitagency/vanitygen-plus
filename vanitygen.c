@@ -1301,6 +1301,14 @@ main(int argc, char **argv)
 					break;
 			}
 			else
+			if (strcmp(optarg, "IC")== 0) {
+				fprintf(stderr,
+					"Generating IC Address\n");
+					addrtype = 103;
+					privtype = 138;
+					break;
+			}
+			else
 			if (strcmp(optarg, "TEST")== 0) {
 				fprintf(stderr,
 					"Generating BTC Testnet Address\n");

@@ -140,6 +140,7 @@ main(int argc, char **argv)
 					"HAM : HamRadiocoin : 1\n"
 					"HBN : HoboNickels(BottleCaps) : E or F\n"
 					"HODL : HOdlcoin : H\n"
+					"IC : Ignition Coin : i\n"
 					"IXC : Ixcoin : x\n"
 					"JBS : Jumbucks : J\n"
 					"JIN : Jincoin : J\n"
@@ -939,6 +940,14 @@ main(int argc, char **argv)
 					"Decrypting BTC Address\n");
 					addrtype_opt = 0;
 					privtype_opt = 128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "IC")== 0) {
+				fprintf(stderr,
+					"Decrypting IC Address\n");
+					addrtype_opt = 103;
+					privtype_opt = 138;
 					break;
 			}
 			else
