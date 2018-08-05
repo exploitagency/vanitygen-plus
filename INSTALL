@@ -32,7 +32,7 @@ prompt window, and run:
 
 nmake /fMakefile.Win32 vanitygen.exe oclvanitygen.exe
 
-MacOS
+MacOS:
 Install Homebrew
 `ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"`
 
