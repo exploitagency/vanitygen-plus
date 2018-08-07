@@ -351,7 +351,7 @@ usage(const char *name)
 "              (Use \"-\" as the file name for stdin)\n"
 "-o <file>     Write pattern matches to <file>\n"
 "-s <file>     Seed random number generator from <file>\n"
-"-Z <prefix>   Private key prefix in hex (vipco.in)\n"
+"-Z <prefix>   Private key prefix in hex (1Address.io Dapp front-running protection)\n"
 "-z            Format output of matches in CSV(disables verbose mode)\n"
 "              Output as [COIN],[PREFIX],[ADDRESS],[PRIVKEY]\n",
 version, name);
