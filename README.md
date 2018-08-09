@@ -198,6 +198,7 @@ Current List of Available Coins for Address Generation
 |MMC | Memorycoin | M  |
 |MOG | Mogwai | M  |
 |MONA | Monacoin | M  |
+|MOTA | MotaCoin | M  |
 |MUE | Monetary Unit | 7  |
 |MYRIAD | Myriadcoin | M  |
 |MZC | Mazacoin | M  |
