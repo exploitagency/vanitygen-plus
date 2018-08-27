@@ -830,13 +830,15 @@ main(int argc, char **argv)
 					privtype_opt = 176;
 					break;
 			}
+			else
 			if (strcmp(optarg, "MOTA")== 0) {
 				fprintf(stderr,
 					"Decrypting MOTA Address\n");
 					addrtype_opt = 50;
 					privtype_opt = 178;
 					break;
-			}			else
+			}			
+			else
 			if (strcmp(optarg, "DGB")== 0) {
 				fprintf(stderr,
 					"Decrypting DGB Address\n");
