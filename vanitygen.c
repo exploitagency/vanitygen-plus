@@ -1189,7 +1189,7 @@ main(int argc, char **argv)
 					break;
 			}
 			else
-            if (strcmp(optarg, "MOTA")== 0) {
+			if (strcmp(optarg, "MOTA")== 0) {
 				fprintf(stderr,
 					"Generating MOTA Address\n");
 					addrtype = 50;
