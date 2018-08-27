@@ -1069,11 +1069,7 @@ vg_prefix_avl_insert(avl_root_t *rootp, vg_prefix_t *vpnew)
 			if (BN_cmp(vp->vp_high, vpnew->vp_low) < 0) {
 				ptrp = &itemp->ai_right;
 			} else {
-				if (1) {	// allow overlaps
-					ptrp = &itemp->ai_left;
-				} else {
-					return vp;
-				}
+				return vp;
 			}
 		}
 	}
