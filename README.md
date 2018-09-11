@@ -151,6 +151,7 @@ Current List of Available Coins for Address Generation
 |BTC | Bitcoin | 1  |
 |TEST | Bitcoin Testnet | m or n  |
 |BTCD | Bitcoin Dark | R  |
+|CARE | Carebit | C  |
 |CCC | Chococoin | 7  |
 |CCN | Cannacoin | C  |
 |CDN | Canadaecoin | C  |
