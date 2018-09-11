@@ -103,6 +103,7 @@ main(int argc, char **argv)
 					"BTC : Bitcoin : 1\n"
 					"TEST : Bitcoin Testnet : m or n\n"
 					"BTCD : Bitcoin Dark : R\n"
+					"CARE : Carebit : C\n"
 					"CCC : Chococoin : 7\n"
 					"CCN : Cannacoin : C\n"
 					"CDN : Canadaecoin : C\n"
@@ -1116,6 +1117,14 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Decrypting MNPCoin Address\n");
 					addrtype_opt = 50;
+					privtype_opt = 55;
+					break;
+			}
+			else
+			if (strcmp(optarg, "CARE")== 0) {
+				fprintf(stderr,
+					"Decrypting Carebit Address\n");
+					addrtype_opt = 28;
 					privtype_opt = 55;
 					break;
 			}
