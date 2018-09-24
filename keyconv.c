@@ -135,6 +135,7 @@ main(int argc, char **argv)
 					"GCR : Global Currency Reserve : G\n"
 					"GRC : GridcoinResearch : R or S\n"
 					"GRLC : Garlicoin : G\n"
+					"GIN : Gincoin : G\n"
 					"GRS : Groestlcoin : F\n"
 					"GRV : Gravium : G\n"
 					"GUN : Guncoin : G or H\n"
@@ -1135,14 +1136,21 @@ main(int argc, char **argv)
 					addrtype_opt = 65;
 					privtype_opt = 193;
 					break;
-                        }
-                        else
+            }
+            else
 			if (strcmp(optarg, "KORE")== 0) {
 				fprintf(stderr,
 					"Decrypting Kore Address\n");
 					addrtype_opt = 45;
 					privtype_opt = 128;
 					break;		
+			}
+			else
+			if (strcmp(optarg, "GIN")== 0) {
+				fprintf(stderr,
+					"Decrypting Gincoin Address\n");
+					addrtype_opt = 38;
+					privtype_opt = 198; //128 + 70 (0x46 byte prefix)
 			}
 			break;
 
