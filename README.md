@@ -181,6 +181,7 @@ Current List of Available Coins for Address Generation
 |GCR | Global Currency Reserve | G  |
 |GRC | GridcoinResearch | R or S  |
 |GRLC | Garlicoin | G  |
+|GRN | GreenCoin | G  |
 |GRS | Groestlcoin | F  |
 |GRV | Gravium | G  |
 |GUN | Guncoin | G or H  |
