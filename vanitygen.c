@@ -492,6 +492,7 @@ main(int argc, char **argv)
 					"GCR : Global Currency Reserve : G\n"
 					"GRC : GridcoinResearch : R or S\n"
 					"GRLC : Garlicoin : G\n"
+					"GRN : GreenCoin : G\n"
 					"GRS : Groestlcoin : F\n"
 					"GRV : Gravium : G\n"
 					"GUN : Guncoin : G or H\n"
@@ -1349,6 +1350,14 @@ main(int argc, char **argv)
 					"Generating GRLC Address\n");
 					addrtype = 38;
 					privtype = 176;
+					break;
+			}
+			else
+			if (strcmp(optarg, "GRN")== 0) {
+				fprintf(stderr,
+					"Generating GRN Address\n");
+					addrtype = 38;
+					privtype = 166;
 					break;
 			}
 			else
