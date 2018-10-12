@@ -507,6 +507,7 @@ main(int argc, char **argv)
 					"KORE : Kore : K\n"
 					"LBRY : LBRY : b\n"
 					"LEAF : Leafcoin : f\n"
+					"LMC : LomoCoin : L\n"
 					"LTC : Litecoin : L\n"
 					"MMC : Memorycoin : M\n"
 					"MNP : MNPCoin : M\n"
@@ -1334,6 +1335,14 @@ main(int argc, char **argv)
 					"Generating LBRY Address\n");
 					addrtype = 85;
 					privtype = 28;
+					break;
+			}
+			else
+			if (strcmp(optarg, "LMC")== 0) {
+				fprintf(stderr,
+					"Generating LomoCoin Address\n");
+					addrtype = 48;
+					privtype = 176;
 					break;
 			}
 			else

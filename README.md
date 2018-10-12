@@ -196,6 +196,7 @@ Current List of Available Coins for Address Generation
 |KORE | Kore | K  |
 |LBRY | LBRY | b  |
 |LEAF | Leafcoin | f  |
+|LMC | LomoCoin | L  |
 |LTC | Litecoin | L  |
 |MMC | Memorycoin | M  |
 |MNP | MNPCoin | M  |

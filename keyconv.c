@@ -150,6 +150,7 @@ main(int argc, char **argv)
 					"KORE : Kore : K\n"
 					"LBRY : LBRY : b\n"
 					"LEAF : Leafcoin : f\n"
+					"LMC : LomoCoin : L\n"
 					"LTC : Litecoin : L\n"
 					"MMC : Memorycoin : M\n"
 					"MNP : MNPCoin : M\n"
@@ -975,6 +976,14 @@ main(int argc, char **argv)
 					"Decrypting LBRY Address\n");
 					addrtype_opt = 85;
 					privtype_opt = 28;
+					break;
+			}
+			else
+			if (strcmp(optarg, "LMC")== 0) {
+				fprintf(stderr,
+					"Decrypting LomoCoin Address\n");
+					addrtype_opt = 48;
+					privtype_opt = 176;
 					break;
 			}
 			else
