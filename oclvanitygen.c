@@ -247,6 +247,7 @@ main(int argc, char **argv)
 					"LTC : Litecoin : L\n"
 					"MMC : Memorycoin : M\n"
 					"MNP : MNPCoin : M\n"
+					"MGD : MassGrid : M\n"
 					"MOG : Mogwai : M\n"
 					"MONA : Monacoin : M\n"
 					"MUE : Monetary Unit : 7\n"
@@ -1021,6 +1022,14 @@ main(int argc, char **argv)
 					"Generating DASH Address\n");
 					addrtype = 76;
 					privtype = 204;
+					break;
+			}
+			else
+			if (strcmp(optarg, "MGD")== 0) {
+				fprintf(stderr,
+					"Generating MassGrid Address\n");
+					addrtype = 50;
+					privtype = 25;
 					break;
 			}
 			else
