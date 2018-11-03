@@ -452,6 +452,7 @@ main(int argc, char **argv)
 					"ARS : Arkstone : A\n"
 					"ATMOS : Atmos : N\n"
 					"AUR : Auroracoin : A\n"
+					"AQX : Aquila : A\n"
 					"AXE : Axe : P\n"
 					"BLAST : BLAST : B\n"
 					"BLK : Blackcoin : B\n"
@@ -461,6 +462,7 @@ main(int argc, char **argv)
 					"TEST : Bitcoin Testnet : m or n\n"
 					"BTCD : Bitcoin Dark : R\n"
 					"CARE : Carebit : C\n"
+					"CCBC : CryptoCashBackCoin : C\n"
 					"CCC : Chococoin : 7\n"
 					"CCN : Cannacoin : C\n"
 					"CDN : Canadaecoin : C\n"
@@ -501,6 +503,7 @@ main(int argc, char **argv)
 					"HODL : HOdlcoin : H\n"
 					"IC : Ignition Coin : i\n"
 					"IXC : Ixcoin : x\n"
+					"IPS : Ipsum : i\n"
 					"JBS : Jumbucks : J\n"
 					"JIN : Jincoin : J\n"
 					"KMD : Komodo (and assetchains) : R\n"
@@ -573,6 +576,30 @@ main(int argc, char **argv)
 					"Generating Actinium Address\n");
 					addrtype = 53;
 					privtype = 181;
+					break;
+			}
+			else
+			if (strcmp(optarg, "AQX")== 0) {
+				fprintf(stderr,
+					"Generating Aquila Address\n");
+					addrtype = 75;
+					privtype = 212;
+					break;
+			}
+			else
+			if (strcmp(optarg, "IPS")== 0) {
+				fprintf(stderr,
+					"Generating Ipsum Address\n");
+					addrtype = 103;
+					privtype = 138;
+					break;
+			}
+			else
+			if (strcmp(optarg, "CCBC")== 0) {
+				fprintf(stderr,
+					"Generating CryptoCashBackCoin Address\n");
+					addrtype = 63;
+					privtype = 212;
 					break;
 			}
 			else
