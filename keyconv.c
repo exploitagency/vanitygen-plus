@@ -225,24 +225,24 @@ main(int argc, char **argv)
 			if (strcmp(optarg, "AQX")== 0) {
 				fprintf(stderr,
 					"Generating Aquila Address\n");
-					addrtype = 75;
-					privtype = 212;
+					addrtype_opt = 75;
+					privtype_opt = 212;
 					break;
 			}
 			else
 			if (strcmp(optarg, "IPS")== 0) {
 				fprintf(stderr,
 					"Generating Ipsum Address\n");
-					addrtype = 103;
-					privtype = 138;
+					addrtype_opt = 103;
+					privtype_opt = 138;
 					break;
 			}
 			else
 			if (strcmp(optarg, "CCBC")== 0) {
 				fprintf(stderr,
 					"Generating CryptoCashBackCoin Address\n");
-					addrtype = 63;
-					privtype = 212;
+					addrtype_opt = 63;
+					privtype_opt = 212;
 					break;
 			}
 			else
