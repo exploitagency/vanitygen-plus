@@ -157,6 +157,8 @@ main(int argc, char **argv)
 					"LTC : Litecoin : L\n"
 					"MGD : MassGrid : M\n"
 					"MMC : Memorycoin : M\n"
+					"MNC : Mincoin : M\n"
+					"tMNC : Mincoin Testnet : m or n\n"
 					"MNP : MNPCoin : M\n"
 					"MOG : Mogwai : M\n"
 					"MONA : Monacoin : M\n"
@@ -1196,7 +1198,23 @@ main(int argc, char **argv)
 					"Decrypting Kore Address\n");
 					addrtype_opt = 45;
 					privtype_opt = 128;
-					break;		
+					break;
+			}
+			else
+			if (strcmp(optarg, "MNC")== 0) {
+				fprintf(stderr,
+					"Decrypting MNC Address\n");
+					addrtype_opt = 50;
+					privtype_opt = 178;
+					break;
+			}
+			else
+			if (strcmp(optarg, "tMNC")== 0) {
+				fprintf(stderr,
+					"Decrypting MNC Testnet Address\n");
+					addrtype_opt = 111;
+					privtype_opt = 239;
+					break;
 			}
 			break;
 

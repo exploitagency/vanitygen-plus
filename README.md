@@ -200,6 +200,8 @@ Current List of Available Coins for Address Generation
 |LTC | Litecoin | L  |
 |MGD | MassGrid | M  |
 |MMC | Memorycoin | M  |
+|MNC | Mincoin | M  |
+|tMNC | Mincoin Testnet | m or n  |
 |MNP | MNPCoin | M  |
 |MOG | Mogwai | M  |
 |MONA | Monacoin | M  |
