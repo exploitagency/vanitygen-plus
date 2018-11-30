@@ -540,6 +540,7 @@ main(int argc, char **argv)
 					"QTUM : Qtum : Q\n"
 					"RBY : Rubycoin : R\n"
 					"RDD : Reddcoin : R\n"
+					"RITO : Ritocoin : B\n"
 					"RIC : Riecoin : R\n"
 					"ROI : ROIcoin: R\n"
 					"RVN : Ravencoin : R\n"
@@ -1483,6 +1484,14 @@ main(int argc, char **argv)
 					"Generating Yenten Address\n");
 					addrtype = 78;
 					privtype = 123;
+					break;
+			}
+			else
+			if (strcmp(optarg, "RITO")== 0) {
+				fprintf(stderr,
+					"Generating Ritocoin Address\n");
+					addrtype = 25;
+					privtype = 139;
 					break;
 			}
 			else
