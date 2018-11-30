@@ -227,6 +227,7 @@ Current List of Available Coins for Address Generation
 |RBY | Rubycoin | R  |
 |RDD | Reddcoin | R  |
 |RIC | Riecoin | R  |
+|RITO| Ritocoin | B |
 |ROI | ROIcoin | R  |
 |RVN | Ravencoin | R |
 |SCA | Scamcoin | S  |
