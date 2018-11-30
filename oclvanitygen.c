@@ -269,6 +269,7 @@ main(int argc, char **argv)
 					"PINK : Pinkcoin : 2\n"
 					"PIVX : PIVX : D\n"
 					"PKB : Parkbyte : P\n"
+					"PLACEH: Placeholders : F\n"
 					"PND : Pandacoin : P\n"
 					"POT : Potcoin : P\n"
 					"PPC : Peercoin : P\n"
@@ -846,6 +847,13 @@ main(int argc, char **argv)
 					break;
 			}
 			else
+			if (strcmp(optarg, "PLACEH")== 0) {
+            	fprintf(stderr,
+            		"Generating PLACEH Address\n");
+            		addrtype = 35;
+            		privtype = 176;
+            		break;
+            }
 			if (strcmp(optarg, "PND")== 0) {
 				fprintf(stderr,
 					"Generating PND Address\n");
