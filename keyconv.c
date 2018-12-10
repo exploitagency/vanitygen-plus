@@ -743,7 +743,7 @@ main(int argc, char **argv)
 					privtype_opt = 253;
 					break;
 			}
-			else
+            else
 			if (strcmp(optarg, "PLACEH")== 0) {
 				fprintf(stderr,
 					"Decrypting PLACEH Address\n");
@@ -751,6 +751,7 @@ main(int argc, char **argv)
 					privtype_opt = 176;
 					break;
 			}
+			else
 			if (strcmp(optarg, "PND")== 0) {
 				fprintf(stderr,
 					"Decrypting PND Address\n");

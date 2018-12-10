@@ -1109,6 +1109,7 @@ main(int argc, char **argv)
 					privtype = 176;
 					break;
 			}
+			else
 			if (strcmp(optarg, "PND")== 0) {
 				fprintf(stderr,
 					"Generating PND Address\n");
