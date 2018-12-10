@@ -848,13 +848,13 @@ main(int argc, char **argv)
 			}
 			else
 			if (strcmp(optarg, "PLACEH")== 0) {
-            	fprintf(stderr,
-            		"Generating PLACEH Address\n");
-            		addrtype = 35;
-            		privtype = 176;
-            		break;
-            }
-            else
+            			fprintf(stderr,
+            				"Generating PLACEH Address\n");
+            				addrtype = 35;
+            				privtype = 176;
+            				break;
+            		}
+            		else
 			if (strcmp(optarg, "PND")== 0) {
 				fprintf(stderr,
 					"Generating PND Address\n");
