@@ -743,7 +743,7 @@ main(int argc, char **argv)
 					privtype_opt = 253;
 					break;
 			}
-            else
+            		else
 			if (strcmp(optarg, "PLACEH")== 0) {
 				fprintf(stderr,
 					"Decrypting PLACEH Address\n");
