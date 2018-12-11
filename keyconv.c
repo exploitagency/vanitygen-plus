@@ -162,6 +162,7 @@ main(int argc, char **argv)
 					"MNP : MNPCoin : M\n"
 					"MOG : Mogwai : M\n"
 					"MONA : Monacoin : M\n"
+					"MOTA : MotaCoin : M\n"
 					"MUE : Monetary Unit : 7\n"
 					"MYRIAD : Myriadcoin : M\n"
 					"MZC : Mazacoin : M\n"
@@ -863,6 +864,14 @@ main(int argc, char **argv)
 					privtype_opt = 176;
 					break;
 			}
+			else
+			if (strcmp(optarg, "MOTA")== 0) {
+				fprintf(stderr,
+					"Decrypting MOTA Address\n");
+					addrtype_opt = 50;
+					privtype_opt = 178;
+					break;
+			}			
 			else
 			if (strcmp(optarg, "DGB")== 0) {
 				fprintf(stderr,

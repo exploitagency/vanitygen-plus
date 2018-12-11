@@ -1068,8 +1068,9 @@ vg_prefix_avl_insert(avl_root_t *rootp, vg_prefix_t *vpnew)
 		} else {
 			if (BN_cmp(vp->vp_high, vpnew->vp_low) < 0) {
 				ptrp = &itemp->ai_right;
-			} else
+			} else {
 				return vp;
+			}
 		}
 	}
 	vpnew->vp_item.ai_up = itemp;
