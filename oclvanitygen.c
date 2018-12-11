@@ -287,6 +287,7 @@ main(int argc, char **argv)
 					"SKC : Skeincoin : S\n"
 					"SPR : Spreadcoin : S\n"
 					"START : Startcoin : s\n"
+					"SUDO : CryptoSudo : S\n"
 					"SXC : Sexcoin : R or S\n"
 					"TPC : Templecoin : T\n"
 					"TUX : Tuxcoin : T\n"
@@ -308,6 +309,14 @@ main(int argc, char **argv)
 					"ZRC : Ziftrcoin : Z\n"
 					);
 					return 1;
+			}
+			else
+			if (strcmp(optarg, "SUDO")== 0) {
+				fprintf(stderr,
+					"Generating CryptoSudo Address\n");
+					addrtype = 76;
+					privtype = 204;
+					break;
 			}
 			else
 			if (strcmp(optarg, "ACM")== 0) {
