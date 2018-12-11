@@ -577,16 +577,16 @@ main(int argc, char **argv)
 			if (strcmp(optarg, "SUDO")== 0) {
 				fprintf(stderr,
 					"Generating CryptoSudo Address\n");
-					addrtype_opt = 76;
-					privtype_opt = 204;
+					addrtype = 76;
+					privtype = 204;
 					break;
 			}
 			else
 			if (strcmp(optarg, "ACM")== 0) {
 				fprintf(stderr,
 					"Generating Actinium Address\n");
-					addrtype_opt = 53;
-					privtype_opt = 181;
+					addrtype = 53;
+					privtype = 181;
 					break;
 			}
 			else
