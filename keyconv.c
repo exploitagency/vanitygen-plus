@@ -97,6 +97,7 @@ main(int argc, char **argv)
 					"AUR : Auroracoin : A\n"
 					"AQX : Aquila : A\n"
 					"AXE : Axe : P\n"
+					"BELL : Bellcoin : B\n"
 					"BLAST : BLAST : B\n"
 					"BLK : Blackcoin : B\n"
 					"BWK : Bulwark : b\n"
@@ -861,6 +862,14 @@ main(int argc, char **argv)
 					"Decrypting MONA Address\n");
 					addrtype_opt = 50;
 					privtype_opt = 176;
+					break;
+			}
+			else
+			if (strcmp(optarg, "BELL")== 0) {
+				fprintf(stderr,
+					"Decrypting BELL Address\n");
+					addrtype_opt = 25;
+					privtype_opt = 128;
 					break;
 			}
 			else
