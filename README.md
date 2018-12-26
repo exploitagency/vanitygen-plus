@@ -250,6 +250,7 @@ Current List of Available Coins for Address Generation
 |WKC | Wankcoin | 1  |
 |WUBS | Dubstepcoin | D  |
 |XC | XCurrency | X  |
+|XPC | XPChain | X  |
 |XPM | Primecoin | A  |
 |YAC | Yacoin | Y  |
 |YTN | Yenten | Y  |
