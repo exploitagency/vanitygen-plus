@@ -1217,7 +1217,7 @@ main(int argc, char **argv)
 					privtype_opt = 239;
 					break;
 			}
-						else
+			else
 			if (strcmp(optarg, "QBS")== 0) {
 				fprintf(stderr,
 					"Decrypting QBS Address\n");
