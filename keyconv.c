@@ -182,6 +182,7 @@ main(int argc, char **argv)
 					"PPC : Peercoin : P\n"
 					"PTC : Pesetacoin : K\n"
 					"PTS : Protoshares : P\n"
+					"QBS : QBASE : B\n"
 					"QTUM : Qtum : Q\n"
 					"RBY : Rubycoin : R\n"
 					"RDD : Reddcoin : R\n"
@@ -1214,6 +1215,14 @@ main(int argc, char **argv)
 					"Decrypting MNC Testnet Address\n");
 					addrtype_opt = 111;
 					privtype_opt = 239;
+					break;
+			}
+						else
+			if (strcmp(optarg, "QBS")== 0) {
+				fprintf(stderr,
+					"Decrypting QBS Address\n");
+					addrtype_opt = 25;
+					privtype_opt = 58;
 					break;
 			}
 			break;
