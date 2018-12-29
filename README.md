@@ -225,6 +225,7 @@ Current List of Available Coins for Address Generation
 |PPC | Peercoin | P  |
 |PTC | Pesetacoin | K  |
 |PTS | Protoshares | P  |
+|QBS | QBASE | B  |
 |QTUM | QTUM | Q  |
 |RBY | Rubycoin | R  |
 |RDD | Reddcoin | R  |
