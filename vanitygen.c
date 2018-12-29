@@ -539,6 +539,7 @@ main(int argc, char **argv)
 					"PPC : Peercoin : P\n"
 					"PTC : Pesetacoin : K\n"
 					"PTS : Protoshares : P\n"
+					"QBS : QBASE : B\n"
 					"QTUM : Qtum : Q\n"
 					"RBY : Rubycoin : R\n"
 					"RDD : Reddcoin : R\n"
@@ -1573,6 +1574,14 @@ main(int argc, char **argv)
 					"Generating MNC Testnet Address\n");
 					addrtype = 111;
 					privtype = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "QBS")== 0) {
+				fprintf(stderr,
+					"Generating QBS Address\n");
+					addrtype = 25;
+					privtype = 58;
 					break;
 			}
 			break;
