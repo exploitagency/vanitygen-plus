@@ -207,6 +207,7 @@ main(int argc, char **argv)
 					"WKC : Wankcoin : 1\n"
 					"WUBS : Dubstepcoin : D\n"
 					"XC : XCurrency : X\n"
+					"XPC : XPChain : X\n"
 					"XPM : Primecoin : A\n"
 					"YAC : Yacoin : Y\n"
 					"YTN : Yenten : Y\n"
@@ -869,6 +870,14 @@ main(int argc, char **argv)
 				fprintf(stderr,
 					"Decrypting BELL Address\n");
 					addrtype_opt = 25;
+					privtype_opt = 128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "XPC")== 0) {
+				fprintf(stderr,
+					"Decrypting XPC Address\n");
+					addrtype_opt = 76;
 					privtype_opt = 128;
 					break;
 			}
