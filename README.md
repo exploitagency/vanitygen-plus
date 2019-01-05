@@ -150,7 +150,7 @@ Current List of Available Coins for Address Generation
 |BWK | Bulwark | b  |
 |BQC | BBQcoin | b  |
 |BTC | Bitcoin | 1  |
-|TEST | Bitcoin Testnet | m or n  |
+|tBTC | Bitcoin Testnet | m or n  |
 |BTCD | Bitcoin Dark | R  |
 |CARE | Carebit | C  |
 |CCC | Chococoin | 7  |

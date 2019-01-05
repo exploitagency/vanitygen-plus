@@ -103,7 +103,7 @@ main(int argc, char **argv)
 					"BWK : Bulwark : b\n"
 					"BQC : BBQcoin : b\n"
 					"BTC : Bitcoin : 1\n"
-					"TEST : Bitcoin Testnet : m or n\n"
+					"tBTC : Bitcoin Testnet : m or n\n"
 					"BTCD : Bitcoin Dark : R\n"
 					"CARE : Carebit : C\n"
 					"CCBC : CryptoCashBackCoin : C\n"
@@ -1002,7 +1002,7 @@ main(int argc, char **argv)
 					break;
 			}
 			else
-			if (strcmp(optarg, "TEST")== 0) {
+			if (strcmp(optarg, "tBTC")== 0) {
 				fprintf(stderr,
 					"Decrypting BTC Testnet Address\n");
 					addrtype_opt = 111;
