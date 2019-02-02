@@ -523,6 +523,7 @@ main(int argc, char **argv)
 					"MYRIAD : Myriadcoin : M\n"
 					"MZC : Mazacoin : M\n"
 					"NEET : NEETCOIN : N\n"
+					"NAV : NavCoin : N\n"
 					"NEOS : Neoscoin : S\n"
 					"NLG : Gulden : G\n"
 					"NMC : Namecoin : M or N\n"
@@ -1187,6 +1188,14 @@ main(int argc, char **argv)
 					"Generating JIN Address\n");
 					addrtype = 43;
 					privtype = 171;
+					break;
+			}
+			else
+			if (strcmp(optarg, "NAV")== 0) {
+				fprintf(stderr,
+					"Decrypting NAV Address\n");
+					addrtype = 53;
+					privtype = 150;
 					break;
 			}
 			else

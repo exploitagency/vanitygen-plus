@@ -165,6 +165,7 @@ main(int argc, char **argv)
 					"MUE : Monetary Unit : 7\n"
 					"MYRIAD : Myriadcoin : M\n"
 					"MZC : Mazacoin : M\n"
+					"NAV : NavCoin : N\n"
 					"NEOS : Neoscoin : S\n"
 					"NLG : Gulden : G\n"
 					"NEET : NEETCOIN : N\n"
@@ -829,6 +830,14 @@ main(int argc, char **argv)
 					"Decrypting JIN Address\n");
 					addrtype_opt = 43;
 					privtype_opt = 171;
+					break;
+			}
+			else
+			if (strcmp(optarg, "NAV")== 0) {
+				fprintf(stderr,
+					"Decrypting NAV Address\n");
+					addrtype_opt = 53;
+					privtype_opt = 150;
 					break;
 			}
 			else
