@@ -276,6 +276,7 @@ main(int argc, char **argv)
 					"PPC : Peercoin : P\n"
 					"PTC : Pesetacoin : K\n"
 					"PTS : Protoshares : P\n"
+					"PYE : Pyrite : P\n"
 					"QTUM : Qtum : Q\n"
 					"RBY : Rubycoin : R\n"
 					"RDD : Reddcoin : R\n"
@@ -940,6 +941,14 @@ main(int argc, char **argv)
 					"Generating NEOS Address\n");
 					addrtype = 63;
 					privtype = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "PYE")== 0) {
+				fprintf(stderr,
+					"Generating PYE Address\n");
+					addrtype = 55;
+					privtype = 128;
 					break;
 			}
 			else
