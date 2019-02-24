@@ -192,6 +192,8 @@ main(int argc, char **argv)
 					"AUR : Auroracoin : A\n"
 					"AQX : Aquila : A\n"
 					"AXE : Axe : P\n"
+					"BELL : Bellcoin : B\n"
+					"tBELL : Bellcoin Testnet : m or n\n"
 					"BLAST : BLAST : B\n"
 					"BLK : Blackcoin : B\n"
 					"BWK : Bulwark : b\n"
@@ -1298,6 +1300,22 @@ main(int argc, char **argv)
 			if (strcmp(optarg, "tMNC")== 0) {
 				fprintf(stderr,
 					"Generating MNC Testnet Address\n");
+					addrtype = 111;
+					privtype = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "BELL")== 0) {
+				fprintf(stderr,
+					"Generating Bellcoin Address\n");
+					addrtype = 25;
+					privtype = 128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "tBELL")== 0) {
+				fprintf(stderr,
+					"Generating Bellcoin Testnet Address\n");
 					addrtype = 111;
 					privtype = 239;
 					break;

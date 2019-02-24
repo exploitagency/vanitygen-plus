@@ -144,6 +144,8 @@ Current List of Available Coins for Address Generation
 |ATMOS | Atmos | N  |
 |AUR | Auroracoin | A  |
 |AXE | Axe | P |
+|BELL | Bellcoin | B  |
+|tBELL | Bellcoin Testnet | m or n  |
 |BLAST | BLAST | B  |
 |BLK | Blackcoin | B  |
 |BWK | Bulwark | b  |
