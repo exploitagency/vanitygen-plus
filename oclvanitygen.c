@@ -192,6 +192,7 @@ main(int argc, char **argv)
 					"AUR : Auroracoin : A\n"
 					"AQX : Aquila : A\n"
 					"AXE : Axe : P\n"
+					"BAD : Badcoin : B\n"
 					"BLAST : BLAST : B\n"
 					"BLK : Blackcoin : B\n"
 					"BWK : Bulwark : b\n"
@@ -1012,6 +1013,14 @@ main(int argc, char **argv)
 					"Generating MZC Address\n");
 					addrtype = 50;
 					privtype = 224;
+					break;
+			}
+			else
+			if (strcmp(optarg, "BAD")== 0) {
+				fprintf(stderr,
+					"Generating BAD Address\n");
+					addrtype = 28;
+					privtype = 80;
 					break;
 			}
 			else
