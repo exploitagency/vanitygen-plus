@@ -530,6 +530,7 @@ main(int argc, char **argv)
 					"NYAN : Nyancoin : K\n"
 					"OK : OK Cash : P\n"
 					"OMC : Omnicoin : o\n"
+					"PEPE: PepeCoin / Memetic : P\n"
 					"PIGGY : Piggycoin : p\n"
 					"PINK : Pinkcoin : 2\n"
 					"PIVX : PIVX : D\n"
@@ -1573,6 +1574,14 @@ main(int argc, char **argv)
 					"Generating MNC Testnet Address\n");
 					addrtype = 111;
 					privtype = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "PEPE")== 0) {
+				fprintf(stderr,
+					"Generating PEPE / MEME Address\n");
+					addrtype = 55;
+					privtype = 153;
 					break;
 			}
 			break;

@@ -216,6 +216,7 @@ Current List of Available Coins for Address Generation
 |NYAN | Nyancoin | K  |
 |OK | OK Cash | P  |
 |OMC | Omnicoin | o  |
+|PEPE | PepeCoin / Memetic | P |
 |PIGGY | Piggycoin | p  |
 |PINK | Pinkcoin | 2  |
 |PIVX | PIVX | D  |
