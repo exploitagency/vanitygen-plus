@@ -177,7 +177,7 @@ main(int argc, char **argv)
 			/* Start AltCoin Generator */
 			if (strcmp(optarg, "LIST")== 0) {
 				fprintf(stderr,
-					"Usage example \"./oclvanitygen -C LTC Lfoo\"\n"
+					"Usage example \"%s -C LTC Lfoo\"\n"
 					"List of Available Alt-Coins for Address Generation\n"
 					"---------------------------------------------------\n"
 					"Argument(UPPERCASE) : Coin : Address Prefix\n"
@@ -305,7 +305,8 @@ main(int argc, char **argv)
 					"YTN : Yenten : Y\n"
 					"ZNY : BitZeny : Z\n"
 					"ZOOM : Zoom coin : i\n"
-					"ZRC : Ziftrcoin : Z\n"
+					"ZRC : Ziftrcoin : Z\n",
+					argv[0]
 					);
 					return 1;
 			}
