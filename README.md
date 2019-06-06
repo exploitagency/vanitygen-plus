@@ -34,6 +34,9 @@ If you have an altcoin you would like to add please let me know.
 -----
 Getting Started  
 -----  
+
+apt-get install opencl-headers libssl1.0-dev libpcre3-dev ocl-icd-dev ocl-icd-dbg make build-essential
+
 **Download the latest binary from: https://github.com/exploitagency/vanitygen-plus/releases !**  
 Linux Binary (Compiled on 64bit Debian Testing)  
 Windows Binary (Compiled on Win10 64bit)  
