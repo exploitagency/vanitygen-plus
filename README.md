@@ -98,7 +98,7 @@ wget http://ftp.us.debian.org/debian/pool/main/g/glibc/libc6-udeb_2.24-11+deb9u3
 dpkg -i libc6-udeb_2.24-11+deb9u3_amd64.udeb
 wget http://ftp.us.debian.org/debian/pool/main/o/openssl1.0/libcrypto1.0.2-udeb_1.0.2l-2+deb9u3_amd64.udeb
 dpkg -i libcrypto1.0.2-udeb_1.0.2l-2+deb9u3_amd64.udeb
-rm libc6-udeb_2.24-11+deb9u3_amd64.udeb && rm libcrypto1.0.2-udeb_1.0.2l-2+deb9u3_amd64.udeb 
+rm libc6-udeb_2.24-11+deb9u3_amd64.udeb && rm libcrypto1.0.2-udeb_1.0.2l-2+deb9u3_amd64.udeb
 ```
 -----
 Encrypting and Decrypting a vanitygen or oclvanitygen private key  
@@ -160,6 +160,7 @@ Current List of Available Coins for Address Generation
 |CNOTE | C-Note | C |
 |CON | PayCon | P  |
 |CRW | Crown | 1  |
+|CPU | CPUchain | C |
 |DASH | Dash | X  |
 |DEEPONION | DeepOnion | D  |
 |DNR | Denarius | D  |
