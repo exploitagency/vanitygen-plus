@@ -21,6 +21,7 @@ else ifeq ($(PLATFORM),NetBSD)
 	CFLAGS+=`pcre-config --cflags`
 else
 	OPENCL_LIBS=-lOpenCL
+  CFLAGS+=-march=native
 endif
 
 

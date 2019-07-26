@@ -1216,6 +1216,14 @@ main(int argc, char **argv)
 					privtype_opt = 239;
 					break;
 			}
+			else
+			if (strcmp(optarg, "PEPE")== 0) {
+				fprintf(stderr,
+					"Decrypting PepeCoin / Memetic Address\n");
+					addrtype_opt = 55;
+					privtype_opt = 153;
+					break;
+			}
 			break;
 
 /*END ALTCOIN GENERATOR*/
