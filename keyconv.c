@@ -122,7 +122,6 @@ main(int argc, char **argv)
 					"DGB : Digibyte : D\n"
 					"DGC : Digitalcoin : D\n"
 					"DMD : Diamond : d\n"
-					"DOGED : Doge Dark Coin : D\n"
 					"DOGE : Dogecoin : D\n"
 					"DOPE : Dopecoin : 4\n"
 					"DVC : Devcoin : 1\n"
@@ -207,6 +206,7 @@ main(int argc, char **argv)
 					"WUBS : Dubstepcoin : D\n"
 					"XC : XCurrency : X\n"
 					"XPM : Primecoin : A\n"
+					"XVG : Verge : D\n"
 					"YAC : Yacoin : Y\n"
 					"YTN : Yenten : Y\n"
 					"ZNY : BitZeny : Z\n"
@@ -656,9 +656,9 @@ main(int argc, char **argv)
 					break;
 			}
 			else
-			if (strcmp(optarg, "DOGED")== 0) {
+			if (strcmp(optarg, "XVG")== 0) {
 				fprintf(stderr,
-					"Decrypting DOGED Address\n");
+					"Decrypting XVG Address\n");
 					addrtype_opt = 30;
 					privtype_opt = 158;
 					break;
