@@ -166,7 +166,6 @@ Current List of Available Coins for Address Generation
 |DGB | Digibyte | D  |
 |DGC | Digitalcoin | D  |
 |DMD | Diamond | d  |
-|DOGED | Doge Dark Coin | D  |
 |DOGE | Dogecoin | D  |
 |DOPE | Dopecoin | 4  |
 |DVC | Devcoin | 1  |
@@ -250,6 +249,7 @@ Current List of Available Coins for Address Generation
 |WUBS | Dubstepcoin | D  |
 |XC | XCurrency | X  |
 |XPM | Primecoin | A  |
+|XVG | Verge | D  |
 |YAC | Yacoin | Y  |
 |YTN | Yenten | Y  |
 |ZNY | BitZeny | Z  |
