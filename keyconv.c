@@ -210,6 +210,7 @@ main(int argc, char **argv)
 					"YAC : Yacoin : Y\n"
 					"YTN : Yenten : Y\n"
 					"ZNY : BitZeny : Z\n"
+					"ZNZ : ZENZO : Z\n"
 					"ZOOM : Zoom coin : i\n"
 					"ZRC : Ziftrcoin : Z\n"
 					);
@@ -1110,6 +1111,14 @@ main(int argc, char **argv)
 					"Decrypting BitZeny Address\n");
 					addrtype_opt = 81;
 					privtype_opt = 128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "ZNZ")== 0) {
+				fprintf(stderr,
+					"Decrypting ZENZO Address\n");
+					addrtype_opt = 81;
+					privtype_opt = 215;
 					break;
 			}
 			else
