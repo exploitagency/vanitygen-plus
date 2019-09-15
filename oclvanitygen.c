@@ -1307,8 +1307,8 @@ main(int argc, char **argv)
 			if (strcmp(optarg, "CPU")== 0) {
 				fprintf(stderr,
 					"Decrypting CPUchain Address\n");
-					addrtype_opt = 28;
-					privtype_opt = 128;
+					addrtype = 28;
+					privtype = 128;
 					break;
 			}
 			break;
