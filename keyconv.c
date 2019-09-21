@@ -116,6 +116,7 @@ main(int argc, char **argv)
 					"CNOTE : C-Note : C\n"
 					"CON : PayCon : P\n"
 					"CRW : Crown : 1\n"
+					"CPU : CPUchain : C\n"
 					"DASH : Dash : X\n"
 					"DEEPONION : DeepOnion : D\n"
 					"DNR: Denarius: D\n"
@@ -1214,6 +1215,14 @@ main(int argc, char **argv)
 					"Decrypting MNC Testnet Address\n");
 					addrtype_opt = 111;
 					privtype_opt = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "CPU")== 0) {
+				fprintf(stderr,
+					"Decrypting CPUchain Address\n");
+					addrtype_opt = 28;
+					privtype_opt = 128;
 					break;
 			}
 			break;

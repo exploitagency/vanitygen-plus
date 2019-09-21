@@ -473,6 +473,7 @@ main(int argc, char **argv)
 					"CNOTE : C-Note : C\n"
 					"CON : PayCon : P\n"
 					"CRW : Crown : 1\n"
+					"CPU : CPUchain : C\n"
 					"DASH : Dash : X\n"
 					"DEEPONION : DeepOnion : D\n"
 					"DNR: Denarius: D\n"
@@ -1573,6 +1574,14 @@ main(int argc, char **argv)
 					"Generating MNC Testnet Address\n");
 					addrtype = 111;
 					privtype = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "CPU")== 0) {
+				fprintf(stderr,
+					"Decrypting CPUchain Address\n");
+					addrtype = 28;
+					privtype = 128;
 					break;
 			}
 			break;
