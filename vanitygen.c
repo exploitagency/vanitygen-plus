@@ -520,6 +520,7 @@ main(int argc, char **argv)
 					"MOG : Mogwai : M\n"
 					"MONA : Monacoin : M\n"
 					"MUE : Monetary Unit : 7\n"
+					"MYNT: Myntcoin: B\n"
 					"MYRIAD : Myriadcoin : M\n"
 					"MZC : Mazacoin : M\n"
 					"NEET : NEETCOIN : N\n"
@@ -530,6 +531,7 @@ main(int argc, char **argv)
 					"NYAN : Nyancoin : K\n"
 					"OK : OK Cash : P\n"
 					"OMC : Omnicoin : o\n"
+					"PGN : Pigeoncoin: P\n"
 					"PIGGY : Piggycoin : p\n"
 					"PINK : Pinkcoin : 2\n"
 					"PIVX : PIVX : D\n"
@@ -543,6 +545,7 @@ main(int argc, char **argv)
 					"RBY : Rubycoin : R\n"
 					"RDD : Reddcoin : R\n"
 					"RIC : Riecoin : R\n"
+					"RITO : Ritocoin : B\n"
 					"ROI : ROIcoin: R\n"
 					"RVN : Ravencoin : R\n"
 					"SCA : Scamcoin : S\n"
@@ -1485,6 +1488,30 @@ main(int argc, char **argv)
 					"Generating Yenten Address\n");
 					addrtype = 78;
 					privtype = 123;
+					break;
+			}
+			else
+			if (strcmp(optarg, "MYNT")== 0) {
+				fprintf(stderr,
+					"Generating Ritocoin Address\n");
+					addrtype = 50;
+					privtype = 128;
+					break;
+			}
+			else
+			if (strcmp(optarg, "RITO")== 0) {
+				fprintf(stderr,
+					"Generating Ritocoin Address\n");
+					addrtype = 25;
+					privtype = 139;
+					break;
+			}
+			else
+			if (strcmp(optarg, "PGN")== 0) {
+				fprintf(stderr,
+					"Generating Pigeoncoin Address\n");
+					addrtype = 55;
+					privtype = 128;
 					break;
 			}
 			else

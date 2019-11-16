@@ -173,6 +173,7 @@ main(int argc, char **argv)
 					"NYAN : Nyancoin : K\n"
 					"OK : OK Cash : P\n"
 					"OMC : Omnicoin : o\n"
+					"PGN: Pigeoncoin: P\n"
 					"PIGGY : Piggycoin : p\n"
 					"PINK : Pinkcoin : 2\n"
 					"PIVX : PIVX : D\n"
@@ -1126,6 +1127,14 @@ main(int argc, char **argv)
 					"Decrypting Yenten Address\n");
 					addrtype_opt = 78;
 					privtype_opt = 123;
+					break;
+			}
+			else
+			if (strcmp(optarg, "PGN")== 0) {
+				fprintf(stderr,
+					"Decrypting Pigeoncoin Address\n");
+					addrtype_opt = 55;
+					privtype_opt = 128;
 					break;
 			}
 			else
