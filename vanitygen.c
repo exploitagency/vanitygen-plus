@@ -454,6 +454,7 @@ main(int argc, char **argv)
 					"AUR : Auroracoin : A\n"
 					"AQX : Aquila : A\n"
 					"AXE : Axe : P\n"
+					"BCNA : BitCanna : B\n"
 					"BLAST : BLAST : B\n"
 					"BLK : Blackcoin : B\n"
 					"BWK : Bulwark : b\n"
@@ -586,6 +587,14 @@ main(int argc, char **argv)
 					"Generating Aquila Address\n");
 					addrtype = 75;
 					privtype = 212;
+					break;
+			}
+			else
+			if (strcmp(optarg, "BCNA")== 0) {
+				fprintf(stderr,
+					"Generating BitCanna Address\n");
+					addrtype = 25;
+					privtype = 155;
 					break;
 			}
 			else
