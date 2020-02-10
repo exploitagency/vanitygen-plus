@@ -97,6 +97,7 @@ main(int argc, char **argv)
 					"AUR : Auroracoin : A\n"
 					"AQX : Aquila : A\n"
 					"AXE : Axe : P\n"
+					"BCNA : BitCanna : B\n"
 					"BLAST : BLAST : B\n"
 					"BLK : Blackcoin : B\n"
 					"BWK : Bulwark : b\n"
@@ -221,6 +222,14 @@ main(int argc, char **argv)
 					"Generating Actinium Address\n");
 					addrtype_opt = 53;
 					privtype_opt = 181;
+					break;
+			}
+			else
+			if (strcmp(optarg, "BCNA")== 0) {
+				fprintf(stderr,
+					"Generating BitCanna Address\n");
+					addrtype_opt = 25;
+					privtype_opt = 155;
 					break;
 			}
 			else
