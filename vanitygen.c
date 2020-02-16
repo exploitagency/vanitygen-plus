@@ -986,8 +986,8 @@ main(int argc, char **argv)
 			if (strcmp(optarg, "TR3B")== 0) {
 				fprintf(stderr,
 					"Decrypting Astracoin Address\n");
-					addrtype_opt = 23;
-					privtype_opt = 83;
+					addrtype = 23;
+					privtype = 83;
 					break;
 			}
 			else	
