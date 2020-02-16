@@ -141,6 +141,7 @@ Current List of Available Coins for Address Generation
 |AIB | Advanced Internet Block by IOBOND | A  |
 |ANC | Anoncoin | A  |
 |ARS | Arkstone | A  |
+|TR3B | Astracoin | A |
 |ATMOS | Atmos | N  |
 |AUR | Auroracoin | A  |
 |AXE | Axe | P |
