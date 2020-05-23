@@ -283,6 +283,7 @@ main(int argc, char **argv)
 					"ROI : ROIcoin : R\n"
 					"RVN : Ravencoin : R\n"
 					"SCA : Scamcoin : S\n"
+					"SCC : StakeCube Coin : s\n"
 					"SDC : Shadowcoin : S\n"
 					"SKC : Skeincoin : S\n"
 					"SPR : Spreadcoin : S\n"
@@ -1300,6 +1301,14 @@ main(int argc, char **argv)
 					"Generating MNC Testnet Address\n");
 					addrtype = 111;
 					privtype = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "SCC")== 0) {
+				fprintf(stderr,
+					"Generating SCC Address\n");
+					addrtype = 125;
+					privtype = 253;
 					break;
 			}
 			break;
