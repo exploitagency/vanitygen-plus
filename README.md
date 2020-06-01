@@ -2,7 +2,7 @@
 Vanitygen PLUS!  
 -----
 
-**Download the latest binary from: https://github.com/exploitagency/vanitygen-plus/releases !**  
+**Download the latest binary from: https://github.com/CryptoLover705/vanitygen-plus !**  
 
 Note: For generating a Zcash or Zclassic address please see the Z repo: https://github.com/exploitagency/vanitygen_z
 
@@ -34,7 +34,7 @@ If you have an altcoin you would like to add please let me know.
 -----
 Getting Started  
 -----  
-**Download the latest binary from: https://github.com/exploitagency/vanitygen-plus/releases !**  
+**Download the latest binary from: https://github.com/CryptoLover705/vanitygen-plus !**  
 Linux Binary (Compiled on 64bit Debian Testing)  
 Windows Binary (Compiled on Win10 64bit)  
 
@@ -63,25 +63,24 @@ A list of all the supported crypto coins will be output.
 Choose your coin from the list noting the ARGUMENT needed for the coin located in the left hand column.  
 For LBRY it is simply LBRY.  For Bitcoin it is BTC.  Etc...  
 
-**Now lets generate a LBRY address with the prefix "bTEST":**  
-Linux CPU: `./vanitygen -C LBRY -o results.txt -i -k bTEST`  
-Linux GPU: `./oclvanitygen -C LBRY -o results.txt -i -k bTEST`  
-Windows CPU: `vanitygen.exe -C LBRY -o results.txt -i -k bTEST`  
-Windows GPU: `oclvanitygen.exe -C LBRY -o results.txt -i -k bTEST`  
+**Now lets generate a LBRY address with the prefix "Astra":**  
+Linux CPU: `./vanitygen -C TR3B -o results.txt -i -k ASTRA`  
+Linux GPU: `./oclvanitygen -C TR3B -o results.txt -i -k ASTRA`  
+Windows CPU: `vanitygen.exe -C TR3B -o results.txt -i -k ASTRA`  
+Windows GPU: `oclvanitygen.exe -C TR3B -o results.txt -i -k ASTRA`  
 
  * `-C LBRY` : Chooses the LBRY coin  
  * `-o results.txt` : saves the matches to results.txt  
  * `-i` : case-Insensitive(do not add this flag to match exact case)  
  * `-k` : keep going even after match is found(do not add this flag to stop after the first match)  
- * `bTEST` : the address you are searching for(LBRY addresses start with "b")  
+ * `ASTRA` : the address you are searching for(TR3B addresses start with "A")  
 
 Example output of above command:  
->Generating LBRY Address  
+>Generating TR3B Address  
 >Difficulty: 4553521  
->LBRY Pattern: bTEST                                                                   
->LBRY Address: bTEST6jSVcid5MQAJBrGUR6MLDpdyb8oiQ  
->LBRY Privkey: wrRxctq3f7A1zkpyWoZRifRk5eAC2UM9idh83SPLhz6gAFfqdL  
-
+>TR3B Pattern: ASTRA
+>TR3B Address: ASTRAKXaGBcL8tHQDgmhp3kLFF4EwA6KZh
+>TR3B Privkey: 3o7Lt4GBeXrTcDzMqLHrHSjHMLGpbSu46BpnssQNGHAoW1yEJ9W
 **If you have dependency errors on Linux  
 or need instructions for compiling from source(Kaling Rolling/Linux) see link below:**  
 https://legacysecuritygroup.com/index.php/projects/recent/12-software/35-oclvanitygen-compiling-and-use  
