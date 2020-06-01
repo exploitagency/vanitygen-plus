@@ -61,15 +61,15 @@ Windows GPU: `oclvanitygen.exe -C LIST`
 A list of all the supported crypto coins will be output.  
 
 Choose your coin from the list noting the ARGUMENT needed for the coin located in the left hand column.  
-For LBRY it is simply LBRY.  For Bitcoin it is BTC.  Etc...  
+For TR3B it is simply TR3B.  For Bitcoin it is BTC.  Etc...  
 
-**Now lets generate a LBRY address with the prefix "Astra":**  
+**Now lets generate a TR3B address with the prefix "ASTRA":**  
 Linux CPU: `./vanitygen -C TR3B -o results.txt -i -k ASTRA`  
 Linux GPU: `./oclvanitygen -C TR3B -o results.txt -i -k ASTRA`  
 Windows CPU: `vanitygen.exe -C TR3B -o results.txt -i -k ASTRA`  
 Windows GPU: `oclvanitygen.exe -C TR3B -o results.txt -i -k ASTRA`  
 
- * `-C LBRY` : Chooses the LBRY coin  
+ * `-C TR3B` : Chooses the ASTRA coin  
  * `-o results.txt` : saves the matches to results.txt  
  * `-i` : case-Insensitive(do not add this flag to match exact case)  
  * `-k` : keep going even after match is found(do not add this flag to stop after the first match)  
