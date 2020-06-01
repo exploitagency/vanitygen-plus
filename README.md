@@ -77,11 +77,11 @@ Windows GPU: `oclvanitygen.exe -C TR3B -o results.txt -i -k ASTRA`
 
 Example output of above command:
 
-> Generating TR3B Address  
-> Difficulty: 4553521  
-> TR3B Pattern: ASTRA
-> TR3B Address: ASTRAKXaGBcL8tHQDgmhp3kLFF4EwA6KZh
-> TR3B Privkey: 3o7Lt4GBeXrTcDzMqLHrHSjHMLGpbSu46BpnssQNGHAoW1yEJ9W
+* Generating TR3B Address  
+* Difficulty: 4553521  
+* TR3B Pattern: ASTRA
+* TR3B Address: ASTRAKXaGBcL8tHQDgmhp3kLFF4EwA6KZh
+* TR3B Privkey: 3o7Lt4GBeXrTcDzMqLHrHSjHMLGpbSu46BpnssQNGHAoW1yEJ9W
 
 
 **If you have dependency errors on Linux  
