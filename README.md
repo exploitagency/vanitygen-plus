@@ -75,12 +75,15 @@ Windows GPU: `oclvanitygen.exe -C TR3B -o results.txt -i -k ASTRA`
  * `-k` : keep going even after match is found(do not add this flag to stop after the first match)  
  * `ASTRA` : the address you are searching for(TR3B addresses start with "A")  
 
-Example output of above command:  
->Generating TR3B Address  
->Difficulty: 4553521  
->TR3B Pattern: ASTRA
->TR3B Address: ASTRAKXaGBcL8tHQDgmhp3kLFF4EwA6KZh
->TR3B Privkey: 3o7Lt4GBeXrTcDzMqLHrHSjHMLGpbSu46BpnssQNGHAoW1yEJ9W
+Example output of above command:
+
+> Generating TR3B Address  
+> Difficulty: 4553521  
+> TR3B Pattern: ASTRA
+> TR3B Address: ASTRAKXaGBcL8tHQDgmhp3kLFF4EwA6KZh
+> TR3B Privkey: 3o7Lt4GBeXrTcDzMqLHrHSjHMLGpbSu46BpnssQNGHAoW1yEJ9W
+
+
 **If you have dependency errors on Linux  
 or need instructions for compiling from source(Kaling Rolling/Linux) see link below:**  
 https://legacysecuritygroup.com/index.php/projects/recent/12-software/35-oclvanitygen-compiling-and-use  
