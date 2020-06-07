@@ -94,6 +94,7 @@ main(int argc, char **argv)
 					"ANC : Anoncoin : A\n"
 					"ARS : Arkstone : A\n"
 					"ATMOS : Atmos : N\n"
+					"TR3B : Astracoin : A\n"
 					"AUR : Auroracoin : A\n"
 					"AQX : Aquila : A\n"
 					"AXE : Axe : P\n"
@@ -629,6 +630,14 @@ main(int argc, char **argv)
 					"Decrypting ANC Address\n");
 					addrtype_opt = 23;
 					privtype_opt = 151;
+					break;
+			}
+			else
+			if (strcmp(optarg, "TR3B")== 0) {
+				fprintf(stderr,
+					"Decrypting Astracoin Address\n");
+					addrtype_opt = 23;
+					privtype_opt = 83;
 					break;
 			}
 			else

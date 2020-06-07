@@ -449,6 +449,7 @@ main(int argc, char **argv)
 					"ACM : Actinium : N\n"
 					"AIB : Advanced Internet Block by IOBOND : A\n"
 					"ANC : Anoncoin : A\n"
+					"TR3B : Astracoin : A\n"
 					"ARS : Arkstone : A\n"
 					"ATMOS : Atmos : N\n"
 					"AUR : Auroracoin : A\n"
@@ -982,6 +983,14 @@ main(int argc, char **argv)
 					break;
 			}
 			else
+			if (strcmp(optarg, "TR3B")== 0) {
+				fprintf(stderr,
+					"Decrypting Astracoin Address\n");
+					addrtype = 23;
+					privtype = 83;
+					break;
+			}
+			else	
 			if (strcmp(optarg, "ANC")== 0) {
 				fprintf(stderr,
 					"Generating ANC Address\n");
