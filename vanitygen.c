@@ -563,6 +563,7 @@ main(int argc, char **argv)
 					"WKC : Wankcoin : 1\n"
 					"WUBS : Dubstepcoin : D\n"
 					"XC : XCurrency : X\n"
+					"XP : eXperiencePoints : P\n"
 					"XPM : Primecoin : A\n"
 					"YAC : Yacoin : Y\n"
 					"YTN : Yenten : Y\n"
@@ -1196,6 +1197,14 @@ main(int argc, char **argv)
 					"Generating NEOS Address\n");
 					addrtype = 63;
 					privtype = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "XP")== 0) {
+				fprintf(stderr,
+					"Generating XP Address\n");
+					addrtype = 55;
+					privtype = 73;
 					break;
 			}
 			else

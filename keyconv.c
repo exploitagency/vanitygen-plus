@@ -206,6 +206,7 @@ main(int argc, char **argv)
 					"WKC : Wankcoin : 1\n"
 					"WUBS : Dubstepcoin : D\n"
 					"XC : XCurrency : X\n"
+					"XP : eXperiencePoints : P\n"
 					"XPM : Primecoin : A\n"
 					"YAC : Yacoin : Y\n"
 					"YTN : Yenten : Y\n"
@@ -841,6 +842,13 @@ main(int argc, char **argv)
 					break;
 			}
 			else
+			if (strcmp(optarg, "XP")== 0) {
+				fprintf(stderr,
+					"Decrypting XP Address\n");
+					addrtype_opt = 55;
+					privtype_opt = 73;
+					break;
+			}
 			if (strcmp(optarg, "XPM")== 0) {
 				fprintf(stderr,
 					"Decrypting XPM Address\n");
