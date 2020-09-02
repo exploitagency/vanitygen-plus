@@ -563,10 +563,12 @@ main(int argc, char **argv)
 					"WKC : Wankcoin : 1\n"
 					"WUBS : Dubstepcoin : D\n"
 					"XC : XCurrency : X\n"
+					"XP : eXperiencePoints : P\n"
 					"XPM : Primecoin : A\n"
 					"YAC : Yacoin : Y\n"
 					"YTN : Yenten : Y\n"
 					"ZNY : BitZeny : Z\n"
+					"ZNZ : ZENZO : Z\n"
 					"ZOOM : Zoom coin : i\n"
 					"ZRC : Ziftrcoin : Z\n"
 					);
@@ -1198,6 +1200,14 @@ main(int argc, char **argv)
 					break;
 			}
 			else
+			if (strcmp(optarg, "XP")== 0) {
+				fprintf(stderr,
+					"Generating XP Address\n");
+					addrtype = 55;
+					privtype = 73;
+					break;
+			}
+			else
 			if (strcmp(optarg, "XPM")== 0) {
 				fprintf(stderr,
 					"Generating XPM Address\n");
@@ -1469,6 +1479,13 @@ main(int argc, char **argv)
 					"Generating BitZeny Address\n");
 					addrtype = 81;
 					privtype = 128;
+					break;
+			}
+			if (strcmp(optarg, "ZNZ")== 0) {
+				fprintf(stderr,
+					"Generating ZENZO Address\n");
+					addrtype = 81;
+					privtype = 215;
 					break;
 			}
 			else
