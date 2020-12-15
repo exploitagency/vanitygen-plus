@@ -526,6 +526,7 @@ main(int argc, char **argv)
 					"NEOS : Neoscoin : S\n"
 					"NLG : Gulden : G\n"
 					"NMC : Namecoin : M or N\n"
+					"NENG : New England Coin : N\n"
 					"NVC : Novacoin : 4\n"
 					"NYAN : Nyancoin : K\n"
 					"OK : OK Cash : P\n"
@@ -1573,6 +1574,14 @@ main(int argc, char **argv)
 					"Generating MNC Testnet Address\n");
 					addrtype = 111;
 					privtype = 239;
+					break;
+			}
+			else
+			if (strcmp(optarg, "NENG")== 0) {
+				fprintf(stderr,
+					"Generating NENG Address\n");
+					addrtype = 53;
+					privtype = 181;
 					break;
 			}
 			break;
