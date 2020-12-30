@@ -119,6 +119,7 @@ main(int argc, char **argv)
 					"DASH : Dash : X\n"
 					"DEEPONION : DeepOnion : D\n"
 					"DNR: Denarius: D\n"
+					"DEM: Deutsche eMark: N\n"
 					"DGB : Digibyte : D\n"
 					"DGC : Digitalcoin : D\n"
 					"DMD : Diamond : d\n"
@@ -285,6 +286,14 @@ main(int argc, char **argv)
 					"Decrypting DNR Address\n");
 					addrtype_opt = 30;
 					privtype_opt = 158;
+					break;
+			}
+			else
+			if (strcmp(optarg, "DEM")== 0) {
+				fprintf(stderr,
+					"Decrypting DEM Address\n");
+					addrtype_opt = 53;
+					privtype_opt = 181;
 					break;
 			}
 			else
