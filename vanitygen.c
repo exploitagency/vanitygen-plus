@@ -646,6 +646,14 @@ main(int argc, char **argv)
 					break;
 			}
 			else
+			if (strcmp(optarg, "DEM")== 0) {
+				fprintf(stderr,
+					"Generating DEM Address\n");
+					addrtype = 53;
+					privtype = 181;
+					break;
+			}
+			else
 			if (strcmp(optarg, "DMD")== 0) {
 				fprintf(stderr,
 					"Generating DMD Address\n");
@@ -1574,14 +1582,6 @@ main(int argc, char **argv)
 					"Generating MNC Testnet Address\n");
 					addrtype = 111;
 					privtype = 239;
-					break;
-			}
-			else
-			if (strcmp(optarg, "DEM")== 0) {
-				fprintf(stderr,
-					"Generating DEM Address\n");
-					addrtype = 53;
-					privtype = 181;
 					break;
 			}
 			break;
