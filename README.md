@@ -163,6 +163,7 @@ Current List of Available Coins for Address Generation
 |DASH | Dash | X  |
 |DEEPONION | DeepOnion | D  |
 |DNR | Denarius | D  |
+|DEM | Deutsche eMark | N  |
 |DGB | Digibyte | D  |
 |DGC | Digitalcoin | D  |
 |DMD | Diamond | d  |
