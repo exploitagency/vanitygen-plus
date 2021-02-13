@@ -1387,6 +1387,7 @@ vg_ocl_get_bignum_tpa(BIGNUM *bn, const unsigned char *buf, int cell)
 
 struct ec_point_st {
 	const EC_METHOD *meth;
+	int curve_name;
 #if OPENSSL_VERSION_NUMBER >= 0x0010100000
 	BIGNUM *X;
 	BIGNUM *Y;
