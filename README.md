@@ -168,6 +168,7 @@ Current List of Available Coins for Address Generation
 |DMD | Diamond | d  |
 |DOGED | Doge Dark Coin | D  |
 |DOGE | Dogecoin | D  |
+|tDOGE | Dogecoin Testnet | n  |
 |DOPE | Dopecoin | 4  |
 |DVC | Devcoin | 1  |
 |EFL | Electronic-Gulden-Foundation | L  |
@@ -212,6 +213,7 @@ Current List of Available Coins for Address Generation
 |NEOS | Neoscoin | S  |
 |NLG | Gulden | G  |
 |NMC | Namecoin | M or N  |
+|NENG | NENG Coin | N  |
 |NVC | Novacoin | 4  |
 |NYAN | Nyancoin | K  |
 |OK | OK Cash | P  |
