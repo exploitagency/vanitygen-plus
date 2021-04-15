@@ -481,6 +481,7 @@ main(int argc, char **argv)
 					"DMD : Diamond : d\n"
 					"DOGED : Doge Dark Coin : D\n"
 					"DOGE : Dogecoin : D\n"
+					"tDOGE : Dogecoin Testnet: n\n"
 					"DOPE : Dopecoin : 4\n"
 					"DVC : Devcoin : 1\n"
 					"EFL : Electronic-Gulden-Foundation : L\n"
@@ -526,7 +527,7 @@ main(int argc, char **argv)
 					"NEOS : Neoscoin : S\n"
 					"NLG : Gulden : G\n"
 					"NMC : Namecoin : M or N\n"
-					"NENG : New England Coin : N\n"
+					"NENG : NENG Coin : N\n"
 					"NVC : Novacoin : 4\n"
 					"NYAN : Nyancoin : K\n"
 					"OK : OK Cash : P\n"
@@ -1366,6 +1367,14 @@ main(int argc, char **argv)
 					"Generating DOGE Address\n");
 					addrtype = 30;
 					privtype = 158;
+					break;
+			}
+			else
+			if (strcmp(optarg, "tDOGE")== 0) {
+				fprintf(stderr,
+					"Generating DOGE Testnet Address\n");
+					addrtype = 113;
+					privtype = 241;
 					break;
 			}
 			else
