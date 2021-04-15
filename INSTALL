@@ -1,4 +1,8 @@
 Linux/OSX with GNU make:
+Prerequisites (Ubuntu):
+  - sudo apt-get install openssl
+  - sudo apt-get install libssl-dev
+  - sudo apt-get install libpcre3-dev
 make
 
 Windows:
